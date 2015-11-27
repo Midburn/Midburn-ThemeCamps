@@ -1,0 +1,45 @@
+<div class="jumbotron">
+
+    <div class="container-one" ng-controller="QuestionFormCtrl">
+
+<!--
+        <div class="well well-sm">
+            <h2>Regular polls data pulling</h2> {% if latest_question_list %}
+            <ul>
+                {% for question in latest_question_list %}
+                <li>
+                    T: {{ question.pub_date }}
+                    <br><a href="{% url 'polls:detail' question.id %}">Q: {{ question.question_text }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No polls are available.</p>
+            {% endif %}
+
+        </div>
+-->
+
+        <div class="well well-sm row">
+            <h1>RESTapi</h1>
+
+            <div class="form-group col-md-4">
+                <button type="button" class="btn btn-default" ng-click="getQuestions()">Pull Data</button>
+            </div>
+
+            <div class="form-group col-md-4">
+                <input type="text" class="form-control" ng-model="inputText">
+                <button type="button" class="btn btn-default" ng-click="setQuestions()">Insert Data</button>
+            </div>
+        </div>
+        {% verbatim %}
+        <div class="well well-sm" ng-repeat="post in questions">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title"># {{ post.id }}</h3>
+                <author class="pull-right">{{ post.pub_date }}</author>
+            </div>
+            <p class="well">{{ post.question_text }}</p>
+        </div>
+        {% endverbatim %}
+    </div>
+</div>

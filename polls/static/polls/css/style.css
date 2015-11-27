@@ -1,0 +1,17 @@
+body
+{
+    width: 100%;
+}
+.container-one {
+    width: 960px;
+    margin: 0 auto;
+}
+
+li {
+    padding: 8px;
+    list-style: none;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #DAD;
+    margin: 15px;
+}
