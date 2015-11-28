@@ -1,10 +1,77 @@
-{% extends "base.html" %} {% load i18n %} {% block content %}
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
 
- <div class="container content" ng-app="MidburnCampsApp">
-     <div ui-view >Loading...</div>
- </div>
+    {% load staticfiles %}
 
-{% endblock content %} {% block extra_javascript %}
+    <!--    Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundation-icons.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundation.min.css' %}" />
 
-{% endblock extra_javascript %}
+    <!--    Scripts -->
+    <script src="{% static 'polls/js/angular.min.js' %}"></script>
+    <script src="{% static 'polls/js/angular-ui-router.min.js' %}"></script>
+    <script src="{% static 'polls/js/lodash.min.js' %}"></script>
+    <script src="{% static 'polls/js/restangular.js' %}"></script>
+
+</head>
+
+<body ng-app="MidburnCampsApp">
+
+    <div class="main-wrapper" ng-controller="IndexCtrl as ctrl">
+
+        <div class="topbar-wrapper">
+            <div class="topbar">
+                <div class="midburn"></div>
+
+                <div class="topbar-controls">
+                    <ul class="topbar-menu">
+                        <li class="topbar-menu-item"><a href="">לפרופיל</a></li>
+                        <li class="topbar-menu-item"><a href="">התנתק</a></li>
+                        <li class="topbar-menu-item">
+                            <button class="btn btn-primary">שאלה?</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <sidebar sidebarItems=ctrl.sidebarItems>
+            <!-- Sidebar -->
+
+            {{ ctrl.sidebarItems }}
+
+            <div class="sidebar-menu-controls">
+
+                <collection collection='menuItems'></collection>
+
+            </div>
+            <!-- END - Sidebar-->
+        </sidebar>
+
+        <!-- Main View   -->
+        <div class="main-view" ui-view></div>
+        <!-- END - Main View   -->
+
+    </div>
+
+</body>
+
+<script src="{% static 'polls/js/app.js' %}"></script>
+
+<!--    jQuery & Foundation implement -->
+<script src="{% static 'polls/js/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'polls/js/foundation.min.js' %}"></script>
+
+<script>
+    $(document).foundation();
+</script>
+
+</html>

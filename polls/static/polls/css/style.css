@@ -1,17 +1,144 @@
-body
-{
-    width: 100%;
-}
-.container-one {
-    width: 960px;
-    margin: 0 auto;
+/* FONTS */
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@font-face {
+    font-family: 'Alef-Bold';
+    src: url('fonts/Alef-Bold.eot');
+    src: url('../fonts/Alef-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Alef-Bold.woff') format('woff'), url('../fonts/Alef-Bold.ttf') format('truetype'), url('../fonts/Alef-Bold.svg#alefbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
 }
 
-li {
-    padding: 8px;
+@font-face {
+    font-family: 'Alef';
+    src: url('../fonts/Alef-Regular.eot');
+    src: url('../fonts/Alef-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Alef-Regular.woff') format('woff'), url('../fonts/Alef-Regular.ttf') format('truetype'), url('../fonts/Alef-Regular.svg#alefregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* END FONTS */
+
+
+/* Header Style */
+
+.topbar {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background: #fff;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(206, 206, 206, 1);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(206, 206, 206, 1);
+    box-shadow: 0px 2px 5px 0px rgba(206, 206, 206, 1);
+}
+
+.topbar div {
+    display: inline-block;
+}
+
+.topbar-menu {
     list-style: none;
-    border-top-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background: #DAD;
-    margin: 15px;
+}
+
+.topbar-menu-item {
+    display: inline-block;
+    width: auto;
+    margin: 2px 6px !important;
+}
+
+
+/* END - Header Style */
+
+html,
+body,
+main-wrapper {
+    height: 100% !important;
+}
+
+body {
+    font-family: 'Alef', 'Lato', sans-serif !important;
+}
+
+.midburn {
+    display: block;
+    width: 38px;
+    height: 100%;
+    background: url(midburn.png) no-repeat center center;
+    float: right;
+}
+
+.main-view {
+    display: inline-block;
+    width: calc(100% - 60px);
+    float: right;
+}
+
+button {
+    direction: rtl;
+}
+
+
+/* Sidebar Style */
+
+sidebar {
+    display: inline-block;
+    width: 60px;
+    height: 100%;
+    background: #1b1e2b;
+}
+
+.sidemenu-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px 21px 0;
+    box-sizing: border-box;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    padding: 10px 0;
+    display: block;
+    width: 100%;
+    height: 80px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.sidebar-menu a {
+    color: #70789d;
+}
+
+.sidebar-menu a:hover {
+    color: #fff;
+    background: #242838;
+    text-decoration: none;
+}
+
+.menu-item-icon {
+    display: block;
+    width: 100%;
+    height: 80%;
+}
+
+
+/* END - Sidebar Style*/
+
+
+/* Icons Custome Size */
+
+.large {
+    font-size: 35px !important;
 }

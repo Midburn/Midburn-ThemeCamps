@@ -1,0 +1,9 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Users/User/Desktop/Midburn/bower_components/restangular/karma.underscore.conf.js",
+        "C:/Users/User/Desktop/Midburn/bower_components/restangular/karma.conf.js",
+        "C:/Users/User/Desktop/Midburn/bower_components/restangular/Gruntfile.js",
+        "C:/Users/User/Desktop/Midburn/bower_components/restangular/test/restangularSpec.js",
+        "C:/Users/User/Desktop/Midburn/bower_components/restangular/src/restangular.js"
+    ]
+}

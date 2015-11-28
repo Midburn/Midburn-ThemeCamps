@@ -17,4 +17,8 @@ urlpatterns = [
     
     # questions /
     url(r'^questions/$', views.Questions.as_view(), name='questions'),  
+    
+    # main view
+    url(r'^main/$', views.MainView.as_view(), name='main'),  
+
 ]

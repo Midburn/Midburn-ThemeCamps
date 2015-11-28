@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
+from django.views.generic import TemplateView
 
 from .models import Question, Choice
 
@@ -52,3 +53,5 @@ class Questions(generic.ListView):
         """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
     
+class MainView(TemplateView):
+    template_name = 'polls/main.html'

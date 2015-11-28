@@ -4,25 +4,83 @@ var app = angular.module('MidburnCampsApp', [
  ])
 
 app.config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
+
     // For any unmatched url, send to /route1
     $urlRouterProvider.otherwise("/");
+
     $stateProvider
 
         .state('index', {
 
         url: "/",
-        templateUrl: "/polls/questions",
+        templateUrl: "/polls/main/",
         controller: "QuestionFormCtrl"
     })
 
-    .state('new', {
-
-        url: "/questions",
-        templateUrl: "/polls/questions-form",
-        controller: "QuestionFormCtrl"
-    })
 })
 
+//
+// Sidemenu 
+//
+
+.directive('collection', function () {
+    return {
+        restrict: "E",
+        replace: true,
+        scope: {
+            collection: '='
+        },
+        template: "<ul class='sidebar-menu'><member ng-repeat='member in collection' member='member'></member></ul>"
+    }
+})
+
+.directive('member', function ($compile) {
+    return {
+        restrict: "E",
+        replace: true,
+        scope: {
+            member: '='
+        },
+        template: "<a href=''><li class='sidebar-menu-item'><div class='menu-item-icon'><i class='fi fi-{{member.icon}} large'></i></div>{{member.name}}</li></a>"
+    }
+})
+
+.controller('IndexCtrl', function ($scope) {
+    $scope.menuItems = [
+        {
+            name: 'home',
+            icon: 'home',
+            url: ''
+		},
+        {
+            name: 'plan',
+            icon: 'flag',
+            url: ''
+		},
+        {
+            name: 'safety',
+            icon: 'safety-cone',
+            url: ''
+		},
+        {
+            name: 'friends',
+            icon: 'torsos-all',
+            url: ''
+		},
+        {
+            name: 'arrival',
+            icon: 'foot',
+            url: ''
+		},
+        {
+            name: 'admin',
+            icon: 'crown',
+            url: ''
+		}
+	];
+});
+
+// REST Api Implementation
 
 app.controller("QuestionFormCtrl", ['$scope', '$http', 'Restangular', 'CbgenRestangular', '$q',
  function ($scope, $http, Restangular, CbgenRestangular, $q) {
@@ -86,11 +144,18 @@ app.factory('CbgenRestangular', function (Restangular) {
 populate_scope_values = function ($scope) {
     return {
         question_text: $scope.inputText,
-        pub_date: "2015-11-17T22:30:28"
+        pub_date: getTime()
+            // "2015-11-17T22:30:28"
     };
 }
 
 create_resource = function ($scope, CbgenRestangular) {
     var post_data = populate_scope_values($scope)
     return CbgenRestangular.all('question/').post(post_data)
+}
+
+function getTime() {
+    var currentdate = new Date();
+    var datetime = currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear() + "T" + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+    return datetime;
 }
