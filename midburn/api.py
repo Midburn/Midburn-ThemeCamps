@@ -1,7 +1,7 @@
 from tastypie.resources import ModelResource
 from tastypie.authorization import Authorization
 from tastypie.authentication import Authentication
-from polls.models import Question
+from midburn.models import Question
 
 class QuestionResource(ModelResource):
      """

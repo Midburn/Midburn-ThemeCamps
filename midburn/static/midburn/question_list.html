@@ -5,7 +5,7 @@
             {% for question in latest_question_list %}
             <li>
                 T: {{ question.pub_date }}
-                <br><a href="{% url 'polls:detail' question.id %}">Q: {{ question.question_text }}</a>
+                <br><a href="{% url 'midburn:detail' question.id %}">Q: {{ question.question_text }}</a>
             </li>
             {% endfor %}
         </ul>

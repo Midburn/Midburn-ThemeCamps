@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'djangular',
     'tastypie',
-    'polls',
+    'midburn',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'midburn.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'midburn/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,10 +105,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# Static asset configuration
+STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
-STATICFILES_FINDERS = (
-      'django.contrib.staticfiles.finders.FileSystemFinder',
-      'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-      'djangular.finders.NamespacedAngularAppDirectoriesFinder'
-)
+STATICFILES_DIRS = ( os.path.join('static'), )

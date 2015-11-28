@@ -1,29 +1,40 @@
 var app = angular.module('MidburnCampsApp', [
      'ui.router',
      'restangular'
- ])
+]);
 
-app.config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
+app.constant('CONFIG', {
+    templateDir: '/static/midburn/html/'
+});
+
+app.config(function ($stateProvider, $urlRouterProvider, CONFIG) {
 
     // For any unmatched url, send to /route1
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
-
-        .state('index', {
-
-        url: "/",
-        templateUrl: "/polls/main/",
-        controller: "QuestionFormCtrl"
-    })
-
-})
+        .state('step1', {
+            url: "/",
+            templateUrl: CONFIG.templateDir + 'main.html',
+            controller: "QuestionFormCtrl"
+        })
+        .state('step1', {
+            url: "/",
+            templateUrl: CONFIG.templateDir + 'main.html',
+            controller: "QuestionFormCtrl"
+        })
+        .state('step1', {
+            url: "/",
+            templateUrl: CONFIG.templateDir + 'main.html',
+            controller: "QuestionFormCtrl"
+        })
+});
 
 //
 // Sidemenu 
 //
 
-.directive('collection', function () {
+app.directive('collection', function () {
     return {
         restrict: "E",
         replace: true,
@@ -32,9 +43,9 @@ app.config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
         },
         template: "<ul class='sidebar-menu'><member ng-repeat='member in collection' member='member'></member></ul>"
     }
-})
+});
 
-.directive('member', function ($compile) {
+app.directive('member', function () {
     return {
         restrict: "E",
         replace: true,
@@ -43,41 +54,43 @@ app.config(function ($stateProvider, $urlRouterProvider, RestangularProvider) {
         },
         template: "<a href=''><li class='sidebar-menu-item'><div class='menu-item-icon'><i class='fi fi-{{member.icon}} large'></i></div>{{member.name}}</li></a>"
     }
-})
+});
 
-.controller('IndexCtrl', function ($scope) {
-    $scope.menuItems = [
-        {
-            name: 'home',
-            icon: 'home',
-            url: ''
-		},
-        {
-            name: 'plan',
-            icon: 'flag',
-            url: ''
-		},
-        {
-            name: 'safety',
-            icon: 'safety-cone',
-            url: ''
-		},
-        {
-            name: 'friends',
-            icon: 'torsos-all',
-            url: ''
-		},
-        {
-            name: 'arrival',
-            icon: 'foot',
-            url: ''
-		},
-        {
-            name: 'admin',
-            icon: 'crown',
-            url: ''
-		}
-	];
+app.constant('SIDEBAR_ITEMS', [
+    {
+        name: 'home',
+        icon: 'home',
+        url: ''
+    },
+    {
+        name: 'plan',
+        icon: 'flag',
+        url: ''
+    },
+    {
+        name: 'safety',
+        icon: 'safety-cone',
+        url: ''
+    },
+    {
+        name: 'friends',
+        icon: 'torsos-all',
+        url: ''
+    },
+    {
+        name: 'arrival',
+        icon: 'foot',
+        url: ''
+    },
+    {
+        name: 'admin',
+        icon: 'crown',
+        url: ''
+    }
+]);
+
+app.controller('IndexCtrl', function ($scope, SIDEBAR_ITEMS) {
+    $scope.menuItems = SIDEBAR_ITEMS;
 });
 
 // REST Api Implementation
@@ -109,7 +122,7 @@ app.controller("QuestionFormCtrl", ['$scope', '$http', 'Restangular', 'CbgenRest
             });
 
             return $scope.questions;
-        }
+        };
 
         $scope.setQuestions = function () {
 
@@ -131,15 +144,15 @@ app.controller("QuestionFormCtrl", ['$scope', '$http', 'Restangular', 'CbgenRest
 
             ))
 
-        }
+        };
 
-}])
+}]);
 
 app.factory('CbgenRestangular', function (Restangular) {
     return Restangular.withConfig(function (RestangularConfigurer) {
         RestangularConfigurer.setBaseUrl('/api/v1');
     });
-})
+});
 
 populate_scope_values = function ($scope) {
     return {
@@ -147,12 +160,12 @@ populate_scope_values = function ($scope) {
         pub_date: getTime()
             // "2015-11-17T22:30:28"
     };
-}
+};
 
 create_resource = function ($scope, CbgenRestangular) {
     var post_data = populate_scope_values($scope)
     return CbgenRestangular.all('question/').post(post_data)
-}
+};
 
 function getTime() {
     var currentdate = new Date();

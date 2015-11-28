@@ -5,14 +5,14 @@
     <title>Title</title>
     <meta charset="utf-8"> {% load staticfiles %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/style.css' %}" />
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
-    <script src="{% static 'polls/js/angular-ui-router.min.js' %}"></script>
-    <script src="{% static 'polls/js/lodash.min.js' %}"></script>
-    <script src="{% static 'polls/js/restangular.js' %}"></script>
+    <script src="{% static 'midburn/js/angular-ui-router.min.js' %}"></script>
+    <script src="{% static 'midburn/js/lodash.min.js' %}"></script>
+    <script src="{% static 'midburn/js/restangular.js' %}"></script>
 
 </head>
 
@@ -21,6 +21,6 @@
     {% block content %}{% endblock content %} {% block extra_javascript %}{% endblock extra_javascript %}
 </body>
 
-<script src="{% static 'polls/js/app.js' %}"></script>
+<script src="{% static 'midburn/js/app.js' %}"></script>
 
 </html>

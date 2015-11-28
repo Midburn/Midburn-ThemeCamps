@@ -9,16 +9,16 @@
     {% load staticfiles %}
 
     <!--    Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundation-icons.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/css/foundation.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/foundation-icons.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/foundation.min.css' %}" />
 
     <!--    Scripts -->
-    <script src="{% static 'polls/js/angular.min.js' %}"></script>
-    <script src="{% static 'polls/js/angular-ui-router.min.js' %}"></script>
-    <script src="{% static 'polls/js/lodash.min.js' %}"></script>
-    <script src="{% static 'polls/js/restangular.js' %}"></script>
+    <script src="{% static 'midburn/js/angular.min.js' %}"></script>
+    <script src="{% static 'midburn/js/angular-ui-router.min.js' %}"></script>
+    <script src="{% static 'midburn/js/lodash.min.js' %}"></script>
+    <script src="{% static 'midburn/js/restangular.js' %}"></script>
 
 </head>
 
@@ -44,14 +44,8 @@
         </div>
 
         <sidebar sidebarItems=ctrl.sidebarItems>
-            <!-- Sidebar -->
-
-            {{ ctrl.sidebarItems }}
-
             <div class="sidebar-menu-controls">
-
                 <collection collection='menuItems'></collection>
-
             </div>
             <!-- END - Sidebar-->
         </sidebar>
@@ -64,11 +58,11 @@
 
 </body>
 
-<script src="{% static 'polls/js/app.js' %}"></script>
+<script src="{% static 'midburn/js/app.js' %}"></script>
 
 <!--    jQuery & Foundation implement -->
-<script src="{% static 'polls/js/jquery-2.1.4.min.js' %}"></script>
-<script src="{% static 'polls/js/foundation.min.js' %}"></script>
+<script src="{% static 'midburn/js/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'midburn/js/foundation.min.js' %}"></script>
 
 <script>
     $(document).foundation();
