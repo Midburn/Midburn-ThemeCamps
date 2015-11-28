@@ -20,6 +20,10 @@
 
 /* END FONTS */
 
+.he {
+    direction: rtl;
+}
+
 
 /* Header Style */
 
@@ -59,26 +63,31 @@ main-wrapper {
     height: 100% !important;
 }
 
+.main-wrapper.ng-scope {
+    height: 100%;
+}
+
 body {
     font-family: 'Alef', 'Lato', sans-serif !important;
 }
 
 .midburn {
-    display: block;
-    width: 38px;
+    width: 80%;
     height: 100%;
-    background: url(midburn.png) no-repeat center center;
-    float: right;
+    background: url(midburn.png) no-repeat left -5px;
+}
+
+.midburn span {
+    display: inline-block;
+    text-indent: 50px;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 .main-view {
     display: inline-block;
     width: calc(100% - 60px);
     float: right;
-}
-
-button {
-    direction: rtl;
 }
 
 
@@ -136,9 +145,120 @@ sidebar {
 
 /* END - Sidebar Style*/
 
+.form-wrapper {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.form-controls-wrapper {
+    width: 50%;
+    margin: 25px auto;
+}
+
+.form-controls-wrapper .row label {
+    width: 70%;
+    text-align: center;
+    float: right;
+}
+
+.form-sidebar-helper {
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    background: #ececec;
+}
+
+.form-controls-wrapper .control-label {
+    display: inline-block;
+    width: 108px;
+    font-size: 16px;
+    line-height: 35px;
+    float: left;
+}
+
+.dis-inline-block {
+    display: inline-block;
+    width: 82.5%;
+    height: 100%;
+}
+
 
 /* Icons Custome Size */
 
 .large {
     font-size: 35px !important;
 }
+
+
+/* Input, Textarea */
+
+.wide-input {
+    width: 440px !important;
+}
+
+.narrow-input {
+    width: 200px !important;
+    height: 40px;
+    float: right;
+}
+
+.text-area {
+    width: 200px;
+    height: 40px;
+}
+
+input,
+select {
+    border-radius: 3px !important;
+}
+
+textarea {
+    width: 200px;
+    height: 121px;
+    border-radius: 3px !important;
+}
+
+.large-6 {
+    padding: 0 !important;
+}
+
+.buffer-sm {
+    display: block;
+    height: 10px;
+    margin: 15px 0 15px 0;
+}
+
+.en-col {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background: url(en.png) no-repeat center center;
+}
+
+.he-col {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background: url(he.png) no-repeat center center;
+}
+
+.camp-desc {
+    line-height: 20px !important;
+}
+
+.camp-name
+{
+    line-height: 160px !important;
+}
+
+label.status-select {
+    position: relative;
+    right: auto;
+    left: -160%;
+}
+
