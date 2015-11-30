@@ -13,17 +13,17 @@ app.config(function ($stateProvider, $urlRouterProvider, CONFIG) {
         .state('step1', {
             url: "/",
             templateUrl: CONFIG.templateDir + 'main.html',
-            controller: "QuestionFormCtrl"
+            controller: "IndexCtrl"
         })
         .state('step2', {
-            url: "/",
-            templateUrl: CONFIG.templateDir + 'main.html',
-            controller: "QuestionFormCtrl"
+            url: "/camp_details",
+            templateUrl: CONFIG.templateDir + 'plan.html',
+            controller: "IndexCtrl"
         })
         .state('step3', {
             url: "/",
             templateUrl: CONFIG.templateDir + 'main.html',
-            controller: "QuestionFormCtrl"
+            controller: "IndexCtrl"
         })
 });
 
@@ -44,7 +44,7 @@ app.constant('SIDEBAR_ITEMS', [
     {
         name: 'plan',
         icon: 'flag',
-        url: ''
+        url: '/#/camp_details'
     },
     {
         name: 'safety',
@@ -84,7 +84,7 @@ app.directive('member', function () {
         scope: {
             member: '='
         },
-        template: "<a href=''><li class='sidebar-menu-item'><div class='menu-item-icon'><i class='fi fi-{{member.icon}} large'></i></div>{{member.name}}</li></a>"
+        template: "<a href='{{ member.url }}'><li class='sidebar-menu-item'><div class='menu-item-icon'><i class='fi fi-{{member.icon}} large'></i></div>{{member.name}}</li></a>"
     }
 });
 
