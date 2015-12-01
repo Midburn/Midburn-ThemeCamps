@@ -14,7 +14,7 @@
                                 aria-expanded="true"
                                 style="width: 120px; text-align: left;">
                             Select
-                            <span class="caret"></span>
+                            <div class="caret"></div>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
                             <li id="campStatusActive"><a href="#"> <i class="iconGreenLight"></i> Active</a></li>
@@ -23,15 +23,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-                /// Todo: Add this script to external file.
-                $("#campStatusActive").on('click', function () {
-                    $("#campStatusSelect").html('<i class="iconGreenLight"></i> Active');
-                });
-                $("#campStatusInactive").on('click', function () {
-                    $("#campStatusSelect").html('<i class="iconRedLight"></i> Inactive');
-                });
-            </script>
 
         </div>
 

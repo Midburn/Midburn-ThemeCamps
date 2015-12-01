@@ -3,19 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Midburn | Theme Camp Registration</title>
 
     {% load staticfiles %}
 
     <!--    Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/style.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/foundation-icons.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/foundation.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/foundation-icons.css' %}"/>
+    {#    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/foundation.min.css' %}" />#}
 
     <!--    Scripts -->
     <script src="{% static 'midburn/js/angular.min.js' %}"></script>
+    <script src="{% static 'midburn/js/angular-animate.min.js' %}"></script>
     <script src="{% static 'midburn/js/angular-ui-router.min.js' %}"></script>
     <script src="{% static 'midburn/js/lodash.min.js' %}"></script>
     <script src="{% static 'midburn/js/restangular.js' %}"></script>
@@ -24,48 +25,52 @@
 
 <body ng-app="MidburnCampsApp">
 
-    <div class="main-wrapper" ng-controller="IndexCtrl as ctrl">
+<div class="main-wrapper" ng-controller="IndexCtrl as ctrl">
 
-        <div class="topbar-wrapper">
-            <div class="topbar">
-                <div class="midburn"></div>
+    <div class="topbar-wrapper">
+        <div class="topbar">
 
-                <div class="topbar-controls">
-                    <ul class="topbar-menu">
-                        <li class="topbar-menu-item">
-                            <button class="btn btn-primary">Questions</button>
-                        </li>
-                        <li class="topbar-menu-item"><a href="">Profile</a></li>
-                        <li class="topbar-menu-item"><a href="">Logout</a></li>
-                    </ul>
-                </div>
+            <div class="midburn"></div>
 
+            <div class="topbar-controls">
+                <ul class="topbar-menu">
+                    <li class="topbar-menu-item">
+                        <button class="btn btn-primary">Questions</button>
+                    </li>
+                    <li class="topbar-menu-item"><a href="">Profile</a></li>
+                    <li class="topbar-menu-item"><a href="">Logout</a></li>
+                </ul>
             </div>
+
         </div>
-
-        <sidebar sidebarItems=ctrl.sidebarItems>
-            <div class="sidebar-menu-controls">
-                <collection collection='menuItems'></collection>
-            </div>
-            <!-- END - Sidebar-->
-        </sidebar>
-
-        <!-- Main View   -->
-        <div class="main-view" ui-view></div>
-        <!-- END - Main View   -->
-
     </div>
+
+    <sidebar sidebarItems=ctrl.sidebarItems>
+        <div class="sidebar-menu-controls">
+            <collection collection='menuItems'></collection>
+        </div>
+        <!-- END - Sidebar-->
+    </sidebar>
+
+    <!-- Main View   -->
+    <div class="mainViewWrapper view-animate-container">
+        <div class="view-animate" ui-view></div>
+    </div>
+    <!-- END - Main View   -->
+
+</div>
 
 </body>
 
 <script src="{% static 'midburn/js/app.js' %}"></script>
 
-<!--    jQuery & Foundation implement -->
+<!--    jQuery & Bootstrap implement -->
 <script src="{% static 'midburn/js/jquery-2.1.4.min.js' %}"></script>
-<script src="{% static 'midburn/js/foundation.min.js' %}"></script>
+<script src="{% static 'midburn/js/bootstrap.min.js' %}"></script>
+{#<script src="{% static 'midburn/js/foundation.min.js' %}"></script>#}
 
 <script>
-    $(document).foundation();
+    {#    $(document).foundation();#}
 </script>
 
 </html>

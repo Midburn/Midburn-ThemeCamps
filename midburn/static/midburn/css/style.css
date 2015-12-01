@@ -1,6 +1,6 @@
 /* FONTS */
-
 @import url(https://fonts.googleapis.com/css?family=Lato);
+
 @font-face {
     font-family: 'Alef-Bold';
     src: url('fonts/Alef-Bold.eot');
@@ -17,13 +17,15 @@
     font-style: normal;
 }
 
-
 /* END FONTS */
 
-.he {
+.langHebrew {
     direction: rtl;
 }
 
+.langEnglish {
+    direction: ltr;
+}
 
 /* Header Style */
 
@@ -46,6 +48,9 @@
 
 .topbar-menu {
     list-style: none;
+    position: absolute;
+    top: 12px;
+    right: 20px;
 }
 
 .topbar-menu-item {
@@ -53,7 +58,6 @@
     width: auto;
     margin: 2px 6px !important;
 }
-
 
 /* END - Header Style */
 
@@ -74,7 +78,7 @@ body {
 .midburn {
     width: 80%;
     height: 100%;
-    background: url(midburn.png) no-repeat left -5px;
+    background: url(midburn.png) no-repeat left 0px;
 }
 
 .midburn span {
@@ -84,12 +88,15 @@ body {
     line-height: 22px;
 }
 
-.main-view {
+.mainViewWrapper {
     display: inline-block;
     width: calc(100% - 60px);
     float: right;
+    padding: 15px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
-
 
 /* Sidebar Style */
 
@@ -142,7 +149,6 @@ sidebar {
     height: 80%;
 }
 
-
 /* END - Sidebar Style*/
 
 .form-wrapper {
@@ -155,13 +161,7 @@ sidebar {
 
 .form-controls-wrapper {
     width: 50%;
-    margin: 25px auto;
-}
-
-.form-controls-wrapper .row label {
-    width: 70%;
-    text-align: center;
-    float: right;
+    margin: 20px auto;
 }
 
 .form-sidebar-helper {
@@ -171,88 +171,51 @@ sidebar {
     background: #ececec;
 }
 
-.form-controls-wrapper .control-label {
-    display: inline-block;
-    width: 108px;
-    font-size: 16px;
-    line-height: 35px;
-    float: left;
-}
-
-.dis-inline-block {
-    display: inline-block;
-    width: 82.5%;
-    height: 100%;
-}
-
-
-/* Icons Custome Size */
-
+/* Icons Costume Size */
 .large {
     font-size: 35px !important;
 }
 
-
-/* Input, Textarea */
-
-.wide-input {
-    width: 440px !important;
-}
-
-.narrow-input {
-    width: 200px !important;
-    height: 40px;
-    float: right;
-}
-
-.text-area {
-    width: 200px;
-    height: 40px;
-}
-
-input,
-select {
-    border-radius: 3px !important;
-}
-
-textarea {
-    width: 200px;
-    height: 121px;
-    border-radius: 3px !important;
-}
-
-.large-6 {
-    padding: 0 !important;
-}
-
-.buffer-sm {
+.flagIcon {
     display: block;
-    height: 10px;
-    margin: 15px 0 15px 0;
-}
-
-.en-col {
-    display: block;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin: 0 auto;
+    border-radius: 50%;
+    background-size: contain !important;
+}
+
+.flagIconEnglish {
     background: url(en.png) no-repeat center center;
 }
 
-.he-col {
-    display: block;
-    width: 40px;
-    height: 40px;
-    margin: 0 auto;
+.flagIconHebrew {
     background: url(he.png) no-repeat center center;
 }
+
+.iconGreenLight {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: greenyellow;
+    border-radius: 100%;
+}
+
+.iconRedLight {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 100%;
+}
+
+/* END - Icons */
 
 .camp-desc {
     line-height: 20px !important;
 }
 
-.camp-name
-{
+.camp-name {
     line-height: 160px !important;
 }
 
@@ -262,3 +225,67 @@ label.status-select {
     left: -160%;
 }
 
+.camp_details textarea {
+    width: 300px;
+}
+
+.paddingRightZero {
+    padding-right: 0 !important;
+}
+
+.paddingLeftZero {
+    padding-left: 0 !important;;
+}
+
+/* Bootstrap (Overrides) */
+
+.row {
+    margin: 0 0 20px;
+}
+
+.dropdownArrow {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #1e212f;
+    float: right;
+    color: #fff !important;
+}
+
+
+/* END - Bootstrap (Overrides) */
+
+/* NG-Animation */
+
+.view-animate-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 300ms;
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: #dad;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.view-animate.ng-enter {
+    left: 100%;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+    left: 0;
+}
+
+.view-animate.ng-leave.ng-leave-active {
+    left: -100%;
+}
+
+/* END - NG-Animation*/

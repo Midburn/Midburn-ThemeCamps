@@ -1,6 +1,7 @@
 var app = angular.module('MidburnCampsApp', [
-     'ui.router',
-     'restangular'
+    'ngAnimate',
+    'ui.router',
+    'restangular',
 ]);
 
 app.constant('CONFIG', {
