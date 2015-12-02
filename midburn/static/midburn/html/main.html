@@ -1,4 +1,4 @@
-<form>
+<form ng-controller="helpPanelController">
     <div class="form-controls-wrapper">
 
         <div class="row">
@@ -17,21 +17,12 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
-                            <li id="campStatusActive"><a href="#"> <i class="iconGreenLight"></i> Active</a></li>
-                            <li id="campStatusInactive"><a href="#"> <i class="iconRedLight"></i> Inactive</a></li>
+                            <li id="campStatusActive"><a href="#"> <i class="iconLightGreen"></i> Active</a></li>
+                            <li id="campStatusInactive"><a href="#"> <i class="iconLightRed"></i> Inactive</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <script>
-                /// Todo: Add this script to external file.
-                $("#campStatusActive").on('click', function () {
-                    $("#campStatusSelect").html('<i class="iconGreenLight"></i> Active');
-                });
-                $("#campStatusInactive").on('click', function () {
-                    $("#campStatusSelect").html('<i class="iconRedLight"></i> Inactive');
-                });
-            </script>
 
         </div>
 
@@ -43,17 +34,13 @@
 
                 <div class="col-md-5">
                     <div class="flagIcon flagIconEnglish"></div>
-                    <label>
-                        <div class="text-center">This column in English</div>
-                        <input type="text" class="form-control" placeholder=""/>
-                    </label>
+                    <div class="text-center">This column in English</div>
+                    <input id="inCampName" type="text" class="form-control"/>
                 </div>
                 <div class="col-md-5">
                     <div class="flagIcon flagIconHebrew"></div>
-                    <label>
-                        <div class="text-center">This column in Hebrew</div>
-                        <input type="text" class="form-control" placeholder=""/>
-                    </label>
+                    <div class="text-center">This column in Hebrew</div>
+                    <input type="text" class="form-control langHebrew" placeholder=""/>
                 </div>
 
             </div>
@@ -68,7 +55,7 @@
                     <textarea class="form-control" placeholder=""></textarea>
                 </div>
                 <div class="col-md-5">
-                    <textarea class="form-control" placeholder=""></textarea>
+                    <textarea class="form-control langHebrew" placeholder=""></textarea>
                 </div>
             </div>
 
@@ -80,12 +67,10 @@
 
             <div class="col-md-7">
                 <div class="col-md-5">
-                    <label>
-                        <input type="text" class="form-control" placeholder=""/>
-                    </label>
+                    <input type="text" class="form-control" placeholder=""/>
                 </div>
                 <div class="col-md-5 ">
-                    <input type="text" class="form-control" placeholder=""/>
+                    <input type="text" class="form-control langHebrew" placeholder=""/>
                 </div>
             </div>
 

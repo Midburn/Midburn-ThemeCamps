@@ -19,17 +19,17 @@ app.config(function ($stateProvider, $urlRouterProvider, CONFIG) {
         .state('step2', {
             url: "/camp_details",
             templateUrl: CONFIG.templateDir + 'plan.html',
-            controller: "IndexCtrl"
+            controller: "XXIndexCtrl"
         })
         .state('step3', {
             url: "/",
             templateUrl: CONFIG.templateDir + 'main.html',
-            controller: "IndexCtrl"
+            controller: "XIndexCtrl"
         })
 });
 
 //
-// Sidebar
+// Side Menu (Left side)
 //
 app.constant('SIDEBAR_ITEMS', [
     {
@@ -92,3 +92,28 @@ app.directive('member', function () {
 app.controller('IndexCtrl', function ($scope, SIDEBAR_ITEMS) {
     $scope.menuItems = SIDEBAR_ITEMS;
 });
+
+//
+// HelpPanel (Right side)
+//
+app.factory('FormData', function () {
+
+    var savedData = {Title: "Camp Description"}
+
+    function set(data) {
+        savedData = data;
+    }
+
+    function get() {
+        return savedData;
+    }
+
+    return {
+        set: set,
+        get: get
+    }
+});
+
+app.controller('helpPanelController', ['$scope', function ($scope) {
+
+}]);

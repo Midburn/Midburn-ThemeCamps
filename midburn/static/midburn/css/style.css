@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: 'Alef-Bold';
-    src: url('fonts/Alef-Bold.eot');
+    src: url('../fonts/Alef-Bold.eot');
     src: url('../fonts/Alef-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Alef-Bold.woff') format('woff'), url('../fonts/Alef-Bold.ttf') format('truetype'), url('../fonts/Alef-Bold.svg#alefbold') format('svg');
     font-weight: bold;
     font-style: normal;
@@ -32,6 +32,7 @@
 .topbar {
     display: block;
     position: relative;
+    z-index: 1;
     width: 100%;
     height: 60px;
     padding: 10px 15px;
@@ -62,13 +63,13 @@
 /* END - Header Style */
 
 html,
-body,
-main-wrapper {
+body {
     height: 100% !important;
 }
 
 .main-wrapper.ng-scope {
     height: 100%;
+    position: relative;
 }
 
 body {
@@ -90,12 +91,30 @@ body {
 
 .mainViewWrapper {
     display: inline-block;
-    width: calc(100% - 60px);
-    float: right;
-    padding: 15px;
+    width: calc(100% - 60px - 320px);
+    padding: 20px;
+    margin: 0 0 0 20px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+}
+
+.HelpPanelWrapper {
+    display: inline-block;
+    visibility: hidden;
+    width: 320px;
+    height: 0;
+    background: #ececec;
+    position: absolute;
+    right: 0%;
+    padding: 38px 18px;
+    box-sizing: border-box;
+    z-index: 0;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
 }
 
 /* Sidebar Style */
@@ -105,6 +124,7 @@ sidebar {
     width: 60px;
     height: 100%;
     background: #1b1e2b;
+    position: absolute;
 }
 
 .sidemenu-controls {
@@ -160,15 +180,8 @@ sidebar {
 }
 
 .form-controls-wrapper {
-    width: 50%;
+    width: 100%;
     margin: 20px auto;
-}
-
-.form-sidebar-helper {
-    display: inline-block;
-    width: 20%;
-    height: 100%;
-    background: #ececec;
 }
 
 /* Icons Costume Size */
@@ -193,7 +206,7 @@ sidebar {
     background: url(he.png) no-repeat center center;
 }
 
-.iconGreenLight {
+.iconLightGreen {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -201,7 +214,7 @@ sidebar {
     border-radius: 100%;
 }
 
-.iconRedLight {
+.iconLightRed {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -252,7 +265,6 @@ label.status-select {
     color: #fff !important;
 }
 
-
 /* END - Bootstrap (Overrides) */
 
 /* NG-Animation */
@@ -260,6 +272,7 @@ label.status-select {
 .view-animate-container {
     position: relative;
     overflow: hidden;
+    left: 60px;
 }
 
 .view-animate.ng-enter, .view-animate.ng-leave {

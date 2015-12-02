@@ -23,7 +23,7 @@
 
 </head>
 
-<body ng-app="MidburnCampsApp">
+<body ng-app="MidburnCampsApp" onload="InitAll()">
 
 <div class="main-wrapper" ng-controller="IndexCtrl as ctrl">
 
@@ -53,10 +53,28 @@
     </sidebar>
 
     <!-- Main View   -->
+    {% verbatim %}
+
     <div class="mainViewWrapper view-animate-container">
-        <div class="view-animate" ui-view></div>
+        <div class="view-animate mainView" ui-view>
+        </div>
     </div>
-    <!-- END - Main View   -->
+
+
+    <div class="HelpPanelWrapper" ng-controller="helpPanelController">
+        <h3>Camp Description</h3>
+
+        <p>
+            The way you describe your camp can help people better undestand what you’re all about.
+            Be sure to keep it fun, but informative.
+            Need help filling out the form? Ask us!
+        </p>
+    </div>
+
+
+</div>
+{% endverbatim %}
+<!-- END - Main View   -->
 
 </div>
 
@@ -67,10 +85,7 @@
 <!--    jQuery & Bootstrap implement -->
 <script src="{% static 'midburn/js/jquery-2.1.4.min.js' %}"></script>
 <script src="{% static 'midburn/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'midburn/js/engine.js' %}"></script>
 {#<script src="{% static 'midburn/js/foundation.min.js' %}"></script>#}
-
-<script>
-    {#    $(document).foundation();#}
-</script>
 
 </html>
