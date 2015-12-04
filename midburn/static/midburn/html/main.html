@@ -14,17 +14,19 @@
             <div class="col-md-7">
                 <div class="col-md-5">
                     <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="campStatusSelect"
+                        <button class="btn btn-default dropdown-toggle no-padding select-box" type="button" id="campStatusSelect"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="true"
                                 style="width: 120px; text-align: left;">
                             Select
-                            <span class="caret"></span>
+                            <span class="caret"><i class="arrow-down"></i></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
-                            <li id="campStatusActive"><a href="#"> <i class="iconLightGreen"></i> Accept New Members</a></li>
-                            <li id="campStatusActive"><a href="#"> <i class="iconLightOrange"></i> Close To New Members</a></li>
+                            <li id="campStatusActive"><a href="#"> <i class="iconLightGreen"></i> Accept New Members</a>
+                            </li>
+                            <li id="campStatusActive"><a href="#"> <i class="iconLightOrange"></i> Close To New Members</a>
+                            </li>
                             <li id="campStatusInactive"><a href="#"> <i class="iconLightRed"></i> Inactive</a></li>
                         </ul>
                     </div>
@@ -35,18 +37,20 @@
 
         <div class="row">
 
-            <div class="col-md-2 lblLarge">Camp Name</div>
+            <div class="col-md-2 lblLarge">Camp Name<br>
+                <span class="text-small">How new members will contact you</span>
+            </div>
 
             <div class="col-md-7">
 
                 <div class="col-md-5">
                     <div class="flagIcon flagIconEnglish"></div>
-                    <div class="text-center">This column in English</div>
+                    <div class="text-center text-small">This column in English</div>
                     <input id="inCampNameEn" type="text" class="form-control" placeholder=""/>
                 </div>
                 <div class="col-md-5">
                     <div class="flagIcon flagIconHebrew"></div>
-                    <div class="text-center">This column in Hebrew</div>
+                    <div class="text-center text-small">This column in Hebrew</div>
                     <input id="inCampNameHe" type="text" class="form-control langHebrew" placeholder=""/>
                 </div>
 
@@ -106,7 +110,8 @@
             <div class="col-md-2">Facebook</div>
 
             <div class="col-md-6">
-                <input id="inCampFbAddress" type="text" class="form-control" placeholder="www.facebook.com/your-camp-name"/>
+                <input id="inCampFbAddress" type="text" class="form-control"
+                       placeholder="www.facebook.com/your-camp-name"/>
             </div>
         </div>
 
