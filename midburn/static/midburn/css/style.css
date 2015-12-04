@@ -271,8 +271,21 @@ sidebar {
     text-indent: 15px;
 }
 
+.two-column-padding
+{
+    margin-right: 30px;
+}
+
 .no-padding {
     padding: 0 !important;
+}
+
+.no-padding-left {
+    padding-left: 0 !important;
+}
+
+.no-padding-right {
+    padding-right: 0 !important;
 }
 
 .camp-desc {
@@ -304,7 +317,7 @@ label.status-select {
 /* Bootstrap (Overrides) */
 
 .row {
-    margin: 0 0 20px;
+    margin: 0 0 30px;
 }
 
 .dropdownArrow {
@@ -387,9 +400,9 @@ label.status-select {
     width: 28px;
     height: 28px;
     border: 2px solid #000;
-    /*-webkit-border-radius: 50%;*/
-    /*-moz-border-radius: 50%;*/
-    /*border-radius: 50%;*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     -webkit-transition: 0.2s ease;
     -moz-transition: 0.2s ease;
     transition: 0.2s ease;
