@@ -27,11 +27,14 @@ var InitFormLogic = {
 
 
     campStatusSelect: function () {
-        $("#campStatusActive").on('click', function () {
-            $("#campStatusSelect").html('<i class="iconLightGreen"></i> Active');
+        $("#campStatusAccept").on('click', function () {
+            $("#campStatusSelect").html('<i class="iconLightGreen"></i> Accept New Members <span class="caret"><i class="arrow-down"></i></span>');
+        });
+        $("#campStatusClose").on('click', function () {
+            $("#campStatusSelect").html('<i class="iconLightOrange"></i> Close To New Members <span class="caret"><i class="arrow-down"></i></span>');
         });
         $("#campStatusInactive").on('click', function () {
-            $("#campStatusSelect").html('<i class="iconLightRed"></i> Inactive');
+            $("#campStatusSelect").html('<i class="iconLightRed"></i> Inactive <span class="caret"><i class="arrow-down"></i></span>');
         });
     }
 };

@@ -1,20 +1,15 @@
 <form ng-controller="">
     <div class="form-controls-wrapper">
 
-        <div class="panel panel-default">
-            <div class="panel-body">
-                Camp & Personal Details
-            </div>
-        </div>
-
         <div class="row">
 
             <div class="col-md-2">Camp Status</div>
 
             <div class="col-md-7">
-                <div class="col-md-5">
+                <div class="col-md-5 no-padding-left">
                     <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle no-padding select-box" type="button" id="campStatusSelect"
+                        <button class="btn btn-default dropdown-toggle no-padding select-box" type="button"
+                                id="campStatusSelect"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="true"
@@ -23,9 +18,9 @@
                             <span class="caret"><i class="arrow-down"></i></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
-                            <li id="campStatusActive"><a href="#"> <i class="iconLightGreen"></i> Accept New Members</a>
+                            <li id="campStatusAccept"><a href="#"> <i class="iconLightGreen"></i> Accept New Members</a>
                             </li>
-                            <li id="campStatusActive"><a href="#"> <i class="iconLightOrange"></i> Close To New Members</a>
+                            <li id="campStatusClose"><a href="#"> <i class="iconLightOrange"></i> Close To New Members</a>
                             </li>
                             <li id="campStatusInactive"><a href="#"> <i class="iconLightRed"></i> Inactive</a></li>
                         </ul>
@@ -37,9 +32,7 @@
 
         <div class="row">
 
-            <div class="col-md-2 lblLarge">Camp Name<br>
-                <span class="text-small">How new members will contact you</span>
-            </div>
+            <div class="col-md-2 lblLarge">Camp Name</div>
 
             <div class="col-md-7">
 
@@ -70,6 +63,14 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <h4>
+                    How will new members will contact you?
+                </h4>
+            </div>
         </div>
 
         <div class="row">
@@ -116,9 +117,9 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4">
-                <div class="btn-group">
-                    <button class="btn btn-default">Save Changes</button>
+            <div class="col-md-8">
+                <div class="" style="float: right;">
+                    <button class="btn btn-default margin-both-sides">Save Changes</button>
                     <button class="btn btn-primary">Publish</button>
                 </div>
             </div>
