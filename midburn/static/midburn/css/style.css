@@ -1,5 +1,26 @@
 /* FONTS */
-@import url(https://fonts.googleapis.com/css?family=Lato);
+
+/* Google Lato */
+
+/* latin-ext */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(../fonts/UyBMtLsHKBKXelqf4x7VRQ.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(../fonts/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* Alef */
 
 @font-face {
     font-family: 'Alef-Bold';
@@ -18,6 +39,12 @@
 }
 
 /* END FONTS */
+
+html,
+body {
+    height: 100% !important;
+    font-family: 'Alef', 'Lato', sans-serif !important;
+}
 
 .langHebrew {
     direction: rtl;
@@ -62,18 +89,9 @@
 
 /* END - Header Style */
 
-html,
-body {
-    height: 100% !important;
-}
-
 .main-wrapper.ng-scope {
     height: 100%;
     position: relative;
-}
-
-body {
-    font-family: 'Alef', 'Lato', sans-serif !important;
 }
 
 .midburn {
@@ -92,8 +110,8 @@ body {
 .mainViewWrapper {
     display: inline-block;
     width: calc(100% - 60px - 320px);
-    padding: 20px;
-    margin: 0 0 0 20px;
+    padding: 20px 40px;
+    margin: 0 20px 0 20px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -265,14 +283,20 @@ label.status-select {
     color: #fff !important;
 }
 
+.lblLarge {
+    display: block;
+    height: 100%;
+    padding-top: 55px;
+}
+
 /* END - Bootstrap (Overrides) */
 
-/* NG-Animation */
+/* NG-Animation (Page Loader) */
 
 .view-animate-container {
     position: relative;
     overflow: hidden;
-    left: 60px;
+    left: 40px;
 }
 
 .view-animate.ng-enter, .view-animate.ng-leave {
@@ -280,7 +304,7 @@ label.status-select {
     display: block;
     width: 100%;
     height: 5px;
-    background: #dad;
+    background: rgba(31, 69, 92, 0.5);
     position: absolute;
     top: 0;
     left: 0;

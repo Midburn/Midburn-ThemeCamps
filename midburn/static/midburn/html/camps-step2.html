@@ -1,53 +1,50 @@
-<form ng-controller="">
+<form>
     <div class="form-controls-wrapper">
 
         <div class="panel panel-default">
             <div class="panel-body">
-                Camp & Personal Details
+                Details about your camp
             </div>
         </div>
 
         <div class="row">
 
-            <div class="col-md-2">Camp Status</div>
+            <div class="col-md-2">Camp Size</div>
 
             <div class="col-md-7">
-                <div class="col-md-5">
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="campStatusSelect"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="true"
-                                style="width: 120px; text-align: left;">
-                            Select
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
-                            <li id="campStatusActive"><a href="#"> <i class="iconLightGreen"></i> Accept New Members</a></li>
-                            <li id="campStatusActive"><a href="#"> <i class="iconLightGreen"></i> Close To New Members</a></li>
-                            <li id="campStatusInactive"><a href="#"> <i class="iconLightRed"></i> Inactive</a></li>
-                        </ul>
+                <div class="col-md-2">
+                    <input id="inCampSize" type="number" class="form-control" placeholder=""/>
+                </div>
+                How many members in your camp?
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2">Camp Style</div>
+
+            <div class="col-md-7">
+
+                <div class="col-md-5" ng-controller="CampStylesController">
+
+                    <div ng-repeat="style in campStyles">
+
+                        <label class="checkbox" for="{{ style.Id }}">
+                            <div class="checkbox">
+                                <input type="checkbox" ng-model="selection.ids[style.Id]"
+                                       id="{{ style.Id }}" name="group"/>
+                                {{ style.Title }}
+                            </div>
+                        </label>
+
                     </div>
+                    <pre ng-bind="selection.ids | json"></pre>
                 </div>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-2 lblLarge">Camp Name</div>
-
-            <div class="col-md-7">
 
                 <div class="col-md-5">
-                    <div class="flagIcon flagIconEnglish"></div>
-                    <div class="text-center">This column in English</div>
-                    <input id="inCampNameEn" type="text" class="form-control" placeholder=""/>
-                </div>
-                <div class="col-md-5">
-                    <div class="flagIcon flagIconHebrew"></div>
-                    <div class="text-center">This column in Hebrew</div>
-                    <input id="inCampNameHe" type="text" class="form-control langHebrew" placeholder=""/>
+
+
                 </div>
 
             </div>
@@ -106,7 +103,8 @@
             <div class="col-md-2">Facebook</div>
 
             <div class="col-md-6">
-                <input id="inCampFbAddress" type="text" class="form-control" placeholder="www.facebook.com/your-camp-name"/>
+                <input id="inCampFbAddress" type="text" class="form-control"
+                       placeholder="www.facebook.com/your-camp-name"/>
             </div>
         </div>
 
