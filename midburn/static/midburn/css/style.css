@@ -139,10 +139,20 @@ body {
 
 sidebar {
     display: inline-block;
-    width: 60px;
+    width: 280px;
     height: 100%;
-    background: #1b1e2b;
+    background: #242838;
     position: absolute;
+}
+
+.sidebar-items {
+    height: 100%;
+    width: 60px;
+    background: #1b1e2b;
+}
+
+.sidebar-item-active {
+    background: #242838;
 }
 
 .sidemenu-controls {
@@ -156,6 +166,8 @@ sidebar {
 }
 
 .sidebar-menu {
+    height: 100%;
+    display: block;
     list-style: none;
     padding: 0;
 }
@@ -265,14 +277,18 @@ sidebar {
 
 .select-box {
     position: relative;
-    width: 200px !important;
+    width: 250px !important;
     height: 40px;
-    border-radius: 0 !important;
     text-indent: 15px;
 }
 
-.two-column-padding
-{
+/* padding */
+
+.margin-both-sides {
+    margin: 0 20px;
+}
+
+.two-column-padding {
     margin-right: 30px;
 }
 
@@ -287,6 +303,8 @@ sidebar {
 .no-padding-right {
     padding-right: 0 !important;
 }
+
+/* end - padding */
 
 .camp-desc {
     line-height: 20px !important;
@@ -342,7 +360,8 @@ label.status-select {
 .view-animate-container {
     position: relative;
     overflow: hidden;
-    left: 40px;
+    left: 220px;
+    width: 80%;
 }
 
 .view-animate.ng-enter, .view-animate.ng-leave {
@@ -376,7 +395,6 @@ label.status-select {
 /* UI STYLE */
 
 /*Checkbox*/
-/* checkbox 4 */
 .check-4 {
     width: 372px;
     background-color: #F5BA4E;
@@ -477,3 +495,10 @@ input[type="checkbox"] {
 }
 
 /* END - UI STYLE */
+
+/*  */
+textarea {
+    height: 121px !important;
+}
+
+/*  */
