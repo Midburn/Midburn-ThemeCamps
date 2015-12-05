@@ -146,34 +146,66 @@ body {
     box-sizing: border-box;
 }
 .sidebar-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    display: block;
-    list-style: none;
+    width: 100px;
     padding: 0;
+    list-style: none;
+    background: #1b1e2b;
 }
-.sidebar-menu li {
+
+.sidebar-menuItem {
     padding: 10px 0;
     display: block;
     width: 100%;
-    height: 80px;
     font-size: 12px;
-    font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-}
-.sidebar-menu a {
+    cursor: pointer;
     color: #70789d;
+    transition: all 250ms;
 }
-.sidebar-menu a:hover {
+.sidebar-menuItem:hover {
+    color: #8088ad;
+    background: #2b2e3b;
+}
+.sidebar-menuItem.is-active {
     color: #fff;
     background: #242838;
+}
+.sidebar-children {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100px;
+    right: 0;
+    padding: 0 20px;
+    list-style: none;
+    background: #242838;
+}
+.sidebar-childItem {
+    height: 87px;
+    line-height: 87px;
+}
+.sidebar-childLink {
+    display: block;
+    text-transform: capitalize;
+    color: #fff;
+    text-decoration: none;
+    transition: all 250ms;
+}
+.sidebar-childLink:hover {
+    color: #ffc233;
     text-decoration: none;
 }
-
-.menu-item-icon {
-    display: block;
-    width: 100%;
-    height: 80%;
+.sidebar-childLink:focus {
+    outline: none;
+    text-decoration: none;
+}
+.sidebar-childLink.is-active {
+    color: #ffc233;
 }
 
 /* END - Sidebar Style*/
@@ -341,6 +373,7 @@ label.status-select {
     bottom: 0;
     left: 20%;
     right: 20%;
+    padding: 30px;
     box-sizing: border-box;
     transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 300ms;
 }

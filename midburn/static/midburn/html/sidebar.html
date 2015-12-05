@@ -1,15 +1,19 @@
 <div class="sidebar">
     <ul class="sidebar-menu">
-        <li class="sidebar-menuItem" ng-repeat="item in sidebarItems">
-            <a sref="item.url">
-                <i class="menu-icon fi fi-{{member.icon}} large"></i>
-                <div>{{member.name}}</div>
+        <li class="sidebar-menuItem" ng-repeat="item in sidebarItems track by $index"
+            ng-click="ctrl.selectMainItem($index)"
+            ng-class="{'is-active': $index == ctrl.selectedIndex}">
+            <i class="menu-icon fi fi-{{item.icon}} large"></i>
+            <div>{{ item.name }}</div>
+        </li>
+    </ul>
+    <ul class="sidebar-children">
+        <li class="sidebar-childItem" ng-repeat="item in sidebarItems[ctrl.selectedIndex].items track by $index">
+            <a class="sidebar-childLink" ui-sref="{{ item.childState }}"
+                ng-class="{'is-active': $index == ctrl.selectedChildIndex}"
+                ng-click="ctrl.selectChildItem($index)">
+                {{ item.name }}
             </a>
         </li>
     </ul>
-    <div class="sidebar-children">
-        <div class="sidebar-childItem" ng-repeat="item in sidebarItems[selectedIndex].items">
-
-        </div>
-    </div>
 </div>

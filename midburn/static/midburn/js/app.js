@@ -1,7 +1,7 @@
 var app = angular.module('MidburnCampsApp', [
     'ngAnimate',
     'ui.router',
-    'restangular',
+    'restangular'
 ]);
 
 app.constant('CONFIG', {
@@ -35,45 +35,96 @@ app.constant('SIDEBAR_ITEMS', [
     {
         name: 'home',
         icon: 'home',
+        state: 'step1',
         items: [
             {
-                name: 'item1',
-                url: 'item1'
+                name: 'Site Content',
+                childState: 'step1'
             },
             {
-                name: 'item2',
-                url: 'item2'
+                name: 'The camp',
+                childState: 'step2'
             },
             {
-                name: 'item3',
-                url: 'item3'
+                name: 'Contacts',
+                childState: 'step3'
             }
         ]
     },
     {
-        name: 'plan',
+        name: 'Program',
         icon: 'flag',
-        url: ''
+        state: 'step1',
+        items: [
+            {
+                name: 'Camp Description',
+                childState: 'step1'
+            },
+            {
+                name: 'Activities',
+                childState: 'step2'
+            }
+        ]
     },
     {
-        name: 'safety',
+        name: 'Safety',
         icon: 'safety-cone',
-        url: ''
+        state: 'step1',
+        items: [
+            {
+                name: 'Safety',
+                childState: 'step1'
+            }
+        ]
     },
     {
-        name: 'friends',
+        name: 'Members',
         icon: 'torsos-all',
-        url: ''
+        state: 'step1',
+        items: [
+            {
+                name: 'Registered',
+                childState: 'step1'
+            },
+            {
+                name: 'Waiting Approval',
+                childState: 'step2'
+            },
+            {
+                name: 'With Ticket',
+                childState: 'step3'
+            },
+            {
+                name: 'Without Ticket',
+                childState: 'step3'
+            }
+        ]
     },
     {
-        name: 'arrival',
+        name: 'Arrival',
         icon: 'foot',
-        url: ''
+        state: 'step1',
+        items: [
+            {
+                name: 'Location',
+                childState: 'step1'
+            },
+            {
+                name: 'Checklist',
+                childState: 'step2'
+            }
+        ]
     },
     {
         name: 'admin',
         icon: 'crown',
-        url: ''
+        state: 'step1',
+        items: [
+            {
+                name: 'Administration',
+                childState: 'step1'
+            }
+        ]
     }
 ]);
 app.directive('sidebar', function() {
@@ -86,10 +137,26 @@ app.directive('sidebar', function() {
         },
         templateUrl: '/static/midburn/html/sidebar.html',
         controllerAs: 'ctrl',
-        controller: function() {
+        controller: function($scope) {
             var ctrl = this;
 
-            ctrl.selectedIndex = 0;
+            // selecting items
+            ctrl.selectChildItem = function(itemIndex) {
+                ctrl.selectedChildIndex = itemIndex;
+            };
+            ctrl.selectMainItem = function(itemIndex, childIndex) {
+                childIndex = childIndex || 0;
+                ctrl.selectedIndex = itemIndex;
+                ctrl.selectChildItem(childIndex);
+            };
+
+            // init the sidebar
+            $scope.sidebarItems.some(function(item, i){
+                if (item.state === $scope.selectedItem) {
+                    ctrl.selectMainItem(i);
+                    return true;
+                }
+            });
         }
     }
 });
@@ -98,7 +165,7 @@ app.controller('IndexCtrl', function (SIDEBAR_ITEMS) {
     var ctrl = this;
 
     ctrl.sidebarItems = SIDEBAR_ITEMS;
-    ctrl.selectedItem = 0;
+    ctrl.selectedItem = 'step1';
 });
 
 //
