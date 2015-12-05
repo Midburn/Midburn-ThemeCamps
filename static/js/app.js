@@ -6,7 +6,7 @@ var app = angular.module('MidburnCampsApp', [
 ]);
 
 app.constant('CONFIG', {
-    templateDir: '/static/midburn/html/',
+    templateDir: '/static/html/',
     defaultState: 'home.siteContent'
 });
 
