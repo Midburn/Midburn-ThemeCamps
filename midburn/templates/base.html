@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/foundation-icons.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/style.css' %}"/>
-    {#    <link rel="stylesheet" type="text/css" href="{% static 'midburn/css/foundation.min.css' %}" />#}
 
     <!--    Scripts -->
     <script src="{% static 'midburn/js/angular.min.js' %}"></script>
@@ -22,38 +21,37 @@
     <script src="{% static 'midburn/js/restangular.js' %}"></script>
 
 </head>
-
+{% verbatim %}
 <body ng-app="MidburnCampsApp" onload="InitAll()">
-<div class="main-wrapper" ng-controller="IndexCtrl as ctrl">
-    <div class="topbar-wrapper">
-        <div class="topbar">
-            <div class="midburn"></div>
-            <div class="topbar-controls">
-                <ul class="topbar-menu">
-                    <li class="topbar-menu-item">
-                        <button class="btn btn-primary">Questions</button>
-                    </li>
-                    <li class="topbar-menu-item"><a href="">Profile</a></li>
-                    <li class="topbar-menu-item"><a href="">Logout</a></li>
-                </ul>
+    <div class="main-wrapper" ng-controller="appCtrl as ctrl">
+        <div class="topbar-wrapper">
+            <div class="topbar">
+                <div class="midburn"></div>
+                <div class="topbar-controls">
+                    <ul class="topbar-menu">
+                        <li class="topbar-menu-item">
+                            <button class="btn btn-primary">Questions</button>
+                        </li>
+                        <li class="topbar-menu-item"><a href="">Profile</a></li>
+                        <li class="topbar-menu-item"><a href="">Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <sidebar sidebar-items="ctrl.sidebarItems" selected-item="ctrl.selectedItem"></sidebar>
-    {% verbatim %}
+        <sidebar sidebar-items="ctrl.sidebarItems" selected-item="currentState"></sidebar>
         <div class="mainViewWrapper view-animate-container">
             <div class="view-animate mainView" ui-view></div>
         </div>
         <div class="HelpPanelWrapper">
             <h3>Camp Description</h3>
-            <p>The way you describe your camp can help people better undestand what you’re all about.
+            <p>The way you describe your camp can help people better understand what you’re all about.
                 Be sure to keep it fun, but informative.
                 Need help filling out the form? Ask us!
             </p>
         </div>
-    {% endverbatim %}
-</div>
+    </div>
 </body>
+{% endverbatim %}
 
 <script src="{% static 'midburn/js/app.js' %}"></script>
 

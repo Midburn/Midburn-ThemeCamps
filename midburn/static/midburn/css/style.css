@@ -188,23 +188,17 @@ body {
 .sidebar-childItem {
     height: 87px;
     line-height: 87px;
-}
-.sidebar-childLink {
-    display: block;
     text-transform: capitalize;
     color: #fff;
     text-decoration: none;
     transition: all 250ms;
+    cursor: pointer;
 }
-.sidebar-childLink:hover {
+.sidebar-childItem:hover {
     color: #ffc233;
     text-decoration: none;
 }
-.sidebar-childLink:focus {
-    outline: none;
-    text-decoration: none;
-}
-.sidebar-childLink.is-active {
+.sidebar-childItem.is-active {
     color: #ffc233;
 }
 

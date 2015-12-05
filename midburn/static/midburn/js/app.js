@@ -5,26 +5,87 @@ var app = angular.module('MidburnCampsApp', [
 ]);
 
 app.constant('CONFIG', {
-    templateDir: '/static/midburn/html/'
+    templateDir: '/static/midburn/html/',
+    defaultState: 'home.siteContent'
 });
 
 app.config(function ($stateProvider, $urlRouterProvider, CONFIG) {
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise(CONFIG.defaultState);
     $stateProvider
-        .state('step1', {
-            url: "/",
-            templateUrl: CONFIG.templateDir + 'main.html',
-            controller: "IndexCtrl"
+        .state('home', {
+            url: '/home',
+            controller: 'homeCtrl as ctrl',
+            template: '<ui-view/>'
         })
-        .state('step2', {
-            url: "/camp_details",
-            templateUrl: CONFIG.templateDir + 'camps-step2.html',
-            controller: "IndexCtrl"
+        .state('home.siteContent', {
+            url: "/site-content",
+            templateUrl: CONFIG.templateDir + 'home-site-content.html'
         })
-        .state('step3', {
-            url: "/",
-            templateUrl: CONFIG.templateDir + '?.html',
-            controller: "IndexCtrl"
+        .state('home.camp', {
+            url: "/camp",
+            templateUrl: CONFIG.templateDir + 'home-camp.html'
+        })
+        .state('home.contacts', {
+            url: "/home/contacts",
+            templateUrl: CONFIG.templateDir + 'home-contacts.html',
+            controller: 'homeCtrl as ctrl'
+        })
+        .state('program', {
+            url: '/program',
+            template: '<ui-view/>',
+            controller: "programCtrl as ctrl"
+        })
+        .state('program.campDescription', {
+            url: "/description",
+            templateUrl: CONFIG.templateDir + 'program-description.html'
+        })
+        .state('program.activities', {
+            url: "/activities",
+            templateUrl: CONFIG.templateDir + 'program-activities.html'
+        })
+        .state('safety', {
+            url: "/safety",
+            templateUrl: CONFIG.templateDir + 'safety.html',
+            controller: "safetyCtrl as ctrl"
+        })
+        .state('members', {
+            url: '/members',
+            template: '<ui-view/>',
+            controller: "membersCtrl as ctrl"
+        })
+        .state('members.registered', {
+            url: "/registered",
+            templateUrl: CONFIG.templateDir + 'members-registered.html'
+        })
+        .state('members.waiting', {
+            url: "/waiting",
+            templateUrl: CONFIG.templateDir + 'members-waiting.html'
+        })
+        .state('members.withTicket', {
+            url: "/with-ticket",
+            templateUrl: CONFIG.templateDir + 'members-with-ticket.html'
+        })
+        .state('members.withoutTicket', {
+            url: "/without-ticket",
+            templateUrl: CONFIG.templateDir + 'members-without-ticket.html'
+        })
+        .state('arrival', {
+            url: '/arrival',
+            template: '<ui-view/>',
+            controller: "arrivalCtrl as ctrl"
+        })
+        .state('arrival.location', {
+            url: "/location",
+            templateUrl: CONFIG.templateDir + 'arrival-location.html'
+        })
+        .state('arrival.checklist', {
+            url: "/checklist",
+            templateUrl: CONFIG.templateDir + 'arrival-checklist.html'
+        })
+        .state('admin', {
+            url: "/admin",
+            templateUrl: CONFIG.templateDir + 'admin.html',
+            controller: "adminCtrl as ctrl"
         })
 });
 
@@ -35,94 +96,94 @@ app.constant('SIDEBAR_ITEMS', [
     {
         name: 'home',
         icon: 'home',
-        state: 'step1',
+        state: 'home',
         items: [
             {
                 name: 'Site Content',
-                childState: 'step1'
+                childState: 'home.siteContent'
             },
             {
                 name: 'The camp',
-                childState: 'step2'
+                childState: 'home.camp'
             },
             {
                 name: 'Contacts',
-                childState: 'step3'
+                childState: 'home.contacts'
             }
         ]
     },
     {
         name: 'Program',
         icon: 'flag',
-        state: 'step1',
+        state: 'program',
         items: [
             {
                 name: 'Camp Description',
-                childState: 'step1'
+                childState: 'program.campDescription'
             },
             {
                 name: 'Activities',
-                childState: 'step2'
+                childState: 'program.activities'
             }
         ]
     },
     {
         name: 'Safety',
         icon: 'safety-cone',
-        state: 'step1',
+        state: 'safety',
         items: [
             {
                 name: 'Safety',
-                childState: 'step1'
+                childState: 'safety'
             }
         ]
     },
     {
         name: 'Members',
         icon: 'torsos-all',
-        state: 'step1',
+        state: 'members',
         items: [
             {
                 name: 'Registered',
-                childState: 'step1'
+                childState: 'members.registered'
             },
             {
                 name: 'Waiting Approval',
-                childState: 'step2'
+                childState: 'members.waiting'
             },
             {
                 name: 'With Ticket',
-                childState: 'step3'
+                childState: 'members.withTicket'
             },
             {
                 name: 'Without Ticket',
-                childState: 'step3'
+                childState: 'members.withoutTicket'
             }
         ]
     },
     {
         name: 'Arrival',
         icon: 'foot',
-        state: 'step1',
+        state: 'arrival',
         items: [
             {
                 name: 'Location',
-                childState: 'step1'
+                childState: 'arrival.location'
             },
             {
                 name: 'Checklist',
-                childState: 'step2'
+                childState: 'arrival.checklist'
             }
         ]
     },
     {
         name: 'admin',
         icon: 'crown',
-        state: 'step1',
+        state: 'admin',
         items: [
             {
                 name: 'Administration',
-                childState: 'step1'
+                childState: 'admin'
             }
         ]
     }
@@ -137,22 +198,21 @@ app.directive('sidebar', function() {
         },
         templateUrl: '/static/midburn/html/sidebar.html',
         controllerAs: 'ctrl',
-        controller: function($scope) {
+        controller: function($scope, $state) {
             var ctrl = this;
 
             // selecting items
-            ctrl.selectChildItem = function(itemIndex) {
-                ctrl.selectedChildIndex = itemIndex;
-            };
-            ctrl.selectMainItem = function(itemIndex, childIndex) {
-                childIndex = childIndex || 0;
+            ctrl.selectMainItem = function(itemIndex) {
                 ctrl.selectedIndex = itemIndex;
-                ctrl.selectChildItem(childIndex);
+            };
+            ctrl.selectChildItem = function(state) {
+                $scope.selectedItem = state;
+                $state.go(state);
             };
 
             // init the sidebar
             $scope.sidebarItems.some(function(item, i){
-                if (item.state === $scope.selectedItem) {
+                if ($scope.selectedItem.indexOf(item.state) > -1) {
                     ctrl.selectMainItem(i);
                     return true;
                 }
@@ -161,11 +221,39 @@ app.directive('sidebar', function() {
     }
 });
 
-app.controller('IndexCtrl', function (SIDEBAR_ITEMS) {
+app.controller('appCtrl', function (SIDEBAR_ITEMS, $state, CONFIG, $rootScope) {
     var ctrl = this;
 
     ctrl.sidebarItems = SIDEBAR_ITEMS;
-    ctrl.selectedItem = 'step1';
+    $rootScope.currentState = CONFIG.defaultState;
+    $state.transitionTo(CONFIG.defaultState);
+});
+
+// state controllers
+app.controller('homeCtrl', function ($state, $rootScope) {
+    var ctrl = this;
+
+    $rootScope.currentState = $state.current.name;
+});
+app.controller('programCtrl', function () {
+    var ctrl = this;
+
+});
+app.controller('safetyCtrl', function () {
+    var ctrl = this;
+
+});
+app.controller('membersCtrl', function () {
+    var ctrl = this;
+
+});
+app.controller('arrivalCtrl', function () {
+    var ctrl = this;
+
+});
+app.controller('adminCtrl', function () {
+    var ctrl = this;
+
 });
 
 //
