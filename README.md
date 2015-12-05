@@ -1,10 +1,16 @@
-# Progress So Far  (Nate)
+### Midburn Theme Camps
+## Installation
 
-1. Home>Site Content (home-camp.html)
-   
-Page style, inputs, text is complete.
-Page logic, functions, validations complete.
+## create a virtualenv using virtualenv and virtualenv wrapper
 
-2. Home>The Camp (home-site-content.html)
+## install pip packages
 
-Page style, inputs, text is complete.
+## create the DB
+We are using Postgres, which can be installed here: http://www.postgresql.org/download/
+- log in to the Postgres console for the first time as root user:
+  $ sudo - postgres
+
+- Create the db and user:
+  $ create role midburn with createdb login password '123';
+  $ CREATE DATABASE midburn;
+  $ ALTER DATABASE midburn OWNER TO midburn;

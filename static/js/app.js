@@ -226,7 +226,7 @@ app.directive('sidebar', function () {
             sidebarItems: '=',
             selectedItem: '='
         },
-        templateUrl: '/static/midburn/html/sidebar.html',
+        templateUrl: '/static/html/sidebar.html',
         controllerAs: 'ctrl',
         controller: function ($scope, $state) {
             var ctrl = this;
