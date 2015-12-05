@@ -1,0 +1,15 @@
+<div class="sidebar">
+    <ul class="sidebar-menu">
+        <li class="sidebar-menuItem" ng-repeat="item in sidebarItems">
+            <a sref="item.url">
+                <i class="menu-icon fi fi-{{member.icon}} large"></i>
+                <div>{{member.name}}</div>
+            </a>
+        </li>
+    </ul>
+    <div class="sidebar-children">
+        <div class="sidebar-childItem" ng-repeat="item in sidebarItems[selectedIndex].items">
+
+        </div>
+    </div>
+</div>

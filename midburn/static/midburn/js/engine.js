@@ -11,18 +11,17 @@ var InitFormLogic = {
 
             // Set sideMenu visible
             if (!Toggled) {
-                HelpPanel.css('height', '100%').css('visibility', 'visible');
+                HelpPanel.css('visibility', 'visible');
                 Toggled = true;
             }
             else {
-                HelpPanel.css('height', '0px').css('visibility', 'hidden');
+                HelpPanel.css('visibility', 'hidden');
                 Toggled = false;
             }
         });
 
         /// Todo: remove after production;
-        HelpPanel.css('height', '100%').css('visibility', 'visible');
-
+        HelpPanel.css('visibility', 'visible');
     },
 
 

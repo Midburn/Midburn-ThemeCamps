@@ -29,7 +29,7 @@ app.config(function ($stateProvider, $urlRouterProvider, CONFIG) {
 });
 
 //
-// Side Menu (Left side)
+// Sidebar
 //
 app.constant('SIDEBAR_ITEMS', [
     {
@@ -37,15 +37,23 @@ app.constant('SIDEBAR_ITEMS', [
         icon: 'home',
         items: [
             {
-                name: '',
-                url: ''
+                name: 'item1',
+                url: 'item1'
+            },
+            {
+                name: 'item2',
+                url: 'item2'
+            },
+            {
+                name: 'item3',
+                url: 'item3'
             }
         ]
     },
     {
         name: 'plan',
         icon: 'flag',
-        url: '/#/camp_details'
+        url: ''
     },
     {
         name: 'safety',
@@ -68,29 +76,29 @@ app.constant('SIDEBAR_ITEMS', [
         url: ''
     }
 ]);
-app.directive('collection', function () {
+app.directive('sidebar', function() {
     return {
         restrict: "E",
         replace: true,
         scope: {
-            collection: '='
+            sidebarItems: '=',
+            selectedItem: '='
         },
-        template: "<ul class='sidebar-menu'><member ng-repeat='member in collection' member='member'></member></ul>"
-    }
-});
-app.directive('member', function () {
-    return {
-        restrict: "E",
-        replace: true,
-        scope: {
-            member: '='
-        },
-        template: "<a href='{{ member.url }}'><li class='sidebar-menu-item'><div class='menu-item-icon'><i class='fi fi-{{member.icon}} large'></i></div>{{member.name}}</li></a>"
+        templateUrl: '/static/midburn/html/sidebar.html',
+        controllerAs: 'ctrl',
+        controller: function() {
+            var ctrl = this;
+
+            ctrl.selectedIndex = 0;
+        }
     }
 });
 
-app.controller('IndexCtrl', function ($scope, SIDEBAR_ITEMS) {
-    $scope.menuItems = SIDEBAR_ITEMS;
+app.controller('IndexCtrl', function (SIDEBAR_ITEMS) {
+    var ctrl = this;
+
+    ctrl.sidebarItems = SIDEBAR_ITEMS;
+    ctrl.selectedItem = 0;
 });
 
 //

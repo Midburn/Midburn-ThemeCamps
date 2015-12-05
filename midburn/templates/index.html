@@ -26,12 +26,9 @@
 <body ng-app="MidburnCampsApp" onload="InitAll()">
 
 <div class="main-wrapper" ng-controller="IndexCtrl as ctrl">
-
     <div class="topbar-wrapper">
         <div class="topbar">
-
             <div class="midburn"></div>
-
             <div class="topbar-controls">
                 <ul class="topbar-menu">
                     <li class="topbar-menu-item">
@@ -41,37 +38,20 @@
                     <li class="topbar-menu-item"><a href="">Logout</a></li>
                 </ul>
             </div>
-
         </div>
     </div>
-
-    <!-- Sidebar-->
-    <sidebar sidebarItems=ctrl.sidebarItems>
-        <div class="sidebar-items">
-            <collection collection='menuItems'></collection>
-        </div>
-    </sidebar>
-    <!-- END - Sidebar-->
-
-    <!-- Main View   -->
+    <sidebar sidebar-items="ctrl.sidebarItems" selected-item="ctrl.page"></sidebar>
     {% verbatim %}
-
     <div class="mainViewWrapper view-animate-container">
         <div class="view-animate mainView" ui-view></div>
     </div>
-
-
     <div class="HelpPanelWrapper">
         <h3>Camp Description</h3>
-
-        <p>
-            The way you describe your camp can help people better undestand what you’re all about.
+        <p>The way you describe your camp can help people better undestand what you’re all about.
             Be sure to keep it fun, but informative.
             Need help filling out the form? Ask us!
         </p>
     </div>
-
-
 </div>
 {% endverbatim %}
 <!-- END - Main View   -->
