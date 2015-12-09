@@ -98,12 +98,11 @@ USE_TZ = True
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join('static'),)
+STATICFILES_DIRS = (os.path.join('static'), os.path.join('bower_components'),)
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [],
 }

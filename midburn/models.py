@@ -10,6 +10,9 @@ class User(models.Model):
     last_name_en = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.first_name_en + ' ' + self.last_name_en
+
 
 CAMPSTATUS = (
     (-1, 'deleted'),
@@ -24,10 +27,10 @@ class Camp(models.Model):
     camp_desc_he = models.TextField()
     camp_desc_en = models.TextField()
     main_contact = models.ForeignKey(User, related_name="main_contact")
-    moop_contact = models.ForeignKey(User, related_name="moop_contact")
-    safety_contact = models.ForeignKey(User, related_name="safety_contact")
+    # moop_contact = models.ForeignKey(User, related_name="moop_contact")
+    # safety_contact = models.ForeignKey(User, related_name="safety_contact")
     camp_status = models.IntegerField(choices=CAMPSTATUS)
-    is_published = models.BooleanField()
+    is_published = models.BooleanField(default=True)
 
 
 CAMPTYPES = (

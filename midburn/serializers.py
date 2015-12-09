@@ -6,6 +6,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
 
 class CampSerializer(serializers.ModelSerializer):
+    main_contact = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+
     class Meta:
         model = Camp
 

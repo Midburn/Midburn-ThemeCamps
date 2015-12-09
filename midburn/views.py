@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.permissions import AllowAny
 from midburn.models import User,Camp,CampLocation,CampMember,CampSafety,Workshop
 from midburn.serializers import *
 
@@ -9,7 +10,7 @@ def index(request):
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    serializer_class=UserSerializer
+    serializer_class = UserSerializer
 
 class CampViewSet(viewsets.ModelViewSet):
     queryset = Camp.objects.all()

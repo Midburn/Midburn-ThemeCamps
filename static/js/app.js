@@ -1,5 +1,6 @@
 var app = angular.module('MidburnCampsApp', [
     'ngAnimate',
+    'ngResource',
     'ui.router',
     'restangular',
     'ngTable'
@@ -251,6 +252,27 @@ app.directive('sidebar', function () {
     }
 });
 
+//
+// Resources
+//
+
+app.factory('API', ['$resource', function($resource) {
+    var User = $resource('/users/:id');
+    var Camp = $resource('/camps/:id');
+    var CampLocation = $resource('/camps_locations/:id');
+    var CampMember = $resource('/camps_members/:is');
+    var CampSafety = $resource('/camps_safety/:id');
+    var Workshop = $resource('/workshops/:id');
+
+    return {
+        user: User,
+        camp: Camp,
+        campLocation: CampLocation,
+        campMember: CampMember,
+        campSafety: CampSafety,
+        workshop: Workshop
+    };
+}]);
 app.controller('appCtrl', function (SIDEBAR_ITEMS, $state, CONFIG, $rootScope) {
     var ctrl = this;
 
@@ -260,10 +282,14 @@ app.controller('appCtrl', function (SIDEBAR_ITEMS, $state, CONFIG, $rootScope) {
 });
 
 // state controllers
-app.controller('homeCtrl', function ($state, $rootScope) {
-    var ctrl = this;
+app.controller('homeCtrl', function ($state, $rootScope, API) {
+    var ctrl = this,
+        params = {};
 
     $rootScope.currentState = $state.current.name;
+    ctrl.submit = API.camp(params, function(data) {
+
+    });
 });
 app.controller('programCtrl', function () {
     var ctrl = this;
