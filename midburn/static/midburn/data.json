@@ -1,0 +1,20 @@
+"styles-EN":[
+  {
+    "Title": "Food",
+    "Id": "cs01"
+  },
+  {
+    "Title": "Bar-Drinks",
+    "Id": "cs02"
+  }
+],
+"styles-HE":[
+  {
+    "Title": "אוכל",
+    "Id": "cs01"
+  },
+  {
+    "Title": "בר-משקאות",
+    "Id": "cs02"
+  }
+]

@@ -1,4 +1,5 @@
-<form>
+<form name="siteContentForm" ng-controller="SiteContentController" ng-submit="submitForm(siteContentForm.$valid)"
+      novalidate>
     <div class="form-controls-wrapper">
 
         <div class="row">
@@ -13,14 +14,15 @@
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="true"
-                                style="width: 120px; text-align: left;">
+                                onclick="InitFormLogic.campStatusSelect()">
                             Select
                             <span class="caret"><i class="arrow-down"></i></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
                             <li id="campStatusAccept"><a href="#"> <i class="iconLightGreen"></i> Accept New Members</a>
                             </li>
-                            <li id="campStatusClose"><a href="#"> <i class="iconLightOrange"></i> Close To New Members</a>
+                            <li id="campStatusClose"><a href="#"> <i class="iconLightOrange"></i> Close To New
+                                Members</a>
                             </li>
                             <li id="campStatusInactive"><a href="#"> <i class="iconLightRed"></i> Inactive</a></li>
                         </ul>
@@ -30,24 +32,43 @@
 
         </div>
 
-        <div class="row"> 
 
-            <div class="col-md-2 lblLarge">Camp Name</div>
+        <div class="row" ng-class="{ 'has-error' : siteContentForm.name.$invalid && !siteContentForm.name.$pristine }">
+
+            <div class="col-md-2 lblLarge">Camp Name <i class="fi-asterisk text-danger"></i></div>
 
             <div class="col-md-7">
 
                 <div class="col-md-5 no-padding-left two-column-padding">
                     <div class="flagIcon flagIconEnglish"></div>
                     <div class="text-center text-small">This column in English</div>
-                    <input id="inCampNameEn" type="text" class="form-control" placeholder=""/>
+                    <input type="text" name="campNameEn"
+                           class="form-control ng-dirty ng-invalid ng-invalid-minlength" ng-model="inCampNameEn"
+                           ng-minlength="4" ng-maxlength="12" required/>
                 </div>
                 <div class="col-md-5 no-padding-left">
                     <div class="flagIcon flagIconHebrew"></div>
                     <div class="text-center text-small">This column in Hebrew</div>
-                    <input id="inCampNameHe" type="text" class="form-control langHebrew" placeholder=""/>
+                    <input type="text" name="campNameHe"
+                           class="form-control langHebrew ng-dirty ng-invalid ng-invalid-minlength"
+                           ng-model="inCampNameHe"
+                           ng-minlength="4" ng-maxlength="12" required/>
                 </div>
 
             </div>
+            <div class="validatorReqError">
+                <p ng-show="siteContentForm.campNameEn.$invalid && !siteContentForm.campNameEn.$pristine">English Camp
+                    name is
+                    incomplete.</p>
+
+                <p ng-show="siteContentForm.campNameHe.$invalid && !siteContentForm.campNameHe.$pristine">Hebrew Camp
+                    name is
+                    incomplete.</p>
+
+                <p ng-show="siteContentForm.campNameEn.$error.minlength || siteContentForm.campNameEn.$error.minlength">
+                    Camp name is too short, minimum 4 letters.</p>
+            </div>
+
         </div>
 
         <div class="row">
@@ -68,7 +89,7 @@
         <div class="row">
             <div class="col-md-10">
                 <h4>
-                    How will new members will contact you?
+                    How new members will contact you?
                 </h4>
             </div>
         </div>
@@ -94,7 +115,12 @@
             <div class="col-md-2">Email</div>
 
             <div class="col-md-6">
-                <input id="inEmailAddress" type="text" class="form-control" placeholder=""/>
+                <input id="inEmailAddress" type="email" class="form-control" validate-email name="email"
+                       ng-model="email" required/>
+            </div>
+
+            <div class="validatorReqError">
+                <p ng-show="siteContentForm.email.$invalid && !siteContentForm.email.$pristine">Email is incomplete</p>
             </div>
         </div>
 
@@ -103,7 +129,14 @@
             <div class="col-md-2">Phone Number</div>
 
             <div class="col-md-6">
-                <input id="inPhoneNum" type="text" class="form-control" placeholder=""/>
+                <input id="inPhoneNum" type="text" class="form-control" validate-phone name="phone" ng-model="phone"
+                       placeholder="" ng-minlength="9" ng-maxnlength="13"/>
+            </div>
+
+            <div class="validatorReqError">
+                <p ng-show="siteContentForm.phone.$invalid && !siteContentForm.phone.$pristine">Phone is incomplete</p>
+                 <p ng-show="siteContentForm.phone.$error.minlength || siteContentForm.phone.$error.minlength">
+                   Phone must be at least 9 digits</p>
             </div>
         </div>
 
@@ -120,7 +153,8 @@
             <div class="col-md-8">
                 <div class="" style="float: right;">
                     <button class="btn btn-default margin-both-sides">Save Changes</button>
-                    <button class="btn btn-primary">Publish</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="siteContentForm.$invalid">Publish
+                    </button>
                 </div>
             </div>
         </div>

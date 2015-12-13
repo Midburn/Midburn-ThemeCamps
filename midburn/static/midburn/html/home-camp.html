@@ -1,11 +1,5 @@
-<form>
+<form name="campDetailsForm" ng-controller="CampDetailsController as campCtrl" novalidate>
     <div class="form-controls-wrapper">
-
-        <div class="panel panel-default">
-            <div class="panel-body">
-                Details about your camp
-            </div>
-        </div>
 
         <div class="row">
 
@@ -26,32 +20,20 @@
 
             <div class="col-md-7">
 
-
-                    <div class="checkbox-4">
-                        <input type="checkbox" id="checkbox-4">
-                        <label for="checkbox-4"></label>
-                    </div>
-
-
                 <div class="col-md-5" ng-controller="CampStylesController">
 
                     <div ng-repeat="style in campStyles">
 
-                        <label class="checkbox" for="{{ style.Id }}">
-                            <div class="checkbox">
-                                <input type="checkbox" ng-model="selection.ids[style.Id]"
-                                       id="{{ style.Id }}" name="group"/>
+                        <div class="checkbox-4">
+                            <input type="checkbox" ng-model="selection.ids[style.Id]"
+                                   id="{{ style.Id }}" name="group"/>
+                            <label class="checkbox" for="{{ style.Id }}">
                                 {{ style.Title }}
-                            </div>
-                        </label>
+                            </label>
+                        </div>
 
                     </div>
                     <!--<pre ng-bind="selection.ids | json"></pre>-->
-                </div>
-
-                <div class="col-md-5">
-
-
                 </div>
 
             </div>

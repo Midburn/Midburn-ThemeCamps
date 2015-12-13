@@ -188,7 +188,7 @@ app.constant('SIDEBAR_ITEMS', [
         ]
     }
 ]);
-app.directive('sidebar', function() {
+app.directive('sidebar', function () {
     return {
         restrict: "E",
         replace: true,
@@ -198,20 +198,20 @@ app.directive('sidebar', function() {
         },
         templateUrl: '/static/midburn/html/sidebar.html',
         controllerAs: 'ctrl',
-        controller: function($scope, $state) {
+        controller: function ($scope, $state) {
             var ctrl = this;
 
             // selecting items
-            ctrl.selectMainItem = function(itemIndex) {
+            ctrl.selectMainItem = function (itemIndex) {
                 ctrl.selectedIndex = itemIndex;
             };
-            ctrl.selectChildItem = function(state) {
+            ctrl.selectChildItem = function (state) {
                 $scope.selectedItem = state;
                 $state.go(state);
             };
 
             // init the sidebar
-            $scope.sidebarItems.some(function(item, i){
+            $scope.sidebarItems.some(function (item, i) {
                 if ($scope.selectedItem.indexOf(item.state) > -1) {
                     ctrl.selectMainItem(i);
                     return true;
@@ -257,12 +257,66 @@ app.controller('adminCtrl', function () {
 });
 
 //
-// CampStylesController
+// SiteContentController & Modules
+app.controller('SiteContentController', ['$scope', function ($scope) {
+    $scope.submitForm = function (isValid) {
+
+        // Check if camp name is unique (Ajax);
+
+
+        //
+        if (isValid) {
+            alert('our form is valid');
+        }
+    }
+}]);
+
+// Regex modules
 //
+app.directive('validateEmail', function () {
+    var EMAIL_REGEXP = /^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,6})$/;
+    return {
+        link: function (scope, elm) {
+            elm.on("keyup", function () {
+                var isMatchRegex = EMAIL_REGEXP.test(elm.val());
+                if (isMatchRegex && elm.hasClass('warning') || elm.val() == '') {
+                    elm.removeClass('warning');
+                } else if (isMatchRegex == false && !elm.hasClass('warning')) {
+                    elm.addClass('warning');
+                }
+            });
+        }
+    }
+});
+
+app.directive('validatePhone', function () {
+    var PHONE_REGEX = /^[0-9]{10}/;
+    return {
+        link: function (scope, elm) {
+            elm.on("keyup", function () {
+                var isMatchRegex = PHONE_REGEX.test(elm.val());
+                if (isMatchRegex && elm.hasClass('warning') || elm.val() == '') {
+                    elm.removeClass('warning');
+                } else if (isMatchRegex == false && !elm.hasClass('warning')) {
+                    elm.addClass('warning');
+                }
+            });
+        }
+    }
+});
+
+//
+// CampDetailsController
+app.controller('CampDetailsController', ['$scope', function ($scope) {
+
+}]);
+
+//
+// CampStylesController
 app.controller('CampStylesController', ['$scope', function ($scope) {
     $scope.selection = {
-        ids: { }
+        ids: {}
     };
-
-    $scope.campStyles = [ { "Title": "Food", "Id": "cs01" } , {"Title": "Bar-Drinks", "Id": "cs02" } ];
+    var styles_en = [{"Title": "Food", "Id": "cs01"}, {"Title": "Bar-Drinks", "Id": "cs02"}];
+    $scope.campStyles = styles_en;
 }]);

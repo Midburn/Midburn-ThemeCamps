@@ -128,14 +128,17 @@ body {
     width: 20%;
     background: #242838;
 }
+
 .sidebar-items {
     height: 100%;
     width: 60px;
     background: #1b1e2b;
 }
+
 .sidebar-item-active {
     background: #242838;
 }
+
 .sidemenu-controls {
     position: absolute;
     top: 0;
@@ -145,6 +148,7 @@ body {
     padding: 15px 21px 0;
     box-sizing: border-box;
 }
+
 .sidebar-menu {
     position: absolute;
     top: 0;
@@ -167,14 +171,17 @@ body {
     color: #70789d;
     transition: all 250ms;
 }
+
 .sidebar-menuItem:hover {
     color: #8088ad;
     background: #2b2e3b;
 }
+
 .sidebar-menuItem.is-active {
     color: #fff;
     background: #242838;
 }
+
 .sidebar-children {
     position: absolute;
     top: 0;
@@ -185,6 +192,7 @@ body {
     list-style: none;
     background: #242838;
 }
+
 .sidebar-childItem {
     height: 87px;
     line-height: 87px;
@@ -194,15 +202,17 @@ body {
     transition: all 250ms;
     cursor: pointer;
 }
+
 .sidebar-childItem:hover {
     color: #ffc233;
     text-decoration: none;
 }
+
 .sidebar-childItem.is-active {
     color: #ffc233;
 }
 
-/* END - Sidebar Style*/
+/* End - Sidebar Style*/
 
 .form-wrapper {
     display: block;
@@ -263,7 +273,7 @@ body {
     border-radius: 100%;
 }
 
-/* END - Icons */
+/* End - Icons */
 
 .text-small {
     font-size: 12px;
@@ -271,21 +281,23 @@ body {
 
 .btn .caret {
     position: absolute;
-    top: 0;
+    top: -1px;
     right: 0;
     background: #1e212f;
     width: 40px;
     height: 38px;
+    border-radius: 0 4px 4px 0;
 }
 
 .select-box {
     position: relative;
-    width: 250px !important;
-    height: 40px;
+    width: 230px !important;
+    height: 38px;
     text-indent: 15px;
+    text-align: left;
 }
 
-/* padding */
+/* Padding */
 
 .margin-both-sides {
     margin: 0 20px;
@@ -307,7 +319,7 @@ body {
     padding-right: 0 !important;
 }
 
-/* end - padding */
+/* End - Padding */
 
 .camp-desc {
     line-height: 20px !important;
@@ -327,19 +339,13 @@ label.status-select {
     width: 300px;
 }
 
-.paddingRightZero {
-    padding-right: 0 !important;
-}
-
-.paddingLeftZero {
-    padding-left: 0 !important;;
-}
-
 /* Bootstrap (Overrides) */
 
 .row {
     margin: 0 0 30px;
 }
+
+/* END - Bootstrap (Overrides) */
 
 .dropdownArrow {
     display: block;
@@ -355,8 +361,6 @@ label.status-select {
     height: 100%;
     padding-top: 55px;
 }
-
-/* END - Bootstrap (Overrides) */
 
 /* NG-Animation (Page Loader) */
 
@@ -402,29 +406,21 @@ label.status-select {
 /* UI STYLE */
 
 /*Checkbox*/
-.check-4 {
-    width: 372px;
-    background-color: #F5BA4E;
-    padding: 24px 48px;
-    float: left;
-    clear: both;
-}
 
 .checkbox-4 {
-    margin: 48px;
-    float: left;
-}
-
-.checkbox-4 label {
+    margin: 8px;
+    width: 200px;
     display: block;
-    cursor: pointer;
+    text-indent: 15px;
 }
 
 .checkbox-4 label {
     position: relative;
+    display: block;
+    cursor: pointer;
     width: 28px;
     height: 28px;
-    border: 2px solid #000;
+    border: 2px solid #ccc;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -443,7 +439,7 @@ label.status-select {
     height: 8px;
     top: 4px;
     left: 3px;
-    background-color: #000;
+    background-color: #868686;
     -webkit-transition: 0.1s 0.1s linear;
     -moz-transition: 0.1s 0.1s linear;
     transition: 0.1s 0.1s linear;
@@ -469,7 +465,7 @@ label.status-select {
     height: 8px;
     top: 10px;
     left: 14px;
-    background-color: #000;
+    background-color: #868686;
     -webkit-transition: 0.1s linear;
     -moz-transition: 0.1s linear;
     transition: 0.1s linear;
@@ -509,3 +505,10 @@ textarea {
 }
 
 /*  */
+
+/* Validation Style */
+.validatorReqError
+{
+    color: darkred;
+}
+/* End - Validation Style */
