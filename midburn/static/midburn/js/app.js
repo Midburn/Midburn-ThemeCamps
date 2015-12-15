@@ -309,6 +309,32 @@ app.directive('validatePhone', function () {
 // CampDetailsController
 app.controller('CampDetailsController', ['$scope', function ($scope) {
 
+    $scope.init = function () {
+
+        $scope.childStatus = true;
+        if ($scope.childStatus)
+            $scope.model = "Yes";
+        else $scope.model = "No";
+
+        $scope.artStatus = true;
+        if ($scope.artStatus)
+            $scope.model = "Yes";
+        else $scope.model = "No";
+    }
+
+    $scope.changeStatus = function () {
+
+        $scope.childStatus = !$scope.childStatus;
+        if ($scope.childStatus)
+            $scope.model = "Yes";
+        else $scope.model = "No";
+
+        $scope.artStatus = !$scope.artStatus;
+        if ($scope.artStatus)
+            $scope.model = "Yes";
+        else $scope.model = "No";
+    }
+
 }]);
 
 //
@@ -336,4 +362,11 @@ app.controller('CampActivityHrsController', ['$scope', function ($scope) {
         {"Title": "Evening", "Id": "ch03"},
         {"Title": "Night", "Id": "ch04"}];
     $scope.campActivityHrs = styles_en;
+}]);
+
+
+//
+// CampContactsController
+app.controller('CampContactsController', ['$scope', function ($scope) {
+
 }]);

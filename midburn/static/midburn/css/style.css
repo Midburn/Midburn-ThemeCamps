@@ -507,8 +507,24 @@ textarea {
 /*  */
 
 /* Validation Style */
-.validatorReqError
-{
+.validatorReqError {
     color: darkred;
 }
+
 /* End - Validation Style */
+
+/* Switch Button Style */
+.active, .inactive {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+i.active {
+    color: #5cb85c
+}
+
+i.inactive {
+    color: #d9534f
+}
+
+/* END - Switch Button Style */
