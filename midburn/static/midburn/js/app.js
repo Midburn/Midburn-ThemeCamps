@@ -317,6 +317,23 @@ app.controller('CampStylesController', ['$scope', function ($scope) {
     $scope.selection = {
         ids: {}
     };
-    var styles_en = [{"Title": "Food", "Id": "cs01"}, {"Title": "Bar-Drinks", "Id": "cs02"}];
+    var styles_en = [{"Title": "Food", "Id": "cs01"},
+        {"Title": "Bar", "Id": "cs02"},
+        {"Title": "Sound", "Id": "cs03"},
+        {"Title": "Workshop", "Id": "cs04"},
+        {"Title": "PerformanceArt", "Id": "cs05"}];
     $scope.campStyles = styles_en;
+}]);
+
+//
+// CampActivityHrsController
+app.controller('CampActivityHrsController', ['$scope', function ($scope) {
+    $scope.selection = {
+        ids: {}
+    };
+    var styles_en = [{"Title": "Morning", "Id": "ch01"},
+        {"Title": "Afternoon", "Id": "ch02"},
+        {"Title": "Evening", "Id": "ch03"},
+        {"Title": "Night", "Id": "ch04"}];
+    $scope.campActivityHrs = styles_en;
 }]);

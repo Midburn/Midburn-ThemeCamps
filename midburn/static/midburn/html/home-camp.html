@@ -41,67 +41,103 @@
 
         <div class="row">
 
-            <div class="col-md-2">Camp Description</div>
+            <div class="col-md-2">Camp Activity Hours</div>
 
             <div class="col-md-7">
+
+                <div class="col-md-5" ng-controller="CampActivityHrsController">
+
+                    <div ng-repeat="timing in campActivityHrs">
+
+                        <div class="checkbox-4">
+                            <input type="checkbox" ng-model="selection.ids[timing.Id]"
+                                   id="{{ timing.Id }}" name="group"/>
+                            <label class="checkbox" for="{{ timing.Id }}">
+                                {{ timing.Title }}
+                            </label>
+                        </div>
+
+                    </div>
+                    <!--<pre ng-bind="selection.ids | json"></pre>-->
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2">Public Area</div>
+
+            <div class="col-md-4">
+                Required space for public activities
                 <div class="col-md-5">
+                    <input id="inCampSize" type="number" class="form-control" placeholder=""/>
+                    (SquareFeet)
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="col-md-5">
+                    Explain the use of the space
                     <textarea id="inCampDescEn" class="form-control" placeholder=""></textarea>
                 </div>
-                <div class="col-md-5">
-                    <textarea id="inCampDescHe" class="form-control langHebrew" placeholder=""></textarea>
-                </div>
             </div>
 
         </div>
 
         <div class="row">
 
-            <div class="col-md-2">Contact Name</div>
+            <div class="col-md-2">Noise Level</div>
 
             <div class="col-md-7">
-                <div class="col-md-5">
-                    <input id="inContactNameEn" type="text" class="form-control" placeholder=""/>
+                <div class="col-md-5 no-padding-left">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle no-padding select-box" type="button"
+                                id="campNoiseLvlSelect"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="true"
+                                onclick="InitFormLogic.campNoiseLvlSelect()">
+                            Select
+                            <span class="caret"><i class="arrow-down"></i></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
+                            <li id="campNoiseNone"><a href="#"> <i class="iconLightGreen"></i> No Noise</a>
+                            </li>
+                            <li id="campNoiseMed"><a href="#"> <i class="iconLightOrange"></i> Medium Noise </a>
+                            </li>
+                            <li id="campNoiseHard"><a href="#"> <i class="iconLightRed"></i> Hard Noise </a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-5 ">
-                    <input id="inContactNameHe" type="text" class="form-control langHebrew" placeholder=""/>
-                </div>
             </div>
-
 
         </div>
 
         <div class="row">
 
-            <div class="col-md-2">Email</div>
+            <div class="col-md-2">Child Friendly?</div>
 
             <div class="col-md-6">
-                <input id="inEmailAddress" type="text" class="form-control" placeholder=""/>
+                Yes/No
             </div>
         </div>
 
         <div class="row">
 
-            <div class="col-md-2">Phone Number</div>
+            <div class="col-md-2">Performance Art Supporter?</div>
 
             <div class="col-md-6">
-                <input id="inPhoneNum" type="text" class="form-control" placeholder=""/>
+                Yes/No
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-2">Facebook</div>
-
-            <div class="col-md-6">
-                <input id="inCampFbAddress" type="text" class="form-control"
-                       placeholder="www.facebook.com/your-camp-name"/>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="btn-group">
-                    <button class="btn btn-default">Save Changes</button>
-                    <button class="btn btn-primary">Publish</button>
+            <div class="col-md-8">
+                <div class="" style="float: right;">
+                    <button class="btn btn-default margin-both-sides">Save Changes</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="siteContentForm.$invalid">Publish
+                    </button>
                 </div>
             </div>
         </div>
