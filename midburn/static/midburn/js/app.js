@@ -188,6 +188,35 @@ app.constant('SIDEBAR_ITEMS', [
         ]
     }
 ]);
+
+app.constant('HELPER_ITEMS', [
+    {
+        state: 'home.siteContent',
+        title: 'Camp Description',
+        content: 'The way you describe your camp can help people better understand what you’re all about. Be sure to keep it fun, but informative. Need help filling out the form? Ask us!'
+    }
+])
+
+app.directive('helper', function () {
+    return {
+        restrict: "E",
+        scope: {
+            helperItems: '='
+        },
+        templateUrl: '/static/midburn/html/help-panel.html',
+        controllerAs: 'helpCtrl',
+        controller: function (HELPER_ITEMS, $scope, $state) {
+            var helpCtrl = this;
+
+            // Show helper context by current state
+            helpCtrl.currentState = $state;
+
+            helpCtrl.helperItems = HELPER_ITEMS;
+
+        }
+    }
+});
+
 app.directive('sidebar', function () {
     return {
         restrict: "E",
@@ -357,11 +386,11 @@ app.controller('CampActivityHrsController', ['$scope', function ($scope) {
     $scope.selection = {
         ids: {}
     };
-    var styles_en = [{"Title": "Morning", "Id": "ch01"},
+    var timing_en = [{"Title": "Morning", "Id": "ch01"},
         {"Title": "Afternoon", "Id": "ch02"},
         {"Title": "Evening", "Id": "ch03"},
         {"Title": "Night", "Id": "ch04"}];
-    $scope.campActivityHrs = styles_en;
+    $scope.campActivityHrs = timing_en;
 }]);
 
 

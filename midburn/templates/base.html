@@ -43,14 +43,9 @@
     <div class="mainViewWrapper view-animate-container">
         <div class="view-animate mainView" ui-view></div>
     </div>
-    <div class="HelpPanelWrapper">
-        <h3>Camp Description</h3>
 
-        <p>The way you describe your camp can help people better understand what you’re all about.
-            Be sure to keep it fun, but informative.
-            Need help filling out the form? Ask us!
-        </p>
-    </div>
+    <helper helper-items="helpCtrl.helperItems" class="HelpPanelWrapper"></helper>
+
 </div>
 </body>
 {% endverbatim %}
