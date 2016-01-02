@@ -1,0 +1,20 @@
+<form name="campDetailsForm" ng-controller="MembersController as membersCtrl" novalidate>
+    <div class="form-controls-wrapper">
+
+        <div class="row">
+
+            <table ng-table="membersCtrl.tableParams" class="table table-condensed table-bordered table-striped"
+                   show-filter="true">
+                <tr ng-repeat="member in $data">
+                    <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+                        {{ member.name }}
+                    </td>
+                    <td title="'Age'" filter="{ age: 'number'}" sortable="'age'">
+                        {{ member.age }}
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</form>

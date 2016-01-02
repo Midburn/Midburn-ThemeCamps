@@ -1,7 +1,8 @@
 var app = angular.module('MidburnCampsApp', [
     'ngAnimate',
     'ui.router',
-    'restangular'
+    'restangular',
+    'ngTable'
 ]);
 
 app.constant('CONFIG', {
@@ -340,12 +341,17 @@ app.controller('CampDetailsController', ['$scope', function ($scope) {
 
     $scope.init = function () {
 
-        $scope.childStatus = true;
+        $scope.isPublic = false;
+        if ($scope.isPublic)
+            $scope.model = "Yes";
+        else $scope.model = "No";
+
+        $scope.childStatus = false;
         if ($scope.childStatus)
             $scope.model = "Yes";
         else $scope.model = "No";
 
-        $scope.artStatus = true;
+        $scope.artStatus = false;
         if ($scope.artStatus)
             $scope.model = "Yes";
         else $scope.model = "No";
@@ -393,9 +399,53 @@ app.controller('CampActivityHrsController', ['$scope', function ($scope) {
     $scope.campActivityHrs = timing_en;
 }]);
 
-
 //
 // CampContactsController
 app.controller('CampContactsController', ['$scope', function ($scope) {
 
 }]);
+
+//
+// Members Controller
+app.controller('MembersController', function (ngTableParams) {
+
+    // Typically you will use this option to load server-side data
+    //var tp = new NgTableParams({}, {
+    //    getData: function (params) {
+    //        /* code to fetch data that matches the params values EG: */
+    //        return executeQuery(params).then(function (data) {
+    //            params.total(data.inlineCount);
+    //            return data.results;
+    //        });
+    //    }
+    //});
+
+    //var data = [{name: 'christian', age: 21}, {name: 'anthony', age: 88}];
+    //self.tableParams = new ngTableParams({}, {dataset: data});
+    //$scope.membersData = data;
+
+    this.tableParams = new ngTableParams({}, {
+        getData: function (params) {
+            // Ajax request to api
+            return [{name: 'christian', age: 21},{name: 'christian', age: 21},{name: 'christian', age: 21}, {name: 'anthony', age: 88}];
+        }
+    });
+
+    //this.tableParams = new ngTableParams(
+    //    {page: 1, count: 10},
+    //    {
+    //        total: 0,
+    //        getData: function ($defer, params) {
+    //            var filter = params.filter();
+    //            var sorting = params.sorting();
+    //            var count = params.count();
+    //            var page = params.page();
+    //            myService.query(page, count, filter, sorting).success(function (result) {
+    //                vm.tableParams.total(result.total);
+    //                $defer.resolve(result.data);
+    //            });
+    //        }
+    //    }
+    //);
+
+});

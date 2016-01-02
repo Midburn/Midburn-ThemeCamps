@@ -7,7 +7,7 @@
             <div class="col-md-2">Camp Status</div>
 
             <div class="col-md-7">
-                <div class="col-md-5 no-padding-left">
+                <div class="col-md-5">
                     <div class="dropdown">
                         <button class="btn btn-default dropdown-toggle no-padding select-box" type="button"
                                 id="campStatusSelect"
@@ -19,7 +19,7 @@
                             <span class="caret"><i class="arrow-down"></i></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
-                            <li id="campStatusAccept"><a href="#"> <i class="iconLightGreen"></i> Accept New Members</a>
+                            <li id="campStatusAccept"><a href="#"> <i class="iconLightGreen"></i> Accepting New Members</a>
                             </li>
                             <li id="campStatusClose"><a href="#"> <i class="iconLightOrange"></i> Close To New
                                 Members</a>
@@ -37,16 +37,16 @@
 
             <div class="col-md-2 lblLarge">Camp Name <i class="fi-asterisk text-danger"></i></div>
 
-            <div class="col-md-7">
+            <div class="col-md-10">
 
-                <div class="col-md-5 no-padding-left two-column-padding">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="flagIcon flagIconEnglish"></div>
                     <div class="text-center text-small">This column in English</div>
                     <input type="text" name="campNameEn"
                            class="form-control ng-dirty ng-invalid ng-invalid-minlength" ng-model="inCampNameEn"
                            ng-minlength="4" ng-maxlength="12" required/>
                 </div>
-                <div class="col-md-5 no-padding-left">
+                <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="flagIcon flagIconHebrew"></div>
                     <div class="text-center text-small">This column in Hebrew</div>
                     <input type="text" name="campNameHe"
@@ -73,13 +73,13 @@
 
         <div class="row">
 
-            <div class="col-md-2">Camp Description</div>
+            <div class="col-md-2">Camp Description <i class="fi-asterisk text-danger"></i></div>
 
-            <div class="col-md-7">
-                <div class="col-md-5 no-padding-left two-column-padding">
+            <div class="col-md-10">
+                <div class="col-md-4 col-lg-6">
                     <textarea id="inCampDescEn" class="form-control" placeholder=""></textarea>
                 </div>
-                <div class="col-md-5 no-padding-left">
+                <div class="col-md-4 col-lg-6">
                     <textarea id="inCampDescHe" class="form-control langHebrew" placeholder=""></textarea>
                 </div>
             </div>
@@ -98,12 +98,12 @@
 
             <div class="col-md-2">Contact Name</div>
 
-            <div class="col-md-7">
-                <div class="col-md-5 no-padding-left two-column-padding">
-                    <input id="inContactNameEn" type="text" class="form-control" placeholder=""/>
+            <div class="col-md-10">
+                <div class="col-md-6">
+                    <input id="inContactNameEn" type="text" class="form-control" placeholder="(English)"/>
                 </div>
-                <div class="col-md-5 no-padding-left">
-                    <input id="inContactNameHe" type="text" class="form-control langHebrew" placeholder=""/>
+                <div class="col-md-6">
+                    <input id="inContactNameHe" type="text" class="form-control langHebrew" placeholder="(Hebrew)"/>
                 </div>
             </div>
 
@@ -114,7 +114,7 @@
 
             <div class="col-md-2">Email</div>
 
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <input id="inEmailAddress" type="email" class="form-control" validate-email name="email"
                        ng-model="email" required/>
             </div>
@@ -128,29 +128,50 @@
 
             <div class="col-md-2">Phone Number</div>
 
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <input id="inPhoneNum" type="text" class="form-control" validate-phone name="phone" ng-model="phone"
                        placeholder="" ng-minlength="9" ng-maxnlength="13"/>
             </div>
 
             <div class="validatorReqError">
                 <p ng-show="siteContentForm.phone.$invalid && !siteContentForm.phone.$pristine">Phone is incomplete</p>
-                 <p ng-show="siteContentForm.phone.$error.minlength || siteContentForm.phone.$error.minlength">
-                   Phone must be at least 9 digits</p>
+                <p ng-show="siteContentForm.phone.$error.minlength || siteContentForm.phone.$error.minlength">
+                    Phone must be at least 9 digits</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-2">Facebook</div>
 
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <input id="inCampFbAddress" type="text" class="form-control"
                        placeholder="www.facebook.com/your-camp-name"/>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-2">Go public?</div>
+
+            <div class="col-md-10">
+
+                <div ng-controller="CampDetailsController" ng-init="init()">
+                    <div class="">
+                        <i class="fa fa-toggle-on active" ng-if="isPublic == true" ng-click="changeStatus();"></i>
+                        <i class="fa fa-toggle-on fa-rotate-180 inactive" ng-if="isPublic == false"
+                           ng-click="changeStatus();"></i>
+
+                        <div>
+                            <span ng-show="model">{{ model }}</span>
+                            <span ng-hide="model">{{ model }}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
                 <div class="" style="float: right;">
                     <button class="btn btn-default margin-both-sides">Save Changes</button>
                     <button type="submit" class="btn btn-primary" ng-disabled="siteContentForm.$invalid">Publish
