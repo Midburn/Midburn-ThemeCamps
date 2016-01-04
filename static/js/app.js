@@ -205,7 +205,7 @@ app.directive('helper', function () {
         scope: {
             helperItems: '='
         },
-        templateUrl: '/static/midburn/html/help-panel.html',
+        templateUrl: '/static/html/help-panel.html',
         controllerAs: 'helpCtrl',
         controller: function (HELPER_ITEMS, $scope, $state) {
             var helpCtrl = this;
