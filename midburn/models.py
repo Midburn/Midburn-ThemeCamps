@@ -1,18 +1,5 @@
 from django.db import models
-
-# User - a real person with midburn profile.
-class User(models.Model):
-    email = models.CharField(unique=True, max_length=254)
-    facebook = models.CharField(max_length=254)
-    first_name_he = models.CharField(max_length=50)
-    last_name_he = models.CharField(max_length=50)
-    first_name_en = models.CharField(max_length=50)
-    last_name_en = models.CharField(max_length=50)
-    phone = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.first_name_en + ' ' + self.last_name_en
-
+from django.contrib.auth.models import User
 
 CAMPSTATUS = (
     (-1, 'deleted'),
@@ -22,15 +9,18 @@ CAMPSTATUS = (
 )
 # Create your models here.
 class Camp(models.Model):
+    users = models.ManyToManyField(User)
     camp_name_he = models.CharField(max_length=50, unique=True)
     camp_name_en = models.CharField(max_length=50, unique=True)
     camp_desc_he = models.TextField()
     camp_desc_en = models.TextField()
-    main_contact = models.ForeignKey(User, related_name="main_contact")
-    # moop_contact = models.ForeignKey(User, related_name="moop_contact")
-    # safety_contact = models.ForeignKey(User, related_name="safety_contact")
     camp_status = models.IntegerField(choices=CAMPSTATUS)
     is_published = models.BooleanField(default=True)
+    contact_email = models.CharField(unique=True, max_length=254, null=True)
+    contact_facebook = models.CharField(max_length=254, null=True)
+    contact_name_he = models.CharField(max_length=50, default='')
+    contact_name_en = models.CharField(max_length=50, default='')
+    contact_phone = models.CharField(max_length=50, null=True)
 
 
 CAMPTYPES = (
@@ -90,7 +80,6 @@ CAMP_MEMBERSHIP_STATUS = (
 
 class CampMember(models.Model):
     camp = models.ForeignKey(Camp)
-    user = models.ForeignKey(User)
     status = models.IntegerField(choices=CAMP_MEMBERSHIP_STATUS)
     has_ticket = models.BooleanField()
     early_arrival = models.BooleanField()

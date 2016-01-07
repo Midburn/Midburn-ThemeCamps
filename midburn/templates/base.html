@@ -27,52 +27,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.min.js"></script>
 
 </head>
-{% verbatim %}
-<body ng-app="MidburnCampsApp" onload="InitAll()">
-<div class="main-wrapper" ng-controller="appCtrl as ctrl">
-    <div class="topbar-wrapper">
-        <div class="topbar">
-            <div class="midburn"></div>
-            <div class="topbar-controls">
-                <ul class="topbar-menu">
-                    <li class="topbar-menu-item">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#helpModal">Help!
-                        </button>
-                    </li>
-                    <li class="topbar-menu-item"><a href="">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <sidebar sidebar-items="ctrl.sidebarItems" selected-item="currentState"></sidebar>
-    <div class="mainViewWrapper view-animate-container">
-        <div class="view-animate mainView" ui-view></div>
 
-        <!-- Help Modal -->
-        <div id="helpModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Need help ?</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Some text in the modal.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <helper helper-items="helpCtrl.helperItems" class="HelpPanelWrapper"></helper>
-</div>
-
-</body>
-{% endverbatim %}
+{% block content %}{% endblock %}
 
 <script src="{% static 'js/app.js' %}"></script>
 

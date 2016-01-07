@@ -255,7 +255,6 @@ app.directive('sidebar', function () {
 //
 // Resources
 //
-
 app.factory('API', ['$resource', function($resource) {
     var User = $resource('/users/:id');
     var Camp = $resource('/camps/:id');

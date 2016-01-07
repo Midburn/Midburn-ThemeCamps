@@ -106,3 +106,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES': [],
 }
+
+# Authentication
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login'
+LOGOUT_URL = '/logout'

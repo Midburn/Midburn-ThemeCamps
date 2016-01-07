@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load rest_framework %}
+
+{% block content %}
+    <div class="container">
+        <form class="form" method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="form-submit" type="submit" value="Create new user account" />
+        </form>
+        <div class="u-alignCenter">
+            or <a href="/login">Log in</a>
+        </div>
+    </div>
+{% endblock %}
