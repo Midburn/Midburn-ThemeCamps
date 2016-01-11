@@ -11,7 +11,12 @@ app.constant('CONFIG', {
     defaultState: 'home.siteContent'
 });
 
-app.config(function ($stateProvider, $urlRouterProvider, CONFIG) {
+app.config(function ($stateProvider, $urlRouterProvider, CONFIG, $resourceProvider, $httpProvider) {
+    $resourceProvider.defaults.stripTrailingSlashes = false;
+    // set which authentication method to use with django requests
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+
     $urlRouterProvider.otherwise(CONFIG.defaultState);
     $stateProvider
         .state('home', {
@@ -197,7 +202,7 @@ app.constant('HELPER_ITEMS', [
         title: 'Camp Description',
         content: 'The way you describe your camp can help people better understand what you’re all about. Be sure to keep it fun, but informative. Need help filling out the form? Ask us!'
     }
-])
+]);
 
 app.directive('helper', function () {
     return {
@@ -256,12 +261,32 @@ app.directive('sidebar', function () {
 // Resources
 //
 app.factory('API', ['$resource', function($resource) {
-    var User = $resource('/users/:id');
-    var Camp = $resource('/camps/:id');
-    var CampLocation = $resource('/camps_locations/:id');
-    var CampMember = $resource('/camps_members/:is');
-    var CampSafety = $resource('/camps_safety/:id');
-    var Workshop = $resource('/workshops/:id');
+    var User = $resource('/v1/users/:id', { id: '@id' });
+
+    var Camp = $resource('/v1/camps/:id', { id: '@id' }, {
+        query: {
+            interceptor: {
+                response: function (resp) {
+                    return angular.fromJson(resp.data);
+                }
+            },
+            isArray: true
+        },
+        get: {
+            interceptor: {
+                response: function (resp) {
+                    return angular.fromJson(resp.data);
+                }
+            }
+        },
+        create: {method: 'post'},
+        update: {method: 'put'}
+    });
+
+    var CampLocation = $resource('/v1/camps_locations/:id', { id: '@id' });
+    var CampMember = $resource('/v1/camps_members/:id', { id: '@id' });
+    var CampSafety = $resource('/v1/camps_safety/:id', { id: '@id' });
+    var Workshop = $resource('/v1/workshops/:id', { id: '@id' });
 
     return {
         user: User,
@@ -286,10 +311,29 @@ app.controller('homeCtrl', function ($state, $rootScope, API) {
         params = {};
 
     $rootScope.currentState = $state.current.name;
-    ctrl.submit = API.camp(params, function(data) {
 
-    });
+    // TODO get camp data on load to populate the form
+    //API.camp.get();
+
+    // set the defaults if camp has not been created yet
+    ctrl.formData = {};
+    ctrl.formData.camp_status = ctrl.formData.camp_status || 1;
+    ctrl.formData.is_published = ctrl.formData.is_published || false;
+
+    // TODO getting a 404 when post to /camps
+    ctrl.submit = function () {
+        API.camp.create(ctrl.formData,
+            // TODO set success or fail values
+            function success(resp) {
+
+            },
+            function error(resp) {
+
+            }
+        );
+    };
 });
+
 app.controller('programCtrl', function () {
     var ctrl = this;
 
@@ -310,21 +354,6 @@ app.controller('adminCtrl', function () {
     var ctrl = this;
 
 });
-
-//
-// SiteContentController & Modules
-app.controller('SiteContentController', ['$scope', function ($scope) {
-    $scope.submitForm = function (isValid) {
-
-        // Check if camp name is unique (Ajax);
-
-
-        //
-        if (isValid) {
-            alert('our form is valid');
-        }
-    }
-}]);
 
 // Regex modules
 //

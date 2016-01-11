@@ -1,10 +1,21 @@
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from midburn.models import *
 
 class CampSerializer(serializers.ModelSerializer):
+    users = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+
     class Meta:
         model = Camp
+
+    def create(self, validated_data):
+        user_id = self.context['request'].user.id
+        user = get_object_or_404(User, pk=user_id)
+        camp = Camp(**validated_data)
+        camp.save()
+        camp.users.add(user)
+        return camp
 
 class CampLocationSerializer(serializers.ModelSerializer):
     class Meta:

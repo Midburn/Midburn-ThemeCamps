@@ -17,7 +17,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,7 +42,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'midburn.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -73,7 +71,7 @@ DATABASES = {
         'PASSWORD': '123',
         'HOST': '',
         'PORT': '',
-        }
+    }
 }
 
 
@@ -103,7 +101,10 @@ STATICFILES_DIRS = (os.path.join('static'), os.path.join('bower_components'),)
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
     'DEFAULT_PERMISSION_CLASSES': [],
 }
 

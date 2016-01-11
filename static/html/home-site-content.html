@@ -1,40 +1,20 @@
-<form name="siteContentForm" ng-controller="SiteContentController" ng-submit="submitForm(siteContentForm.$valid)"
-      novalidate>
+<form name="siteContentForm" ng-submit="ctrl.submit()" novalidate>
     <div class="form-controls-wrapper">
-
         <div class="row">
-
             <div class="col-md-2">Camp Status</div>
-
             <div class="col-md-7">
                 <div class="col-md-5">
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle no-padding select-box" type="button"
-                                id="campStatusSelect"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="true"
-                                onclick="InitFormLogic.campStatusSelect()">
-                            Select
-                            <span class="caret"><i class="arrow-down"></i></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="campStatusSelect">
-                            <li id="campStatusAccept"><a href="#"> <i class="iconLightGreen"></i> Accepting New Members</a>
-                            </li>
-                            <li id="campStatusClose"><a href="#"> <i class="iconLightOrange"></i> Closed To New
-                                Members</a>
-                            </li>
-                            <li id="campStatusInactive"><a href="#"> <i class="iconLightRed"></i> Inactive</a></li>
-                        </ul>
-                    </div>
+                    <label for="camp_status">Camp Status</label>
+                    <select name="camp_status" id="campStatus" ng-model="ctrl.formData.camp_status" required>
+                        <option value="-1">Deleted</option>
+                        <option value="1">Open</option>
+                        <option value="2">Closed</option>
+                        <option value="3">Inactive</option>
+                    </select>
                 </div>
             </div>
-
         </div>
-
-
         <div class="row" ng-class="{ 'has-error' : siteContentForm.name.$invalid && !siteContentForm.name.$pristine }">
-
             <div class="col-md-2 lblLarge">Camp Name <i class="fi-asterisk text-danger"></i></div>
 
             <div class="col-md-10">
@@ -42,19 +22,18 @@
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="flagIcon flagIconEnglish"></div>
                     <div class="text-center text-small">This column in English</div>
-                    <input type="text" name="campNameEn"
-                           class="form-control ng-dirty ng-invalid ng-invalid-minlength" ng-model="inCampNameEn"
-                           ng-minlength="4" ng-maxlength="12" required/>
+                    <input type="text" name="camp_name_en"
+                           class="form-control ng-dirty ng-invalid ng-invalid-minlength" ng-model="ctrl.formData.camp_name_en"
+                           ng-minlength="4" required/>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="flagIcon flagIconHebrew"></div>
                     <div class="text-center text-small">This column in Hebrew</div>
-                    <input type="text" name="campNameHe"
+                    <input type="text" name="camp_name_he"
                            class="form-control langHebrew ng-dirty ng-invalid ng-invalid-minlength"
-                           ng-model="inCampNameHe"
-                           ng-minlength="4" ng-maxlength="12" required/>
+                           ng-model="ctrl.formData.camp_name_he"
+                           ng-minlength="4" required/>
                 </div>
-
             </div>
             <div class="validatorReqError">
                 <p ng-show="siteContentForm.campNameEn.$invalid && !siteContentForm.campNameEn.$pristine">English Camp
@@ -77,10 +56,10 @@
 
             <div class="col-md-10">
                 <div class="col-md-4 col-lg-6">
-                    <textarea id="inCampDescEn" class="form-control" placeholder=""></textarea>
+                    <textarea name="camp_desc_en" id="inCampDescEn" class="form-control" placeholder="" ng-model="ctrl.formData.camp_desc_en" required></textarea>
                 </div>
                 <div class="col-md-4 col-lg-6">
-                    <textarea id="inCampDescHe" class="form-control langHebrew" placeholder=""></textarea>
+                    <textarea name="camp_desc_he" id="inCampDescHe" class="form-control langHebrew" placeholder="" ng-model="ctrl.formData.camp_desc_he" required></textarea>
                 </div>
             </div>
 
@@ -100,10 +79,10 @@
 
             <div class="col-md-10">
                 <div class="col-md-6">
-                    <input id="inContactNameEn" type="text" class="form-control" placeholder="(English)"/>
+                    <input ng-model="ctrl.formData.contact_name_en" id="inContactNameEn" type="text" class="form-control" placeholder="(English)" required />
                 </div>
                 <div class="col-md-6">
-                    <input id="inContactNameHe" type="text" class="form-control langHebrew" placeholder="(Hebrew)"/>
+                    <input ng-model="ctrl.formData.contact_name_he" id="inContactNameHe" type="text" class="form-control langHebrew" placeholder="(Hebrew)"/>
                 </div>
             </div>
 
@@ -115,8 +94,7 @@
             <div class="col-md-2">Email</div>
 
             <div class="col-md-10">
-                <input id="inEmailAddress" type="email" class="form-control" validate-email name="email"
-                       ng-model="email" required/>
+                <input ng-model="ctrl.formData.contact_email" id="inEmailAddress" type="email" class="form-control" validate-email name="email" ng-model="email" required/>
             </div>
 
             <div class="validatorReqError">
@@ -129,8 +107,7 @@
             <div class="col-md-2">Phone Number</div>
 
             <div class="col-md-10">
-                <input id="inPhoneNum" type="text" class="form-control" validate-phone name="phone" ng-model="phone"
-                       placeholder="" ng-minlength="9" ng-maxnlength="13"/>
+                <input ng-model="ctrl.formData.contact_phone" id="inPhoneNum" type="tel" class="form-control" validate-phone name="phone" ng-model="phone" placeholder="" ng-minlength="9" ng-maxnlength="13"/>
             </div>
 
             <div class="validatorReqError">
@@ -144,38 +121,28 @@
             <div class="col-md-2">Facebook</div>
 
             <div class="col-md-10">
-                <input id="inCampFbAddress" type="text" class="form-control"
-                       placeholder="www.facebook.com/your-camp-name"/>
+                <input ng-model="ctrl.formData.contact_facebook" id="inCampFbAddress" type="text" class="form-control" placeholder="www.facebook.com/your-camp-name"/>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-2">Go public?</div>
-
+            <div class="col-md-2">Publish the camp?</div>
             <div class="col-md-10">
-
-                <div ng-controller="CampDetailsController" ng-init="init()">
-                    <div class="">
-                        <i class="fa fa-toggle-on active" ng-if="isPublic == true" ng-click="changeStatus();"></i>
-                        <i class="fa fa-toggle-on fa-rotate-180 inactive" ng-if="isPublic == false"
-                           ng-click="changeStatus();"></i>
-
-                        <div>
-                            <span ng-show="model">{{ model }}</span>
-                            <span ng-hide="model">{{ model }}</span>
-                        </div>
-                    </div>
-                </div>
-
+                <label>
+                    Yes
+                    <input ng-model="ctrl.formData.is_published" type="radio" value="true"/>
+                </label>
+                <label>
+                    No
+                    <input ng-model="ctrl.formData.is_published" type="radio" value="false"/>
+                </label>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="" style="float: right;">
-                    <button class="btn btn-default margin-both-sides">Save Changes</button>
-                    <button type="submit" class="btn btn-primary" ng-disabled="siteContentForm.$invalid">Publish
-                    </button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="siteContentForm.$invalid">Create</button>
                 </div>
             </div>
         </div>
