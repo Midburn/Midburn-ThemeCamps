@@ -8,11 +8,15 @@ var app = angular.module('MidburnCampsApp', [
 
 app.constant('CONFIG', {
     templateDir: '/static/html/',
-    defaultState: 'home.siteContent'
+    defaultState: 'home.siteContent',
+    userData: midburn.userData || {}
 });
 
 app.config(function ($stateProvider, $urlRouterProvider, CONFIG, $resourceProvider, $httpProvider) {
+    var campId = CONFIG.userData && CONFIG.userData.camps && CONFIG.userData.camps[0];
+
     $resourceProvider.defaults.stripTrailingSlashes = false;
+
     // set which authentication method to use with django requests
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -22,7 +26,10 @@ app.config(function ($stateProvider, $urlRouterProvider, CONFIG, $resourceProvid
         .state('home', {
             url: '/home',
             controller: 'homeCtrl as ctrl',
-            template: '<ui-view/>'
+            template: '<ui-view/>',
+            data: {
+                campId: campId
+            }
         })
         .state('home.siteContent', {
             url: "/site-content",
@@ -306,21 +313,44 @@ app.controller('appCtrl', function (SIDEBAR_ITEMS, $state, CONFIG, $rootScope) {
 });
 
 // state controllers
-app.controller('homeCtrl', function ($state, $rootScope, API) {
+app.controller('homeCtrl', function ($state, $stateParams, $rootScope, API) {
     var ctrl = this,
-        params = {};
+        campId = $state.current.data.campId;
 
+    // todo see if this is needed
     $rootScope.currentState = $state.current.name;
-
-    // TODO get camp data on load to populate the form
-    //API.camp.get();
 
     // set the defaults if camp has not been created yet
     ctrl.formData = {};
     ctrl.formData.camp_status = ctrl.formData.camp_status || 1;
     ctrl.formData.is_published = ctrl.formData.is_published || false;
+    ctrl.campStatuses = [
+        {
+            id: -1,
+            title: 'Deleted'
+        },
+        {
+            id: 1,
+            title: 'Open'
+        },
+        {
+            id: 2,
+            title: 'Closed'
+        },
+        {
+            id: 3,
+            title: 'Inactive'
+        }
+    ];
+    ctrl.submitText = campId ? 'Update' : 'Create';
 
-    // TODO getting a 404 when post to /camps
+    // get initial camp data, if camp has already been created
+    if (campId) {
+        API.camp.get({id: campId}, function(data) {
+            ctrl.formData = data;
+        });
+    }
+
     ctrl.submit = function () {
         API.camp.create(ctrl.formData,
             // TODO set success or fail values

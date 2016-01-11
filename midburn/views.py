@@ -15,7 +15,10 @@ from .permissions import IsStaffOrTargetUser
 
 @login_required
 def index(request):
+    user_id = request.user.id
+    camps = [camp.id for camp in Camp.objects.filter(users__id=user_id)]
     context = {}
+    context['camps'] = camps
     return render(request, 'index.html', context)
 
 class UserView(View):

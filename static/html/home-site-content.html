@@ -5,11 +5,11 @@
             <div class="col-md-7">
                 <div class="col-md-5">
                     <label for="camp_status">Camp Status</label>
-                    <select name="camp_status" id="campStatus" ng-model="ctrl.formData.camp_status" required>
-                        <option value="-1">Deleted</option>
-                        <option value="1">Open</option>
-                        <option value="2">Closed</option>
-                        <option value="3">Inactive</option>
+                    <select name="camp_status"
+                            id="campStatus"
+                            ng-model="ctrl.formData.camp_status"
+                            required
+                            ng-options="status.id as status.title for status in ctrl.campStatuses">
                     </select>
                 </div>
             </div>
@@ -130,11 +130,11 @@
             <div class="col-md-10">
                 <label>
                     Yes
-                    <input ng-model="ctrl.formData.is_published" type="radio" value="true"/>
+                    <input ng-model="ctrl.formData.is_published" type="radio" ng-value="true"/>
                 </label>
                 <label>
                     No
-                    <input ng-model="ctrl.formData.is_published" type="radio" value="false"/>
+                    <input ng-model="ctrl.formData.is_published" type="radio" ng-value="false"/>
                 </label>
             </div>
         </div>
@@ -142,7 +142,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="" style="float: right;">
-                    <button type="submit" class="btn btn-primary" ng-disabled="siteContentForm.$invalid">Create</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="siteContentForm.$invalid">{{ ctrl.submitText }}</button>
                 </div>
             </div>
         </div>
