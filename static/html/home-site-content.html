@@ -142,6 +142,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="" style="float: right;">
+                    <i class="form-icon icon-loading" ng-if="ctrl.formStatus == 'loading'"></i>
+                    <i class="form-icon u-green fi-check" ng-if="ctrl.formStatus == 'success'"></i>
+                    <i class="form-icon u-red fi-x" ng-if="ctrl.formStatus == 'error'"></i>
                     <button type="submit" class="btn btn-primary" ng-disabled="siteContentForm.$invalid">{{ ctrl.submitText }}</button>
                 </div>
             </div>

@@ -27,9 +27,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.min.js"></script>
     <script>
         var midburn = {};
-        midburn.userData = {
-            camps: {{ camps }}
-        }
+        midburn.userData = {};
+        {% if camps %}
+            midburn.userData.camps = {{ camps }};
+        {% endif %}
     </script>
 </head>
 

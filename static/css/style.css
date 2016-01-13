@@ -273,8 +273,24 @@ body {
     border-radius: 100%;
 }
 
+.form-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 30px;
+    line-height: 1;
+}
+.icon-loading {
+    width: 30px;
+    height: 30px;
+    background: url("/static/icons/loading.gif") center center;
+    background-size: 100%;
+}
+
 /* End - Icons */
 
+.u-red { color: red; }
+.u-green { color: green; }
 .text-small {
     font-size: 12px;
 }
@@ -323,10 +339,6 @@ body {
 
 .camp-desc {
     line-height: 20px !important;
-}
-
-.camp-name {
-    line-height: 160px !important;
 }
 
 label.status-select {

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <ul>
+        {% for camp in published_camps %}
+            <li class="camp">
+                <div class="camp-name">{{ camp.camp_name_en }}</div>
+                <div class="camp-desc">{{ camp.camp_desc_en }}</div>
+                {% if camp.contact_email %}
+                    <div class="camp-contactInfo">Email: <a href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a></div>
+                {% endif %}
+                {% if camp.contact_facebook %}
+                    <div class="camp-contactInfo">Facebook: <a href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a></div>
+                {% endif %}
+                {% if camp.contact_phone %}
+                    <div class="camp-contactInfo">Phone number: <a href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a></div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+{% endblock %}

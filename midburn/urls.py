@@ -13,6 +13,7 @@ router.register(r'users', views.UserViewSet, 'user_list')
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^published-camps', views.publishedCamps, name='published_camps'),
     url('^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^signup$', views.UserView.as_view(), name='signup'),

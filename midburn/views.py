@@ -21,6 +21,11 @@ def index(request):
     context['camps'] = camps
     return render(request, 'index.html', context)
 
+def publishedCamps(request):
+    context = {}
+    context['published_camps'] = Camp.objects.filter(is_published=True)
+    return render(request, 'camps.html', context)
+
 class UserView(View):
     def get(self, request, *args, **kwargs):
         form = UserForm()
@@ -32,7 +37,7 @@ class UserView(View):
             # use email for username
             form.cleaned_data['username'] = form.cleaned_data['email']
             try:
-                user = User.objects.create_user(**form.cleaned_data)
+                User.objects.create_user(**form.cleaned_data)
                 # login screen
                 return HttpResponseRedirect('/')
             except IntegrityError:

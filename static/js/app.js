@@ -322,6 +322,7 @@ app.controller('homeCtrl', function ($state, $stateParams, $rootScope, API) {
 
     // set the defaults if camp has not been created yet
     ctrl.formData = {};
+    ctrl.formStatus = '';
     ctrl.formData.camp_status = ctrl.formData.camp_status || 1;
     ctrl.formData.is_published = ctrl.formData.is_published || false;
     ctrl.campStatuses = [
@@ -352,15 +353,18 @@ app.controller('homeCtrl', function ($state, $stateParams, $rootScope, API) {
     }
 
     ctrl.submit = function () {
-        API.camp.create(ctrl.formData,
-            // TODO set success or fail values
-            function success(resp) {
-
-            },
-            function error(resp) {
-
-            }
-        );
+        ctrl.formStatus = 'loading';
+        function success() {
+            ctrl.formStatus = 'loading';
+        }
+        function error() {
+            ctrl.formStatus = 'error';
+        }
+        if (campId) {
+            API.camp.update(ctrl.formData, success, error);
+        } else {
+            API.camp.create(ctrl.formData, success, error);
+        }
     };
 });
 
