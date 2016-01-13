@@ -355,7 +355,7 @@ app.controller('homeCtrl', function ($state, $stateParams, $rootScope, API) {
     ctrl.submit = function () {
         ctrl.formStatus = 'loading';
         function success() {
-            ctrl.formStatus = 'loading';
+            ctrl.formStatus = 'success';
         }
         function error() {
             ctrl.formStatus = 'error';
