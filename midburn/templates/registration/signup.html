@@ -1,15 +1,33 @@
 {% extends "base.html" %}
 {% load rest_framework %}
 
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Midburn | Theme Camp Registration</title>
+
+    {% load staticfiles %}
+
+    <!--    Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+
+</head>
+
 {% block content %}
     <div class="container">
-        <form class="form" method="post" action="">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input class="form-submit" type="submit" value="Create new user account" />
-        </form>
-        <div class="u-alignCenter">
-            or <a href="{% url 'login' %}">Log in</a>
+        <div class="row">
+
+            <form class="input-form" method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input class="btn btn-default" type="submit" value="Create new user account"/>
+            </form>
+
+            <div class="u-alignCenter">
+                or <a href="{% url 'login' %}">Log in</a>
+            </div>
         </div>
     </div>
 {% endblock %}

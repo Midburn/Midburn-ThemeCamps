@@ -1,7 +1,26 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Midburn | Theme Camp Registration</title>
+
+    {% load staticfiles %}
+
+    <!--    Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+
+</head>
+
 {% block content %}
-<div class="container container--narrow">
-    <h2 class="h2">You are now logged out</h2>
-    <p>Thanks for spending some quality time with the Web site today.</p>
-    <p><a href="{% url 'login' %}">Log in again</a></p>
-</div>
+    <div class="container container--narrow">
+        <h2 class="h2">You are now logged out</h2>
+        <p>Thanks for spending some quality time with the Web site today.</p>
+        <p><a class="btn btn-success" href="{% url 'login' %}">Log in again</a></p>
+    </div>
 {% endblock %}
+
+<!--    jQuery & Bootstrap implement -->
+<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
