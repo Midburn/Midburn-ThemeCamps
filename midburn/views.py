@@ -21,10 +21,17 @@ def index(request):
     context['camps'] = camps
     return render(request, 'index.html', context)
 
-def publishedCamps(request):
+def published_camps(request):
     context = {}
-    context['published_camps'] = Camp.objects.filter(is_published=True)
+    camps = Camp.objects.filter(is_published=True)
+    context['published_camps'] = [camp.get_status() for camp in camps]
     return render(request, 'camps.html', context)
+
+def published_camps_he(request):
+    context = {}
+    camps = Camp.objects.filter(is_published=True)
+    context['published_camps'] = [camp.get_status() for camp in camps]
+    return render(request, 'camps-he.html', context)
 
 class UserView(View):
     def get(self, request, *args, **kwargs):

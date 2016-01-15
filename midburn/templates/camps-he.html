@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<body>
+    <body>
     <ul>
         {% for camp in published_camps %}
             <li class="camp">
-                <div class="camp-name">{{ camp.camp_name_en }}</div>
-                <div class="camp-desc">{{ camp.camp_desc_en }}</div>
+                <div class="camp-name">{{ camp.camp_name_he }}</div>
+                <div class="camp-desc">{{ camp.camp_desc_he }}</div>
                 <div class="camp-status">{{ camp.status }}</div>
-                <div class="camp-contactName">{{ camp.contact_name_en }}</div>
+                <div class="camp-contactName">{{ camp.contact_name_he }}</div>
                 {% if camp.contact_email %}
                     <div class="camp-contactInfo">Email: <a href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a></div>
                 {% endif %}
@@ -21,5 +21,5 @@
             </li>
         {% endfor %}
     </ul>
-</body>
+    </body>
 {% endblock %}

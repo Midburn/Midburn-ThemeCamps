@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 CAMPSTATUS = (
-    (-1, 'deleted'),
-    (1, 'open'),
-    (2, 'closed'),
-    (3, 'inactive'),
+    (0, 'Deleted'),
+    (1, 'Accepting new members'),
+    (2, 'Closed to new members'),
+    (3, 'Camp will not come to Midburn 2016'),
 )
 # Create your models here.
 class Camp(models.Model):
@@ -21,6 +21,10 @@ class Camp(models.Model):
     contact_name_he = models.CharField(max_length=50, default='')
     contact_name_en = models.CharField(max_length=50, default='')
     contact_phone = models.CharField(max_length=50, null=True)
+
+    def get_status(self):
+        self.status = CAMPSTATUS[self.camp_status][1]
+        return self
 
 
 CAMPTYPES = (
