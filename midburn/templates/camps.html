@@ -8,103 +8,108 @@
 {% block content %}
     <body>
     <!-- Headline intro -->
-    <div class="row">
-        <div class="panel panel-heading">
-            Welcome To Midburn 2016 - Theme Camps Index
-            <p>
-                This page lists registered theme camps for Midburn 2016. The Open Camp sign <span
-                    class="camp-icn camp-icn-1"></span> represents camps with
-                vacancy for more participants.
-                The names and descriptions where supplied by the camps organizers and are under their responsibility.
-            </p>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-heading">
+                <h3>
+                    Welcome To Midburn 2016 - Theme Camps Index
+                </h3>
+                <hr>
+                <p>
+                    This page lists registered theme camps for Midburn 2016. The Open Camp sign <span
+                        class="camp-icn camp-icn-1"></span> represents camps with
+                    vacancy for more participants.
+                    The names and descriptions where supplied by the camps organizers and are under their
+                    responsibility.
+                </p>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-12 blog-main">
+        <div class="row">
+            <div class="col-md-12 blog-main">
 
-            {% for camp in published_camps %}
+                {% for camp in published_camps %}
 
-                <div id="camp-card" class="col-md-6 col-sm-6">
-                    <article class="blog-teaser">
-                        <header>
-                            <!-- Camp Status -->
-                            <div class="camp-icn">
+                    <div id="camp-card" class="col-md-6 col-sm-6">
+                        <article class="blog-teaser">
+                            <header>
+                                <!-- Camp Status -->
+                                <div class="camp-icn">
                                 <span class="camp-icn-{{ camp.camp_status }}" tooltip="{{ camp.status }}"
                                       data-toggle="tooltip"></span>
-                            </div>
+                                </div>
 
-                            <!-- Camp Name -->
-                            <div class="camp-name">
-                                <h3>
-                                    {{ camp.camp_name_en }}
-                                </h3>
-                            </div>
+                                <!-- Camp Name -->
+                                <div class="camp-name">
+                                    <h3>
+                                        {{ camp.camp_name_en }}
+                                    </h3>
+                                </div>
 
-                            <!-- Camp Description -->
-                            <div class="camp-desc">
-                                <p>
-                                    {{ camp.camp_desc_en | linebreaks }}
-                                </p>
-                            </div>
-                            <hr>
-                        </header>
+                                <!-- Camp Description -->
+                                <div class="camp-desc">
+                                    <p>
+                                        {{ camp.camp_desc_en | linebreaks }}
+                                    </p>
+                                </div>
+                                <hr>
+                            </header>
 
-                        <!-- Camp Full Details (*Collapsed) -->
-                        <div id="campId{{ camp.pk }}" class="body collapse">
+                            <!-- Camp Full Details (*Collapsed) -->
+                            <div id="campId{{ camp.pk }}" class="body collapse">
 
-                            <!-- Camp Contact Details -->
-                            <div class="camp-contactName">
-                                <i class="fa fa-heart-o"></i> Contact Us
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        {{ camp.contact_name_en }}
-                                    </li>
-
-                                    {% if camp.contact_email %}
+                                <!-- Camp Contact Details -->
+                                <div class="camp-contactName">
+                                    <i class="fa fa-heart-o"></i> Contact Us
+                                    <ul class="list-group">
                                         <li class="list-group-item">
-                                            <div class="camp-contactInfo">Email: <a
-                                                    href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a>
-                                            </div>
+                                            {{ camp.contact_name_en }}
                                         </li>
-                                    {% endif %}
 
-                                    {% if camp.contact_facebook %}
-                                        <li class="list-group-item">
-                                            <div class="camp-contactInfo">Facebook: <a
-                                                    href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
-                                            </div>
-                                        </li>
-                                    {% endif %}
+                                        {% if camp.contact_email %}
+                                            <li class="list-group-item">
+                                                <div class="camp-contactInfo">Email: <a
+                                                        href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a>
+                                                </div>
+                                            </li>
+                                        {% endif %}
 
-                                    {% if camp.contact_phone %}
-                                        <li class="list-group-item">
-                                            <div class="camp-contactInfo">Phone number: <a
-                                                    href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
-                                            </div>
-                                        </li>
-                                    {% endif %}
-                                </ul>
+                                        {% if camp.contact_facebook %}
+                                            <li class="list-group-item">
+                                                <div class="camp-contactInfo">Facebook: <a
+                                                        href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+
+                                        {% if camp.contact_phone %}
+                                            <li class="list-group-item">
+                                                <div class="camp-contactInfo">Phone number: <a
+                                                        href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="clearfix">
-                            <div class="center-block">
-                                <a href="#" data-toggle="collapse" data-target="#campId{{ camp.pk }}"
-                                   class="btn btn-default">
-                                    Read more
-                                </a>
+                            <div class="clearfix">
+                                <div class="center-block">
+                                    <a href="#" data-toggle="collapse" data-target="#campId{{ camp.pk }}"
+                                       class="btn btn-default">
+                                        Read more
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                    </article>
-                </div>
+                        </article>
+                    </div>
 
-            {% endfor %}
+                {% endfor %}
 
+            </div>
         </div>
     </div>
-
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
