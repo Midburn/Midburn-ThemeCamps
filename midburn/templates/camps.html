@@ -40,16 +40,16 @@
 
                                 <!-- Camp Icons -->
                                 <div class="camp-icn">
-                                    <!-- Camp Status -->
-                                    <span class="camp-icn-{{ camp.camp_status }}">OPEN</span>
+                                    <!-- Camp Status VAR: camp.camp_status -->
+                                    <span class="camp-icn-open">OPEN</span>
 
                                     <!-- Accepting families -->
-                                    <span class="camp-icn-families-{{ camp.accepting_families }} camp-icn-border"></span>
+                                    <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
                                 </div>
 
                                 <!-- Camp Description -->
                                 <div class="camp-desc langEnglish">
-                                    {{ camp.camp_desc_en | linebreaks }}
+                                    {{ camp.camp_desc_en | linebreaks | truncatechars:20 }}
                                 </div>
                                 <hr>
                             </header>
