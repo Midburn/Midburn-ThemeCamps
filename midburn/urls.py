@@ -13,6 +13,7 @@ router.register(r'users', views.UserViewSet, 'user_list')
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^iframe-test$', views.iframe_test, name='iframe_test'),
     url(r'^published-camps$', views.published_camps, name='published_camps'),
     url(r'^published-camps-he', views.published_camps_he, name='published_camps_he'),
     url('^', include('django.contrib.auth.urls')),

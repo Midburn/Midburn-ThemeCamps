@@ -21,6 +21,10 @@ def index(request):
     context['camps'] = camps
     return render(request, 'index.html', context)
 
+def iframe_test(request):
+    context = {}
+    return render(request, 'iframe-test.html', context)
+
 def published_camps(request):
     context = {}
     camps = Camp.objects.filter(is_published=True)
