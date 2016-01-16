@@ -21,7 +21,8 @@
                 </h2>
                 <h3 class="langHebrew align-right">
                     <p>
-                        סמל המחנה הפתוח <span class="camp-icn-open camp-icn-example"></span> מסמל שהמחנה מקבל משתתפים חדשים.
+                        סמל המחנה הפתוח <span class="camp-icn-open camp-icn-example"></span> מסמל שהמחנה מקבל משתתפים
+                        חדשים.
                     </p>
                 </h3>
             </div>
@@ -124,6 +125,13 @@
             $('.camp-desc').collapser({
                 mode: 'lines',
                 truncate: 3
+            });
+
+            $("a:CONTAINS('Show')").each(function () {
+                $(this).text("עוד מידע");
+            });
+            $("a:CONTAINS('Hide')").each(function () {
+                $(this).text("הסתר");
             });
         });
     </script>
