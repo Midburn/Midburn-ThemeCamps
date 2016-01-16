@@ -1,4 +1,4 @@
-{# HEBREW THEME CAMPS INDEX PAGE #}
+{# ENGLISH THEME CAMPS INDEX PAGE #}
 
 {% extends "base.html" %}
 
@@ -12,11 +12,13 @@
     <!-- Headline intro -->
     <div class="container">
         <div class="row">
-            <div class="panel panel-heading">
+            <div class="panel panel-heading transparent align-right">
+                <h2>בעמוד זה תוכלו למצוא את רשימת המחנות שהשתתפו באירוע מידברן 2015. תיאורי המחנות הועברו על-ידי מארגני
+המחנות לפני האירוע והם באחריותם.</h2>
                 <h3 class="align-right">
-                    בעמוד זה תוכלו למצוא את רשימת המחנות שהשתתפו באירוע מידברן 2015. תיאורי המחנות הועברו על-ידי מארגני
-                    המחנות לפני האירוע והם באחריותם.
-                    <span class="camp-icn-open hidden"></span>
+                    <p>
+                        <span class="camp-icn-open camp-icn-example"></span>
+                    </p>
                 </h3>
             </div>
         </div>
@@ -29,21 +31,22 @@
                     <div id="camp-card" class="col-md-6 col-sm-6">
                         <article class="blog-teaser">
                             <header>
-                                <!-- Camp Status -->
-                                <div class="camp-icn">
-                                    <span class="camp-icn-{{ camp.camp_status }}"></span>
-                                </div>
-
-                                <!-- Accepting families -->
-                                <div class="camp-icn">
-                                    <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
-                                </div>
-
                                 <!-- Camp Name -->
-                                <div class="camp-name">
+                                <div class="camp-name langHebrew">
                                     <h3>
                                         {{ camp.camp_name_he }}
                                     </h3>
+                                </div>
+
+                                <!-- Camp Icons -->
+                                <div class="camp-icn">
+                                    <!-- Camp Status VAR: camp.camp_status -->
+                                    {% if camp.camp_status == 1 %}
+                                        <span class="camp-icn-open"></span>
+                                    {% endif %}
+
+                                    <!-- Accepting families -->
+                                    <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
                                 </div>
 
                                 <!-- Camp Description -->
@@ -57,7 +60,7 @@
                             <div id="campId{{ camp.pk }}" class="body collapse">
 
                                 <!-- Camp Contact Details -->
-                                <div class="camp-contactName">
+                                <div class="camp-contact-details">
                                     <i class="fa fa-heart-o"></i> Contact Us
                                     <ul class="list-group">
                                         <li class="list-group-item">
@@ -75,8 +78,7 @@
                                         {% if camp.contact_facebook %}
                                             <li class="list-group-item">
                                                 <div class="camp-contactInfo"><i class="fa fa-facebook-square"></i>
-                                                    Facebook: <a
-                                                            href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
+                                                    Facebook: {{ camp.contact_facebook }}
                                                 </div>
                                             </li>
                                         {% endif %}
@@ -98,7 +100,7 @@
                                     <div class="center-block">
                                         <a data-toggle="collapse" data-target="#campId{{ camp.pk }}"
                                            class="btn btn-default">
-                                            Contact Us
+                                            צרו קשר
                                         </a>
                                     </div>
                                 </div>
@@ -112,9 +114,13 @@
             </div>
         </div>
     </div>
+
     <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
+        $(function () {
+            $('.camp-desc').collapser({
+                mode: 'lines',
+                truncate: 3
+            });
         });
     </script>
     </body>
