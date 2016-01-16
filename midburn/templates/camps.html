@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{%  block extra_style %}
+{% block extra_style %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/camps-index.css' %}"/>
 {% endblock %}
@@ -20,12 +20,11 @@
     <div class="row">
         <div class="col-md-12 blog-main">
 
-            <div id="camp-card" class="col-md-6 col-sm-6">
-                <article class="blog-teaser">
-                    <header>
+            {% for camp in published_camps %}
 
-                        {% for camp in published_camps %}
-
+                <div id="camp-card" class="col-md-6 col-sm-6">
+                    <article class="blog-teaser">
+                        <header>
                             <!-- Camp Status -->
                             <div class="camp-icn">
                                 <span class="camp-icn-{{ camp.camp_status }}" tooltip="{{ camp.status }}"
@@ -46,59 +45,60 @@
                                 </p>
                             </div>
                             <hr>
-                            </header>
+                        </header>
 
-                            <!-- Camp Full Details (*Collapsed) -->
-                            <div id="campId{{ camp.pk }}" class="body collapse">
+                        <!-- Camp Full Details (*Collapsed) -->
+                        <div id="campId{{ camp.pk }}" class="body collapse">
 
-                                <!-- Camp Contact Details -->
-                                <div class="camp-contactName">
-                                    <i class="fa fa-heart-o"></i> Contact Us
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            {{ camp.contact_name_en }}
-                                        </li>
-                                        <li>
-                                            {% if camp.contact_email %}
-                                                <div class="camp-contactInfo">Email: <a
-                                                        href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a>
-                                                </div>
-                                            {% endif %}
-                                        </li>
-                                        <li>
-                                            {% if camp.contact_facebook %}
-                                                <div class="camp-contactInfo">Facebook: <a
-                                                        href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
-                                                </div>
-                                            {% endif %}
-                                        </li>
-                                        <li>
-                                            {% if camp.contact_phone %}
-                                                <div class="camp-contactInfo">Phone number: <a
-                                                        href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
-                                                </div>
-                                            {% endif %}
-                                        </li>
-                                    </ul>
-                                </div>
-
+                            <!-- Camp Contact Details -->
+                            <div class="camp-contactName">
+                                <i class="fa fa-heart-o"></i> Contact Us
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        {{ camp.contact_name_en }}
+                                    </li>
+                                    <li>
+                                        {% if camp.contact_email %}
+                                            <div class="camp-contactInfo">Email: <a
+                                                    href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a>
+                                            </div>
+                                        {% endif %}
+                                    </li>
+                                    <li>
+                                        {% if camp.contact_facebook %}
+                                            <div class="camp-contactInfo">Facebook: <a
+                                                    href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
+                                            </div>
+                                        {% endif %}
+                                    </li>
+                                    <li>
+                                        {% if camp.contact_phone %}
+                                            <div class="camp-contactInfo">Phone number: <a
+                                                    href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
+                                            </div>
+                                        {% endif %}
+                                    </li>
+                                </ul>
                             </div>
-                        {% endfor %}
-
-                    <div class="clearfix">
-                        <div class="center-block">
-                            <a href="#" data-toggle="collapse" data-target="#campId{{ camp.pk }}"
-                               class="btn btn-default">
-                                Read more
-                            </a>
                         </div>
-                    </div>
 
-                </article>
-            </div>
+                        <div class="clearfix">
+                            <div class="center-block">
+                                <a href="#" data-toggle="collapse" data-target="#campId{{ camp.pk }}"
+                                   class="btn btn-default">
+                                    Read more
+                                </a>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+
+            {% endfor %}
 
         </div>
     </div>
+
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
