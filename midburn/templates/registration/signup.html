@@ -6,14 +6,21 @@
             <form class="input-form" method="post" action="">
                 {% csrf_token %}
                 <p>
+                    {{ form.username.errors }}
+                    <label for="id_camp">Camp login name:</label>
+                    <input id="id_camp" maxlength="254" name="username" type="text" autocomplete="off">
+                </p>
+                <p>
+                    {{ form.email.errors }}
                     <label for="id_email">Email address:</label>
                     <input id="id_email" maxlength="254" name="email" type="email" autocomplete="off">
                 </p>
                 <p>
+                    {{ form.password.errors }}
                     <label for="id_password">Password:</label>
                     <input id="id_password" maxlength="128" name="password" type="password" autocomplete="off" />
                 </p>
-                <input class="btn btn-default" type="submit" value="Create new user account"/>
+                <input class="btn btn-default" type="submit" value="Create new camp account"/>
             </form>
             <div class="u-alignCenter">
                 or <a href="{% url 'login' %}">Log in</a>

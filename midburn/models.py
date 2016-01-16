@@ -16,7 +16,7 @@ class Camp(models.Model):
     camp_desc_en = models.TextField()
     camp_status = models.IntegerField(choices=CAMPSTATUS)
     is_published = models.BooleanField(default=False)
-    contact_email = models.CharField(unique=True, max_length=254, blank=True)
+    contact_email = models.CharField(max_length=254, blank=True)
     contact_facebook = models.CharField(max_length=254, blank=True)
     contact_name_he = models.CharField(max_length=50, blank=True)
     contact_name_en = models.CharField(max_length=50, blank=True)

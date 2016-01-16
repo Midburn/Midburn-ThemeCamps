@@ -23,13 +23,14 @@
                 <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
                     <div class="form-row">
                         {{ form.username.errors }}
-                        <label for="id_username">Username:</label>
+                        <label for="id_username">Camp login name:</label>
                         <input id="id_username" maxlength="254" name="username" type="text" autocomplete="off" />
+                        <p>* May contain only letters, numbers and @/./+/-/_ characters</p>
                     </div>
                     <div class="form-row">
                         {{ form.password.errors }}
                         <label for="id_password">Password:</label>
-                        <input id="id_password" name="password" type="password" autocomplete="off" />
+                        <input id="id_password" name="password" type="text" autocomplete="off" />
                         <input type="hidden" name="next" value="">
                     </div>
 

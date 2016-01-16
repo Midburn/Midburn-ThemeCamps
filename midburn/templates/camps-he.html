@@ -6,7 +6,7 @@
         {% for camp in published_camps %}
             <li class="camp">
                 <div class="camp-name">{{ camp.camp_name_he }}</div>
-                <div class="camp-desc">{{ camp.camp_desc_he }}</div>
+                <div class="camp-desc">{{ camp.camp_desc_he | linebreaks }}</div>
                 <div class="camp-status">{{ camp.status }}</div>
                 <div class="camp-contactName">{{ camp.contact_name_he }}</div>
                 {% if camp.contact_email %}

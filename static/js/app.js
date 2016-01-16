@@ -244,10 +244,6 @@ app.controller('homeCtrl', function ($state, $stateParams, $rootScope, API) {
     ctrl.formData.is_published = ctrl.formData.is_published || false;
     ctrl.campStatuses = [
         {
-            id: -1,
-            title: 'Deleted'
-        },
-        {
             id: 1,
             title: 'Accepting new members'
         },
@@ -273,6 +269,7 @@ app.controller('homeCtrl', function ($state, $stateParams, $rootScope, API) {
         ctrl.formStatus = 'loading';
         function success() {
             ctrl.formStatus = 'success';
+            ctrl.submitText = 'Update';
         }
         function error() {
             ctrl.formStatus = 'error';

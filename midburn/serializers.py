@@ -36,16 +36,14 @@ class WorkshopSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('password', 'email',)
+        fields = ('password', 'email', 'username',)
         write_only_fields = ('password',)
         read_only_fields = ('is_staff', 'is_superuser', 'is_active', 'date_joined',)
 
     def create(self, validated_data):
-        # the email is the username
         user = User(**validated_data)
         # call set_password on user object. Without this the password will be stored in plain text.
         user.set_password(validated_data['password'])
-        user.username = user.email
         user.save()
         return user
 

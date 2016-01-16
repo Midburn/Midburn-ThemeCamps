@@ -41,8 +41,6 @@ class UserView(View):
     def post(self, request, *args, **kwargs):
         form = UserForm(request.POST)
         if form.is_valid():
-            # use email for username
-            form.cleaned_data['username'] = form.cleaned_data['email']
             try:
                 User.objects.create_user(**form.cleaned_data)
                 # login screen
