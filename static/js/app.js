@@ -249,15 +249,15 @@ app.controller('homeCtrl', function ($state, $stateParams, $rootScope, API) {
         },
         {
             id: 1,
-            title: 'Open'
+            title: 'Accepting new members'
         },
         {
             id: 2,
-            title: 'Closed'
+            title: 'Closed to new members'
         },
         {
             id: 3,
-            title: 'Inactive'
+            title: 'Camp will not come to Midburn 2016'
         }
     ];
     ctrl.submitText = campId ? 'Update' : 'Create';
