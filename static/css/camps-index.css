@@ -705,3 +705,7 @@ footer .logo {
         width: 100%;
     }
 }
+
+.transparent {
+    background: transparent;
+}
