@@ -284,7 +284,13 @@
                 <h1 class="entry-title">מחנות נושא</h1>
             </header>
 
-            <iframe src="http://midburn-themecamps.herokuapp.com/published-camps" frameborder="0"></iframe>
+            <style>
+                #themecamps-iframe{
+                    width: 100%;
+                }
+            </style>
+
+            <iframe id="themecamps-iframe" src="http://midburn-themecamps.herokuapp.com/published-camps" frameborder="0" onload="this.width=screen.width;this.height=screen.height;"></iframe>
 
             <footer class="entry-meta">
             </footer><!-- .entry-meta -->
