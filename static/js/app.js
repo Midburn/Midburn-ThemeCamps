@@ -222,8 +222,6 @@ app.factory('API', ['$resource', function($resource) {
     };
 }]);
 app.controller('appCtrl', function (SIDEBAR_ITEMS, $state, CONFIG, $rootScope) {
-    var navbarCampName = "camp name test";
-
     var ctrl = this;
 
     ctrl.sidebarItems = SIDEBAR_ITEMS;
