@@ -10,14 +10,14 @@
 {% block content %}
     <body>
     <!-- Headline intro -->
-    <div class="container align-left">
+    <div class="container">
         <div class="row">
             <div class="panel panel-heading">
                 <h3>
                     Welcome To Midburn 2016 - Theme Camps Index
                 </h3>
                 <hr>
-                <p>
+                <p class="align-left">
                     This page lists registered theme camps for Midburn 2016. The Open Camp sign <span
                         class="camp-icn-1"></span> represents camps with
                     vacancy for more participants.
@@ -45,7 +45,7 @@
                                 <div class="camp-icn">
                                     <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
                                 </div>
-                                
+
                                 <!-- Camp Name -->
                                 <div class="camp-name">
                                     <h3>
@@ -54,7 +54,7 @@
                                 </div>
 
                                 <!-- Camp Description -->
-                                <div class="camp-desc">
+                                <div class="camp-desc align-left">
                                     <p>
                                         {{ camp.camp_desc_en | linebreaks }}
                                     </p>
@@ -70,29 +70,29 @@
                                     <i class="fa fa-heart-o"></i> Contact Us
                                     <ul class="list-group">
                                         <li class="list-group-item">
-                                            {{ camp.contact_name_en }}
+                                           <i class="fa fa-user"></i> {{ camp.contact_name_en }}
                                         </li>
 
                                         {% if camp.contact_email %}
                                             <li class="list-group-item">
                                                 <div class="camp-contactInfo">Email: <a
-                                                        href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a>
+                                                        href="mailto:{{ camp.contact_email }}"><i class="fa fa-envelope"></i> {{ camp.contact_email }}</a>
                                                 </div>
                                             </li>
                                         {% endif %}
-
+                                        {# Contact Facebook #}
                                         {% if camp.contact_facebook %}
                                             <li class="list-group-item">
                                                 <div class="camp-contactInfo">Facebook: <a
-                                                        href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
+                                                        href="{{ camp.contact_facebook }}"><i class="fa fa-facebook-square"></i> {{ camp.contact_facebook }}</a>
                                                 </div>
                                             </li>
                                         {% endif %}
-
+                                        {# Contact Phone #}
                                         {% if camp.contact_phone %}
                                             <li class="list-group-item">
                                                 <div class="camp-contactInfo">Phone number: <a
-                                                        href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
+                                                        href="tel:{{ camp.contact_phone }}"><i class="fa fa-phone-square"></i> {{ camp.contact_phone }}</a>
                                                 </div>
                                             </li>
                                         {% endif %}
