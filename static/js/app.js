@@ -240,8 +240,6 @@ app.controller('homeCtrl', function ($state, $stateParams, $rootScope, API) {
     // set the defaults if camp has not been created yet
     ctrl.formData = {};
     ctrl.formStatus = '';
-    ctrl.formData.camp_status = ctrl.formData.camp_status || 1;
-    ctrl.formData.is_published = ctrl.formData.is_published || false;
     ctrl.campStatuses = [
         {
             id: 1,

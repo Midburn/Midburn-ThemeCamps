@@ -3,15 +3,13 @@
     <div class="form-controls-wrapper">
         <div class="row">
             <div class="col-md-2">Camp Status</div>
-            <div class="col-md-7">
-                <div class="col-md-5">
-                    <select name="camp_status"
-                            id="campStatus"
-                            ng-model="ctrl.formData.camp_status"
-                            required
-                            ng-options="status.id as status.title for status in ctrl.campStatuses">
-                    </select>
-                </div>
+            <div class="col-md-10">
+                <select name="camp_status"
+                        id="campStatus"
+                        ng-model="ctrl.formData.camp_status"
+                        required
+                        ng-options="status.id as status.title for status in ctrl.campStatuses">
+                </select>
             </div>
         </div>
         <div class="row" ng-class="{ 'has-error' : siteContentForm.name.$invalid && !siteContentForm.name.$pristine }">
@@ -123,7 +121,6 @@
                     Phone must be at least 9 digits</p>
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-2">Facebook</div>
 
@@ -132,7 +129,19 @@
                        placeholder="www.facebook.com/your-camp-name"/>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-2">Accepting Families?</div>
+            <div class="col-md-10">
+                <label>
+                    Yes
+                    <input ng-model="ctrl.formData.accepting_families" type="radio" ng-value="true"/>
+                </label>
+                <label>
+                    No
+                    <input ng-model="ctrl.formData.accepting_families" type="radio" ng-value="false"/>
+                </label>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-2">Publish the camp?</div>
             <div class="col-md-10">

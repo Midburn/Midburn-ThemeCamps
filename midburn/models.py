@@ -14,13 +14,14 @@ class Camp(models.Model):
     camp_name_en = models.CharField(max_length=50, unique=True)
     camp_desc_he = models.TextField()
     camp_desc_en = models.TextField()
-    camp_status = models.IntegerField(choices=CAMPSTATUS)
+    camp_status = models.IntegerField(choices=CAMPSTATUS, default=1)
     is_published = models.BooleanField(default=False)
     contact_email = models.CharField(max_length=254, blank=True)
     contact_facebook = models.CharField(max_length=254, blank=True)
     contact_name_he = models.CharField(max_length=50, blank=True)
     contact_name_en = models.CharField(max_length=50, blank=True)
     contact_phone = models.CharField(max_length=50, blank=True)
+    accepting_families = models.BooleanField(default=True)
 
     def get_status(self):
         self.status = CAMPSTATUS[self.camp_status][1]
