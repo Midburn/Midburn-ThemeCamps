@@ -280,6 +280,7 @@ body {
     font-size: 30px;
     line-height: 1;
 }
+
 .icon-loading {
     width: 30px;
     height: 30px;
@@ -289,8 +290,14 @@ body {
 
 /* End - Icons */
 
-.u-red { color: red; }
-.u-green { color: green; }
+.u-red {
+    color: red;
+}
+
+.u-green {
+    color: green;
+}
+
 .text-small {
     font-size: 12px;
 }
@@ -339,6 +346,7 @@ body {
 
 .camp-desc {
     line-height: 20px !important;
+    word-wrap: break-word;
 }
 
 label.status-select {
