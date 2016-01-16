@@ -26,6 +26,8 @@ class Camp(models.Model):
         self.status = CAMPSTATUS[self.camp_status][1]
         return self
 
+    def __str__(self):
+        return self.camp_name_en
 
 CAMPTYPES = (
     (1, 'food'),
@@ -74,6 +76,8 @@ class CampLocation(models.Model):  # Can be part of camp, but for better modular
     # Neighbour Camps
     requested_nearby_camps = models.ManyToManyField(Camp, related_name="requested_nearby_camps")
 
+    def __str__(self):
+        return self.camp.camp_name_en
 
 CAMP_MEMBERSHIP_STATUS = (
     (1, 'not a member'),
