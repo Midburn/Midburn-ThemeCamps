@@ -21,6 +21,10 @@ def index(request):
     context['camps'] = camps
     return render(request, 'index.html', context)
 
+def iframe_test_en(request):
+    context = {}
+    return render(request, 'iframe-test-en.html', context)
+
 def iframe_test(request):
     context = {}
     return render(request, 'iframe-test.html', context)

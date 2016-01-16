@@ -1,29 +1,128 @@
+{# HEBREW THEME CAMPS INDEX PAGE #}
+
 {% extends "base.html" %}
+
+{% block extra_style %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/camps-index.css' %}"/>
+{% endblock %}
 
 {% block content %}
     <body>
-    <ul>
-        {% for camp in published_camps %}
-            <li class="camp">
-                <div class="camp-name">{{ camp.camp_name_he }}</div>
-                <div class="camp-desc">{{ camp.camp_desc_he | linebreaks }}</div>
-                <div class="camp-status">{{ camp.status }}</div>
-                <!-- Accepting families -->
-                <div class="camp-icn">
-                    <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
-                </div>
-                <div class="camp-contactName">{{ camp.contact_name_he }}</div>
-                {% if camp.contact_email %}
-                    <div class="camp-contactInfo">Email: <a href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a></div>
-                {% endif %}
-                {% if camp.contact_facebook %}
-                    <div class="camp-contactInfo">Facebook: <a href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a></div>
-                {% endif %}
-                {% if camp.contact_phone %}
-                    <div class="camp-contactInfo">Phone number: <a href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a></div>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    <!-- Headline intro -->
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-heading">
+                <h3>
+                    Welcome To Midburn 2016 - Theme Camps Index
+                </h3>
+                <hr>
+                <p class="align-left">
+                    This page lists registered theme camps for Midburn 2016. The Open Camp sign <span
+                        class="camp-icn-open"></span> represents camps with
+                    vacancy for more participants.
+                    The names and descriptions where supplied by the camps organizers and are under their
+                    responsibility.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 blog-main">
+
+                {% for camp in published_camps %}
+
+                    <div id="camp-card" class="col-md-6 col-sm-6">
+                        <article class="blog-teaser">
+                            <header>
+                                <!-- Camp Status -->
+                                <div class="camp-icn">
+                                <span class="camp-icn-{{ camp.camp_status }}" title="{{ camp.status }}"
+                                      data-toggle="tooltip"></span>
+                                </div>
+
+                                <!-- Accepting families -->
+                                <div class="camp-icn">
+                                    <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
+                                </div>
+
+                                <!-- Camp Name -->
+                                <div class="camp-name">
+                                    <h3>
+                                        {{ camp.camp_name_en }}
+                                    </h3>
+                                </div>
+
+                                <!-- Camp Description -->
+                                <div class="camp-desc langEnglish">
+                                    {{ camp.camp_desc_en | linebreaks }}
+                                </div>
+                                <hr>
+                            </header>
+
+                            <!-- Camp Full Details (*Collapsed) -->
+                            <div id="campId{{ camp.pk }}" class="body collapse">
+
+                                <!-- Camp Contact Details -->
+                                <div class="camp-contactName">
+                                    <i class="fa fa-heart-o"></i> Contact Us
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <i class="fa fa-user"></i> {{ camp.contact_name_en }}
+                                        </li>
+
+                                        {% if camp.contact_email %}
+                                            <li class="list-group-item">
+                                                <div class="camp-contactInfo"><i class="fa fa-envelope"></i> Email: <a
+                                                        href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                        {# Contact Facebook #}
+                                        {% if camp.contact_facebook %}
+                                            <li class="list-group-item">
+                                                <div class="camp-contactInfo"><i class="fa fa-facebook-square"></i>
+                                                    Facebook: <a
+                                                            href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                        {# Contact Phone #}
+                                        {% if camp.contact_phone %}
+                                            <li class="list-group-item">
+                                                <div class="camp-contactInfo"><i class="fa fa-phone-square"></i> Phone
+                                                    number: <a
+                                                            href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {% if camp.camp_status == 1 %}
+                                <div class="clearfix">
+                                    <div class="center-block">
+                                        <a data-toggle="collapse" data-target="#campId{{ camp.pk }}"
+                                           class="btn btn-default">
+                                            Contact Us
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        </article>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
     </body>
 {% endblock %}
