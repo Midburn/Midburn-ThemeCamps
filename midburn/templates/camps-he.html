@@ -13,17 +13,11 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-heading">
-                <h3>
-                    Welcome To Midburn 2016 - Theme Camps Index
+                <h3 class="align-right">
+                    בעמוד זה תוכלו למצוא את רשימת המחנות שהשתתפו באירוע מידברן 2015. תיאורי המחנות הועברו על-ידי מארגני
+                    המחנות לפני האירוע והם באחריותם.
+                    <span class="camp-icn-open hidden"></span>
                 </h3>
-                <hr>
-                <p class="align-left">
-                    This page lists registered theme camps for Midburn 2016. The Open Camp sign <span
-                        class="camp-icn-open"></span> represents camps with
-                    vacancy for more participants.
-                    The names and descriptions where supplied by the camps organizers and are under their
-                    responsibility.
-                </p>
             </div>
         </div>
 
@@ -37,8 +31,7 @@
                             <header>
                                 <!-- Camp Status -->
                                 <div class="camp-icn">
-                                <span class="camp-icn-{{ camp.camp_status }}" title="{{ camp.status }}"
-                                      data-toggle="tooltip"></span>
+                                    <span class="camp-icn-{{ camp.camp_status }}"></span>
                                 </div>
 
                                 <!-- Accepting families -->
@@ -49,13 +42,13 @@
                                 <!-- Camp Name -->
                                 <div class="camp-name">
                                     <h3>
-                                        {{ camp.camp_name_en }}
+                                        {{ camp.camp_name_he }}
                                     </h3>
                                 </div>
 
                                 <!-- Camp Description -->
-                                <div class="camp-desc langEnglish">
-                                    {{ camp.camp_desc_en | linebreaks }}
+                                <div class="camp-desc langHebrew">
+                                    {{ camp.camp_desc_he | linebreaks }}
                                 </div>
                                 <hr>
                             </header>
@@ -68,7 +61,7 @@
                                     <i class="fa fa-heart-o"></i> Contact Us
                                     <ul class="list-group">
                                         <li class="list-group-item">
-                                            <i class="fa fa-user"></i> {{ camp.contact_name_en }}
+                                            <i class="fa fa-user"></i> {{ camp.contact_name_he }}
                                         </li>
 
                                         {% if camp.contact_email %}

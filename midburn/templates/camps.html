@@ -13,17 +13,13 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-heading">
-                <h3>
-                    Welcome To Midburn 2016 - Theme Camps Index
-                </h3>
-                <hr>
-                <p class="align-left">
+                <h3 class="align-left">
                     This page lists registered theme camps for Midburn 2016. The Open Camp sign <span
                         class="camp-icn-open"></span> represents camps with
                     vacancy for more participants.
                     The names and descriptions where supplied by the camps organizers and are under their
                     responsibility.
-                </p>
+                </h3>
             </div>
         </div>
 
@@ -35,22 +31,20 @@
                     <div id="camp-card" class="col-md-6 col-sm-6">
                         <article class="blog-teaser">
                             <header>
-                                <!-- Camp Status -->
-                                <div class="camp-icn">
-                                <span class="camp-icn-{{ camp.camp_status }}" title="{{ camp.status }}"
-                                      data-toggle="tooltip"></span>
-                                </div>
-
-                                <!-- Accepting families -->
-                                <div class="camp-icn">
-                                    <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
-                                </div>
-
                                 <!-- Camp Name -->
                                 <div class="camp-name">
                                     <h3>
                                         {{ camp.camp_name_en }}
                                     </h3>
+                                </div>
+
+                                <!-- Camp Icons -->
+                                <div class="camp-icn">
+                                    <!-- Camp Status -->
+                                    <span class="camp-icn-{{ camp.camp_status }}"></span>
+
+                                    <!-- Accepting families -->
+                                    <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
                                 </div>
 
                                 <!-- Camp Description -->
@@ -82,8 +76,7 @@
                                         {% if camp.contact_facebook %}
                                             <li class="list-group-item">
                                                 <div class="camp-contactInfo"><i class="fa fa-facebook-square"></i>
-                                                    Facebook: <a
-                                                            href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
+                                                    <a href="{{ camp.contact_facebook }}">Facebook</a>
                                                 </div>
                                             </li>
                                         {% endif %}
@@ -119,10 +112,6 @@
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
+
     </body>
 {% endblock %}
