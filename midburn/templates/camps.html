@@ -55,7 +55,7 @@
 
                                 <!-- Camp Description -->
                                 <div class="camp-desc langEnglish">
-                                        {{ camp.camp_desc_en | linebreaks }}
+                                    {{ camp.camp_desc_en | linebreaks }}
                                 </div>
                                 <hr>
                             </header>
@@ -68,7 +68,7 @@
                                     <i class="fa fa-heart-o"></i> Contact Us
                                     <ul class="list-group">
                                         <li class="list-group-item">
-                                           <i class="fa fa-user"></i> {{ camp.contact_name_en }}
+                                            <i class="fa fa-user"></i> {{ camp.contact_name_en }}
                                         </li>
 
                                         {% if camp.contact_email %}
@@ -81,16 +81,18 @@
                                         {# Contact Facebook #}
                                         {% if camp.contact_facebook %}
                                             <li class="list-group-item">
-                                                <div class="camp-contactInfo"><i class="fa fa-facebook-square"></i> Facebook: <a
-                                                        href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
+                                                <div class="camp-contactInfo"><i class="fa fa-facebook-square"></i>
+                                                    Facebook: <a
+                                                            href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
                                                 </div>
                                             </li>
                                         {% endif %}
                                         {# Contact Phone #}
                                         {% if camp.contact_phone %}
                                             <li class="list-group-item">
-                                                <div class="camp-contactInfo"><i class="fa fa-phone-square"></i> Phone number: <a
-                                                        href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
+                                                <div class="camp-contactInfo"><i class="fa fa-phone-square"></i> Phone
+                                                    number: <a
+                                                            href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
                                                 </div>
                                             </li>
                                         {% endif %}
@@ -98,14 +100,16 @@
                                 </div>
                             </div>
 
-                            <div class="clearfix">
-                                <div class="center-block">
-                                    <a href="#" data-toggle="collapse" data-target="#campId{{ camp.pk }}"
-                                       class="btn btn-default">
-                                        Contact Us
-                                    </a>
+                            {% if camp.camp_status == 1 %}
+                                <div class="clearfix">
+                                    <div class="center-block">
+                                        <a href="#" data-toggle="collapse" data-target="#campId{{ camp.pk }}"
+                                           class="btn btn-default">
+                                            Contact Us
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
+                            {% endif %}
 
                         </article>
                     </div>
