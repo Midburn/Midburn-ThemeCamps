@@ -113,7 +113,7 @@ app.constant('SIDEBAR_ITEMS', [
         state: 'home',
         items: [
             {
-                name: 'General',
+                name: 'Camp Details',
                 childState: 'home.siteContent'
             }
         ]
