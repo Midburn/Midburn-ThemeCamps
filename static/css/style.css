@@ -346,7 +346,7 @@ body {
 
 .camp-desc {
     line-height: 20px !important;
-    word-wrap: break-word;
+    /*word-wrap: break-word;*/
 }
 
 label.status-select {
