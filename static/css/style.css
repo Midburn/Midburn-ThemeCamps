@@ -561,3 +561,8 @@ input#id_password, input#id_email {
 }
 
 /*END - Sign in forms style*/
+
+.help-panel-wrapper ul
+{
+    list-style-type: none;
+}
