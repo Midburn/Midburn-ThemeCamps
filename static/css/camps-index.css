@@ -12,10 +12,6 @@ body {
     font-family: 'Alef', 'Lato', sans-serif !important;
     color: #404b55;
     background-color: #feffff;
-    background-image: url(bg_2015_2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 a {
