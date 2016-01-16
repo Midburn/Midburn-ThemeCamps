@@ -85,10 +85,6 @@ hr {
     padding-bottom: 20px;
 }
 
-#camp-card {
-    min-height: 220px;
-}
-
 @media (min-width: 768px) and (max-width: 979px) {
     .blog-main:before {
         display: none;
@@ -97,7 +93,6 @@ hr {
 
 /* The blog main page boxes */
 .blog-teaser {
-    min-height: 220px;
     background-color: #ececec;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -578,11 +573,13 @@ aside.comments .comment .body {
 .camp-icn-open {
     display: inline-block;
     width: 32px;
-    height: 32px;
+    height: 40px;
     max-width: 32px;
-    max-height: 32px;
+    max-height: 40px;
     background-image: url(camp-tent.png);
     background-repeat: no-repeat;
+    background-position: center 2px;
+    background-size: 95%;
 }
 
 /*
