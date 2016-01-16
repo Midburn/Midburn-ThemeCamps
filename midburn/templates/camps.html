@@ -57,27 +57,30 @@
                                     <li class="list-group-item">
                                         {{ camp.contact_name_en }}
                                     </li>
-                                    <li>
-                                        {% if camp.contact_email %}
+
+                                    {% if camp.contact_email %}
+                                        <li class="list-group-item">
                                             <div class="camp-contactInfo">Email: <a
                                                     href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a>
                                             </div>
-                                        {% endif %}
-                                    </li>
-                                    <li>
-                                        {% if camp.contact_facebook %}
+                                        </li>
+                                    {% endif %}
+
+                                    {% if camp.contact_facebook %}
+                                        <li class="list-group-item">
                                             <div class="camp-contactInfo">Facebook: <a
                                                     href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
                                             </div>
-                                        {% endif %}
-                                    </li>
-                                    <li>
-                                        {% if camp.contact_phone %}
+                                        </li>
+                                    {% endif %}
+
+                                    {% if camp.contact_phone %}
+                                        <li class="list-group-item">
                                             <div class="camp-contactInfo">Phone number: <a
                                                     href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
                                             </div>
-                                        {% endif %}
-                                    </li>
+                                        </li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
