@@ -37,7 +37,7 @@
                             <header>
                                 <!-- Camp Status -->
                                 <div class="camp-icn">
-                                <span class="camp-icn-{{ camp.camp_status }}" tooltip="{{ camp.status }}"
+                                <span class="camp-icn-{{ camp.camp_status }}" title="{{ camp.status }}"
                                       data-toggle="tooltip"></span>
                                 </div>
 
@@ -54,10 +54,8 @@
                                 </div>
 
                                 <!-- Camp Description -->
-                                <div class="camp-desc align-left">
-                                    <p>
+                                <div class="camp-desc langEnglish">
                                         {{ camp.camp_desc_en | linebreaks }}
-                                    </p>
                                 </div>
                                 <hr>
                             </header>
@@ -75,24 +73,24 @@
 
                                         {% if camp.contact_email %}
                                             <li class="list-group-item">
-                                                <div class="camp-contactInfo">Email: <a
-                                                        href="mailto:{{ camp.contact_email }}"><i class="fa fa-envelope"></i> {{ camp.contact_email }}</a>
+                                                <div class="camp-contactInfo"><i class="fa fa-envelope"></i> Email: <a
+                                                        href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a>
                                                 </div>
                                             </li>
                                         {% endif %}
                                         {# Contact Facebook #}
                                         {% if camp.contact_facebook %}
                                             <li class="list-group-item">
-                                                <div class="camp-contactInfo">Facebook: <a
-                                                        href="{{ camp.contact_facebook }}"><i class="fa fa-facebook-square"></i> {{ camp.contact_facebook }}</a>
+                                                <div class="camp-contactInfo"><i class="fa fa-facebook-square"></i> Facebook: <a
+                                                        href="{{ camp.contact_facebook }}">{{ camp.contact_facebook }}</a>
                                                 </div>
                                             </li>
                                         {% endif %}
                                         {# Contact Phone #}
                                         {% if camp.contact_phone %}
                                             <li class="list-group-item">
-                                                <div class="camp-contactInfo">Phone number: <a
-                                                        href="tel:{{ camp.contact_phone }}"><i class="fa fa-phone-square"></i> {{ camp.contact_phone }}</a>
+                                                <div class="camp-contactInfo"><i class="fa fa-phone-square"></i> Phone number: <a
+                                                        href="tel:{{ camp.contact_phone }}">{{ camp.contact_phone }}</a>
                                                 </div>
                                             </li>
                                         {% endif %}
