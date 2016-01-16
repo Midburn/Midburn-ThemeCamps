@@ -41,7 +41,9 @@
                                 <!-- Camp Icons -->
                                 <div class="camp-icn">
                                     <!-- Camp Status VAR: camp.camp_status -->
-                                    <span class="camp-icn-open"></span>
+                                    {% if camp.camp_status == 1 %}
+                                        <span class="camp-icn-open"></span>
+                                    {% endif %}
 
                                     <!-- Accepting families -->
                                     <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
