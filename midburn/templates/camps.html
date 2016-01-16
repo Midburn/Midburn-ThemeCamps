@@ -41,7 +41,7 @@
                                 <!-- Camp Icons -->
                                 <div class="camp-icn">
                                     <!-- Camp Status VAR: camp.camp_status -->
-                                    <span class="camp-icn-open">OPEN</span>
+                                    <span class="camp-icn-open"></span>
 
                                     <!-- Accepting families -->
                                     <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
@@ -49,7 +49,7 @@
 
                                 <!-- Camp Description -->
                                 <div class="camp-desc langEnglish">
-                                    {{ camp.camp_desc_en | linebreaks | truncatechars:100 }}
+                                    {{ camp.camp_desc_en | linebreaks }}
                                 </div>
                                 <hr>
                             </header>
