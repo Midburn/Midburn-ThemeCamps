@@ -695,3 +695,9 @@ footer .logo {
 .camp-contact-details ul li {
     word-wrap: break-word;
 }
+
+@media (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
