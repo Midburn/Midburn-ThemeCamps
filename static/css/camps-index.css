@@ -11,7 +11,7 @@ body {
     line-height: 27px;
     font-family: 'Alef', 'Lato', sans-serif !important;
     color: #404b55;
-    background-color: #feffff;
+    background-color: transparent;
 }
 
 a {
