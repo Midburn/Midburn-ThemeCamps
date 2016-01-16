@@ -576,7 +576,8 @@ aside.comments .comment .body {
     height: 32px;
     max-width: 32px;
     max-height: 32px;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACMElEQVRYR+2WgS2EQRCF31WAClABKkAHrgJUgApQASpABXTgVIAKuApQAfku+y777+3u7UUuF8lN8ueS29mZN2/ezP/3tGDrLTi/lgD+LQMbktYL+vmW9NqqrVkZOA3BPyS9V5LstIKYBcBqSPolaVPShaTzAggYAMRUmwXAtaSTEPFM0p0kmFgpZLkMIKsgWgHQ85hys3Ag6baQAR9YAGTRWgEMJO0mUW4koYncmV052/8rAJJcFYKgBdh5qiQ5Du3KutQYgF4Sk+A+3D5MojxK6ocE6Zld3S5+JywHYC+om9/nICRUjQaYhNSgmD7jUxKkgVYBbIeKSfwW9ZdLjBz/pzrgzCNXG0v8AIomOgYDUMw8H0kahmSMmM3zTy8fCr3mjCoBU9qQsMRUdFoBAC5tSbKq0xxUBjiA/hQAOHhtLLk6kQMAVEiAzwxCV+/FUwJAcC+e2lji11nTFiH9fwk9iuc2rp7LNQBePIAmVsk6azqeAovIYnH1VMYangaAc8aVdqGh0ljiB6OjmDEAtwIK6SWAWEL03sKpMeCKKYAqa++J8ZpOAXjW2XDQiGgAYmsB4PU7bSxHfrkWkAz0a0n1LS0wULYjY0mc0lji2zcA9zvedO5nLKYWBlwALNLK0u7Ab2gAOdEQIH2VtgKojSWfbLDDM/AmTD+vctXP0gJ8/RJCxKNkUeIxq15E7IHYUHHu7UUwnlYrxekAaA02F7/WL6K5JE8X0dyS1AIvGfgFtwyFYW4bi2cAAAAASUVORK5CYII=');
+    background-image: url(camp-tent.png);
+    background-repeat: no-repeat;
 }
 
 /*
@@ -585,14 +586,16 @@ CAMP STATUS INDICATION
     (1, 'Accepting new members'),
     (2, 'Closed to new members'),
 */
-.camp-icn-1 {
-    display: inline-block;
-    width: 37px;
-    height: 37px;
-    max-width: 37px;
-    max-height: 37px;
-    background-image: url(camp-tent.png);
-}
+
+/*.camp-icn-1 {*/
+    /*display: inline-block;*/
+    /*width: 37px;*/
+    /*height: 37px;*/
+    /*max-width: 37px;*/
+    /*max-height: 37px;*/
+    /*background-image: url(camp-tent.png);*/
+    /*background-repeat: no-repeat;*/
+/*}*/
 
 /*.camp-icn-2 {*/
     /*display: inline-block;*/
@@ -612,6 +615,7 @@ CAMP STATUS INDICATION
     max-width: 37px;
     max-height: 37px;
     background-image: url(child-safe-clean.jpg);
+    background-repeat: no-repeat;
 }
 
 .camp-icn-border
