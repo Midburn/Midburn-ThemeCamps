@@ -676,11 +676,11 @@ footer .logo {
 
 /* Footer */
 
-.langEnglish p {
+.langEnglish, .langEnglish p {
     text-align: left;
 }
 
-.langHebrew p {
+.langHebrew, .langHebrew p {
     text-align: right;
 }
 
