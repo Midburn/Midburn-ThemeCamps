@@ -588,6 +588,7 @@ CAMP STATUS INDICATION
     (2, 'Closed to new members'),
 */
 .camp-icn-1 {
+    display: inline-block;
     width: 32px;
     height: 32px;
     max-width: 32px;
@@ -596,6 +597,7 @@ CAMP STATUS INDICATION
 }
 
 .camp-icn-2 {
+    display: inline-block;
     width: 32px;
     height: 32px;
     max-width: 32px;
