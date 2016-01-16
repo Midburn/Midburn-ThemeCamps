@@ -8,6 +8,10 @@
                 <div class="camp-name">{{ camp.camp_name_he }}</div>
                 <div class="camp-desc">{{ camp.camp_desc_he | linebreaks }}</div>
                 <div class="camp-status">{{ camp.status }}</div>
+                <!-- Accepting families -->
+                <div class="camp-icn">
+                    <span class="camp-icn-families-{{ camp.accepting_families }}"></span>
+                </div>
                 <div class="camp-contactName">{{ camp.contact_name_he }}</div>
                 {% if camp.contact_email %}
                     <div class="camp-contactInfo">Email: <a href="mailto:{{ camp.contact_email }}">{{ camp.contact_email }}</a></div>
