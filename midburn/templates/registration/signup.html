@@ -3,6 +3,22 @@
 {% block content %}
     <div class="container">
         <div class="row">
+            {% if form.errors and not form.non_field_errors %}
+                <p class="errornote">
+                    {% if form.errors.items|length == 1 %}
+                        Please correct the error below.
+                    {% else %}
+                        Please correct the errors below.
+                    {% endif %}
+                </p>
+            {% endif %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="errornote">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            {% endif %}
             <form class="input-form" method="post" action="">
                 {% csrf_token %}
                 <p>

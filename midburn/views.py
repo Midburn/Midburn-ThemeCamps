@@ -47,7 +47,7 @@ class UserView(View):
         return render(request, 'registration/signup.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
-        form = UserForm(request.POST)
+        form = UserForm(request.POST or None)
         if form.is_valid():
             try:
                 User.objects.create_user(**form.cleaned_data)
@@ -55,8 +55,8 @@ class UserView(View):
                 return HttpResponseRedirect('/')
             except IntegrityError:
                 messages.info(request, "This user already exists.")
-                # TODO pass error message to form
-                return HttpResponseRedirect('/user')
+                return render(request, 'registration/signup.html', {'form': form})
+        return render(request, 'registration/signup.html', {'form': form})
 
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
