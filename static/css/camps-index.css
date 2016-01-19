@@ -76,6 +76,11 @@ hr {
     padding-left: 0;
 }
 
+.container {
+    padding-right: 0;
+    padding-left: 0;
+}
+
 @media (max-width: 767px) {
     .blog-main:before {
         display: none;
