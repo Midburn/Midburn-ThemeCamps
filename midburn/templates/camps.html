@@ -1,28 +1,98 @@
-{# ENGLISH THEME CAMPS INDEX PAGE #}
+{# HEBREW THEME CAMPS INDEX PAGE #}
 
-{#{% extends "base.html" %}#}
+{% extends "base.html" %}
 
-{#{% block extra_style %}#}
-{#    {% load staticfiles %}#}
-{#    <link rel="stylesheet" type="text/css" href="{% static 'css/camps-index.css' %}"/>#}
-{#{% endblock %}#}
+{% block extra_style %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/camps-index.css' %}"/>
+{% endblock %}
 
 {% block content %}
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!--    Stylesheet -->
-        <link rel="stylesheet" type="text/css"
-              href="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css"
-              href="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/css/camps-index.css">
-
-        <!--    jQuery & Bootstrap implement -->
-        <script src="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/js/jquery-2.1.4.min.js"></script>
-        <script src="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/js/bootstrap.min.js"></script>
 
         <style>
+            body {
+                background-image: url('http://midburn.org/wp-content/uploads/2014/12/Background_Map.jpg');
+                background-repeat: no-repeat;
+                background-position: top center;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+            #logo, .border-side-bar {
+                width: 200px;
+                background: #fff;
+                border-radius: 7px;
+                margin-top: 20px;
+                border: #000;
+                border-width: 2.5px;
+                border-style: solid;
+            }
+
+            #logo a, .inner-border-side-bar {
+                margin: 6px;
+                border: 1px solid #000;
+                border-radius: 7px;
+                display: inline-block;
+                width: 184px;
+            }
+
+            .border-side-bar a {
+                color: #000000;
+            }
+
+            .border-side-bar a {
+                color: #000000;
+            }
+
+            .redButton:hover {
+                background-color: #EE0000 !important;
+                color: #FFFFFF !important;
+                -moz-box-shadow: 1px 1px 10px 0px #f50031;
+                -webkit-box-shadow: 1px 1px 1px 0px #F50031;
+                box-shadow: 1px 1px 10px 0px #F50031;
+            }
+
+            .redButton {
+                margin-top: 0px;
+                margin-bottom: 10px;
+                margin-right: 16px;
+                margin-left: 16px;
+                background-color: #F10;
+                -moz-border-radius: 11px;
+                -webkit-border-radius: 11px;
+                border-radius: 8px;
+                border: 2px solid #FF0040;
+                display: inline-block;
+                cursor: pointer;
+                color: #FFFFFF !important;
+                font-size: 25px;
+                font-family: 'Open Sans Hebrew', arial;
+                font-weight: bold;
+                padding: 5px 10px;
+                text-decoration: none;
+                text-shadow: 0px 2px 0px #000;
+                text-align: center !important;
+                -webkit-transition: all .1s ease;
+                -moz-transition: all .1s ease;
+                -ms-transition: all .1s ease;
+                -o-transition: all .1s ease;
+                transition: all .1s ease;
+            }
+
+            #nav_menu-5 {
+                padding-top: 13px;
+            }
+
+            .border-side-bar ul li {
+                list-style: none;
+            }
+
+            .logo-wrapper {
+                float: left;
+                width: 220px;
+            }
+
             a#show-more-btn {
                 display: block;
                 margin: 10px auto;
@@ -33,25 +103,115 @@
                 line-height: 25px;
                 width: 20%;
             }
+
+            h3 {
+                font-family: 'Open Sans Hebrew', arial, sans-serif;
+                font-weight: 400;
+                color: #3c3839;
+                line-height: 1.5em;
+            }
         </style>
     </head>
 
     <body>
     <!-- Headline intro -->
     <div class="container">
-        <div class="row">
-            <div class="panel panel-heading transparent" id="page-description">
-                <h2>This page lists registered theme camps for Midburn 2016.</h2>
+
+        <!-- Sidebar -->
+        <div class="row col-md-3 logo-wrapper">
+            <div id="logo">
+                <a href="http://midburn.org/he" title="מידברן )'( Midburn"><img alt="מידברן, 8-12 ביוני 2016, התעלות"
+                                                                                src="http://midburn.org/wp-content/uploads/2014/12/Logo_Abra_Heb1.png"></a>
+            </div>
+
+            <div class="border-side-bar">
+                <div class="inner-border-side-bar">
+                    <div id="nav_menu-3" class="widget widget_nav_menu">
+                        <div class="menu-main-menu-container">
+                            <ul id="menu-main-menu" class="menu">
+                                <li id="menu-item-749"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-749"><a
+                                        href="http://midburn.org/en-event/">The Event</a></li>
+                                <li id="menu-item-2181"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2181"><a
+                                        href="http://midburn.org/en-community/">The Community</a></li>
+                                <li id="menu-item-2182"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2182"><a
+                                        href="http://midburn.org/en-ten-principles/">The Ten Principles</a></li>
+                                <li id="menu-item-1083"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1083"><a
+                                        href="http://midburn.org/en-survival-guide/">Survival Guide</a></li>
+                                <li id="menu-item-2179"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2179"><a
+                                        href="http://midburn.org/en-art/">Art</a></li>
+                                <li id="menu-item-2180"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2180"><a
+                                        href="http://midburn.org/en-camps/">Theme Camps</a></li>
+                                <li id="menu-item-3009"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3009"><a
+                                        href="http://midburn.org/en-volunteering/">Volunteering</a></li>
+                                <li id="menu-item-4112"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4112"><a
+                                        href="http://midburn.org/en-blog/">Blog</a></li>
+                                <li id="menu-item-2368"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2368"><a
+                                        href="http://midburn.org/en-past-events/">Past Events</a></li>
+                                <li id="menu-item-1180"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1180"><a
+                                        href="http://midburn.org/en-faq/">FAQ</a></li>
+                                <li id="menu-item-747"
+                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-747"><a
+                                        href="http://midburn.org/en-contact-us/">Contact us</a></li>
+                            </ul>
+                        </div>
+                        <div class="tiny-bar"><span><!-- --></span></div>
+                    </div>
+                    <div id="text-4" class="widget widget_text">
+                        <div class="textwidget">
+                            <div class="midburn_menu"><a href="http://midburn.org/en-tickets"
+                                                         class="redButton">Tickets</a></div>
+                        </div>
+                        <div class="tiny-bar"><span><!-- --></span></div>
+                    </div>
+                    <div id="polylang-2" class="widget widget_polylang">
+                        <ul>
+                            <li class="lang-item lang-item-20 lang-item-he"><a hreflang="he"
+                                                                               href="http://midburn.org/he-camps-2016/"><img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFBSURBVHjaYnz58iUDEvgHBnAGEPz58wfIBZIQLkAAMbK7v5yUJwYU+vsfCBj+/gMqBZL///79D2T/+fv/D5D9B8j+/+fP/+70GwABxAi0QUxMDKQWDCCM/9gAIyPjtWvXAAKIBa4IWXXfkv///v8vjELRAHEnQACxQFwMVf2fYf7W/zce/+dn/S/B9D9v4n81mf+ZAQgNQJ8ABBATXDVY7H+A9f8/v//nhP338/v/+/f/GGcUK4CmAwQQExDDVQPByv3/f//5v2HD/96l/3///T93G5L6/0B//wEIIBa4Bog9KX4gduec/1ys/2cUg8IKWRaoGCCAoH5AC5zSJHjIIDRAPA0QQCzyLv9aGoGBzQAMbCAJjKU/fxn+/mUEkiDBv6CYAXKB8fDvP8OKmn8AAcR4+/Zt5IjEZCADoEqAAAMAKQh5Em/pfi4AAAAASUVORK5CYII="
+                                    title="עברית" alt="עברית">&nbsp;עברית</a></li>
+                            <li class="lang-item lang-item-18 lang-item-en current-lang"><a hreflang="en"
+                                                                                            href="http://midburn.org/en-camps-2016/"><img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHzSURBVHjaYkxOP8IAB//+Mfz7w8Dwi4HhP5CcJb/n/7evb16/APL/gRFQDiAAw3JuAgAIBEDQ/iswEERjGzBQLEru97ll0g0+3HvqMn1SpqlqGsZMsZsIe0SICA5gt5a/AGIEarCPtFh+6N/ffwxA9OvP/7//QYwff/6fZahmePeB4dNHhi+fGb59Y4zyvHHmCEAAAW3YDzQYaJJ93a+vX79aVf58//69fvEPlpIfnz59+vDhw7t37968efP3b/SXL59OnjwIEEAsDP+YgY53b2b89++/awvLn98MDi2cVxl+/vl6mituCtBghi9f/v/48e/XL86krj9XzwEEEENy8g6gu22rfn78+NGs5Ofr16+ZC58+fvyYwX8rxOxXr169fPny+fPn1//93bJlBUAAsQADZMEBxj9/GBxb2P/9+S/R8u3vzxuyaX8ZHv3j8/YGms3w8ycQARmi2eE37t4ACCDGR4/uSkrKAS35B3TT////wADOgLOBIaXIyjBlwxKAAGKRXjCB0SOEaeu+/y9fMnz4AHQxCP348R/o+l+//sMZQBNLEvif3AcIIMZbty7Ly6t9ZmXl+fXj/38GoHH/UcGfP79//BBiYHjy9+8/oUkNAAHEwt1V/vI/KBY/QSISFqM/GBg+MzB8A6PfYC5EFiDAABqgW776MP0rAAAAAElFTkSuQmCC"
+                                    title="English" alt="English">&nbsp;English</a></li>
+                        </ul>
+                        <div class="tiny-bar"><span><!-- --></span></div>
+                    </div>
+                    <div id="text-5" class="widget widget_text">
+                        <div class="textwidget"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Headline -->
+        <div class="row col-md-10">
+            <div class="panel panel-heading transparent">
+                <h1 style="font-family: 'Open Sans Hebrew',arial, sans-serif;">MIDBURN 2016 – LIST OF THEME CAMPS</h1>
+                <h2>This page lists registered theme camps for Midburn 2016.
+                    <br>
+                    The names and descriptions where supplied by the camps organizers and are under their
+                    responsibility.</h2>
                 <h3 class="align-left">
                     The Open Camp sign <span class="camp-icn-open camp-icn-example"></span> represents camps with
-                    vacancy for more participants.
-                    The names and descriptions where supplied by the camps organizers and are under their
-                    responsibility.
+                    vacancy for more participants.<br>
+                    The <span class="camp-icn-families-True camp-icn-example"></span> sign represents camps that accept
+                    families.
                 </h3>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row col-md-10">
             <div class="col-md-12 blog-main">
 
                 {% for camp in published_camps %}
@@ -142,7 +302,6 @@
             </div>
         </div>
     </div>
-    <script src="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/js/jquery-truncate-devel.js"></script>
     <script>
         $(function () {
             // Show more function.
