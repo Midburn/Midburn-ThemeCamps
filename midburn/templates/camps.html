@@ -1,6 +1,6 @@
 {# ENGLISH THEME CAMPS INDEX PAGE #}
 
-{% extends "base.html" %}
+{#{% extends "base.html" %}#}
 
 {#{% block extra_style %}#}
 {#    {% load staticfiles %}#}
@@ -13,12 +13,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!--    Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="//midburn-themecamps.herokuapp.com/static/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="//midburn-themecamps.herokuapp.com/static/css/camps-index.css">
+        <link rel="stylesheet" type="text/css" href="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/css/camps-index.css">
 
         <!--    jQuery & Bootstrap implement -->
-        <script src="//midburn-themecamps.herokuapp.com/static/js/jquery-2.1.4.min.js"></script>
-        <script src="//midburn-themecamps.herokuapp.com/static/js/bootstrap.min.js"></script>
+        <script src="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/js/jquery-2.1.4.min.js"></script>
+        <script src="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/js/bootstrap.min.js"></script>
     </head>
 
     <body>
@@ -127,9 +127,10 @@
             </div>
         </div>
     </div>
-    <script src="//midburn-themecamps.herokuapp.com/static/js/jquery-truncate-devel.js"></script>
+    <script src="https://crossorigin.me/http://midburn-themecamps.herokuapp.com/static/js/jquery-truncate-devel.js"></script>
     <script>
         $(function () {
+            // Show more function.
             $('.camp-desc').collapser({
                 mode: 'lines',
                 truncate: 3
