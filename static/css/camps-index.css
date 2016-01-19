@@ -721,3 +721,15 @@ footer .logo {
 #page-description {
     display: none;
 }
+
+/* Show more button */
+a#show-more-btn {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    height: 25px;
+    line-height: 25px;
+    width: 20%;
+}
