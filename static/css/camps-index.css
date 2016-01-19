@@ -13,6 +13,11 @@ body {
     background-color: transparent;
 }
 
+.container
+{
+    max-width: 960px;
+}
+
 a {
     color: #fff;
 }
@@ -688,6 +693,7 @@ footer .logo {
 
 .langHebrew, .langHebrew p {
     text-align: right;
+    direction: rtl;
 }
 
 .blog-main:after {
