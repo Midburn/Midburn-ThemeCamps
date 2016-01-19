@@ -49,7 +49,7 @@
 			// Shorthand variables
 			s.mode = s.o.mode;
 			s.remaining = {};
-			s.ctrlHtml = ' <a href="#" data-ctrl class="' + ( !$.isFunction(s.o.controlBtn) ? s.o.controlBtn : '' ) + '"></a>';
+			s.ctrlHtml = ' <a id="show-more-btn" href="#" data-ctrl class="' + ( !$.isFunction(s.o.controlBtn) ? s.o.controlBtn : '' ) + '"></a>';
 
 			$( s.e ).each(function(){
 

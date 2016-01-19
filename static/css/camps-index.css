@@ -72,17 +72,14 @@ hr {
 /* Blog styles */
 .blog-main {
     position: relative;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 @media (max-width: 767px) {
     .blog-main:before {
         display: none;
     }
-}
-
-.blog-main {
-    padding-top: 36px;
-    padding-bottom: 20px;
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
