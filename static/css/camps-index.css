@@ -16,6 +16,8 @@ body {
 .container
 {
     max-width: 960px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 a {
