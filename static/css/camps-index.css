@@ -711,3 +711,10 @@ footer .logo {
 .transparent {
     background: transparent;
 }
+
+/* Hides page description
+  the content of this panel is included inside midburn.org page already.
+*/
+#page-description {
+    display: none;
+}
