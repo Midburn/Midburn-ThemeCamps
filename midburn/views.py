@@ -31,13 +31,13 @@ def iframe_test(request):
 
 def published_camps(request):
     context = {}
-    camps = Camp.objects.filter(is_published=True)
+    camps = Camp.objects.filter(is_published=True).order_by('camp_name_en')
     context['published_camps'] = [camp.get_status() for camp in camps]
     return render(request, 'camps.html', context)
 
 def published_camps_he(request):
     context = {}
-    camps = Camp.objects.filter(is_published=True)
+    camps = Camp.objects.filter(is_published=True).order_by('camp_name_he')
     context['published_camps'] = [camp.get_status() for camp in camps]
     return render(request, 'camps-he.html', context)
 
