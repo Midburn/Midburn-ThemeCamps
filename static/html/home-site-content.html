@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="row" ng-class="{ 'has-error' : siteContentForm.name.$invalid && !siteContentForm.name.$pristine }">
-            <div class="col-md-2 lblLarge">Camp Name <i class="fi-asterisk text-danger"></i></div>
+            <div class="col-md-2 lblLarge"><i class="fi-asterisk text-danger"></i> Camp Name</div>
 
             <div class="col-md-10">
 
@@ -21,37 +21,31 @@
                     <div class="flagIcon flagIconEnglish"></div>
                     <div class="text-center text-small">This column in English</div>
                     <input type="text" name="camp_name_en"
-                           class="form-control ng-dirty ng-invalid ng-invalid-minlength"
-                           ng-model="ctrl.formData.camp_name_en"
-                           ng-minlength="4" placeholder="English Camp Description" required/>
+                           class="form-control ng-dirty ng-invalid"
+                           ng-model="ctrl.formData.camp_name_en" placeholder="English Camp Name" required/>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="flagIcon flagIconHebrew"></div>
                     <div class="text-center text-small">This column in Hebrew</div>
                     <input type="text" name="camp_name_he"
-                           class="form-control langHebrew ng-dirty ng-invalid ng-invalid-minlength"
-                           ng-model="ctrl.formData.camp_name_he"
-                           ng-minlength="4" placeholder="Hebrew Camp Description" required/>
+                           class="form-control langHebrew ng-dirty ng-invalid"
+                           ng-model="ctrl.formData.camp_name_he" placeholder="Hebrew Camp Name" required/>
                 </div>
             </div>
             <div class="validatorReqError">
-                <p ng-show="siteContentForm.campNameEn.$invalid && !siteContentForm.campNameEn.$pristine">English Camp
-                    name is
-                    incomplete.</p>
-
-                <p ng-show="siteContentForm.campNameHe.$invalid && !siteContentForm.campNameHe.$pristine">Hebrew Camp
-                    name is
-                    incomplete.</p>
-
-                <p ng-show="siteContentForm.campNameEn.$error.minlength || siteContentForm.campNameEn.$error.minlength">
-                    Camp name is too short, minimum 4 letters.</p>
+                <p ng-show="siteContentForm.camp_name_en.$invalid && !siteContentForm.camp_name_en.$pristine">
+                    English Camp name is incomplete.
+                </p>
+                <p ng-show="siteContentForm.camp_name_he.$invalid && !siteContentForm.camp_name_he.$pristine">
+                    Hebrew Camp name is incomplete.
+                </p>
             </div>
 
         </div>
 
         <div class="row">
 
-            <div class="col-md-2">Camp Description <i class="fi-asterisk text-danger"></i></div>
+            <div class="col-md-2"><i class="fi-asterisk text-danger"></i> Camp Description</div>
 
             <div class="col-md-10">
                 <div class="col-md-4 col-lg-6">
