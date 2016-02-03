@@ -2,53 +2,73 @@
 {% load i18n admin_static %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="well">
-                {% if form.errors and not form.non_field_errors %}
-                    <p class="errornote">
-                        {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}
-                            {% trans "Please correct the errors below." %}{% endif %}
-                    </p>
-                {% endif %}
-                {% if form.non_field_errors %}
-                    {% for error in form.non_field_errors %}
+    <div class="container login-form-container">
+        <div class="bg-overlay">
+            <div class="row">
+
+                <div class="well text-center login-page-header">
+                    <h1>
+                        Midburn
+                    </h1>
+                    <h2>
+                        Theme Camps Manager
+                    </h2>
+                </div>
+
+                <div class="well login-form-wrapper">
+                    {% if form.errors and not form.non_field_errors %}
                         <p class="errornote">
-                            {{ error }}
+                            {% if form.errors.items|length == 1 %}
+                                {% trans "Please correct the error below." %}{% else %}
+                                {% trans "Please correct the errors below." %}{% endif %}
                         </p>
-                    {% endfor %}
-                {% endif %}
-
-                {# Login Form #}
-                <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
-                    <div class="form-row">
-                        {{ form.username.errors }}
-                        <label for="id_username">Camp login name:</label>
-                        <input id="id_username" maxlength="254" name="username" type="text" autocomplete="off" />
-                        <p>* May contain only letters, numbers and @/./+/-/_ characters</p>
-                    </div>
-                    <div class="form-row">
-                        {{ form.password.errors }}
-                        <label for="id_password">Password:</label>
-                        <input id="id_password" name="password" type="text" autocomplete="off" />
-                        <input type="hidden" name="next" value="">
-                    </div>
-
-                    {% url 'admin_password_reset' as password_reset_url %}
-                    {% if password_reset_url %}
-                        <div class="password-reset-link">
-                            <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
-                        </div>
+                    {% endif %}
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <p class="errornote">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
                     {% endif %}
 
-                    <div class="submit-row">
-                        <input class="btn btn-success" type="submit" value="{% trans 'Log in' %}"/>
-                    </div>
-                </form>
+                    {# Login Form #}
+                    <form action="{{ app_path }}" method="post" id="login-form" class="login-form">{% csrf_token %}
+                        <div class="form-row">
+                            {{ form.username.errors }}
+                            {#                        <label for="id_username">Camp login name:</label>#}
+                            <i class="login-icon fa fa-user fa-2x"></i>
+                            <input id="id_username" maxlength="254" name="username" type="text" autocomplete="off"
+                                   placeholder="Camp Name" data-toggle="tooltip"
+                                 title="Camp name may contain only letters, numbers and those characters: @/./+/-/_"/>
+                        </div>
+                        <div class="form-row">
+                            {{ form.password.errors }}
+                            {#                            <label for="id_password"></label>#}
+                            <i class="login-icon fa fa-lock fa-2x"></i>
+                            <input id="id_password" name="password" type="text" autocomplete="off"
+                                   placeholder="Password"/>
+                            <input type="hidden" name="next" value="">
+                        </div>
+
+                        {% url 'admin_password_reset' as password_reset_url %}
+                        {% if password_reset_url %}
+                            <div class="password-reset-link">
+                                <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+                            </div>
+                        {% endif %}
+
+                        <div class="submit-row">
+                            <input class="btn btn-success" type="submit" value="{% trans 'Log in' %}"/>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <script type="text/javascript">
         document.getElementById('id_username').focus()
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 {% endblock %}

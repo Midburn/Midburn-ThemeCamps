@@ -44,6 +44,8 @@ html,
 body {
     height: 100%;
     font-family: 'Alef', 'Lato', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .langHebrew {
@@ -549,20 +551,96 @@ i.inactive {
 
 /* END - Switch Button Style */
 
-/* Sign in forms style */
-.input-form {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+/* Login/Signin forms style */
+.login-form-container {
+    width: 100%;
+    height: 100%;
+    background: url(../assets/bg_2015_2.jpg);
+    background-size: cover;
+    padding: 0;
 }
 
-input#id_password, input#id_email {
+.bg-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(100, 28, 132, 0.4);
+}
 
+.login-page-header {
+    max-width: 350px;
+    height: auto;
+    margin: 50px auto;
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
+    box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
+}
+
+.login-form-wrapper {
+    max-width: 350px;
+    min-height: 300px;
+    height: auto;
+    margin: 50px auto;
+    -webkit-box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
+    -moz-box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
+    box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
+}
+
+.login-form {
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+
+.login-form input:focus {
+    border: 0;
+    outline: none;
+}
+
+.login-form input {
+    color: #fff;
+    outline: none;
+    width: 100%;
+    height: 50px;
+    padding: 8px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 0px solid transparent;
+}
+
+.login-form input[type="text"] {
+    color: rgb(123, 89, 175);
+    background: #c5c5c5;
+    border-bottom: 3px solid rgb(123, 89, 175);
+    text-indent: 35px;
+}
+
+.tooltip-inner {
+    font-size: 16px;
+    text-align: left;
+}
+
+.login-form input::-webkit-input-placeholder {
+    color: rgb(123, 89, 175);
+    opacity: 0.7;
+}
+
+.login-form input[type="submit"] {
+    width: 50%;
+    height: 40px;
+    line-height: 15px;
+    margin-top: 20px;
+    background-color: rgb(123, 89, 175);
+}
+
+.login-icon {
+    position: relative;
+    top: 40px;
+    left: 11px;
+    margin-top: -40px;
 }
 
 /*END - Sign in forms style*/
 
-.help-panel-wrapper ul
-{
+.help-panel-wrapper ul {
     list-style-type: none;
 }
