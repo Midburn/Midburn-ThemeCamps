@@ -573,6 +573,15 @@ i.inactive {
     -webkit-box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
     -moz-box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
     box-shadow: 0px 0px 8px 1px rgba(204, 204, 204, 1);
+    position: relative;
+}
+
+.login-page-header .midburn {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    top: 40px;
+    left: 72px;
 }
 
 .login-form-wrapper {
@@ -612,6 +621,7 @@ i.inactive {
     background: #c5c5c5;
     border-bottom: 3px solid rgb(123, 89, 175);
     text-indent: 35px;
+    opacity: 0.8;
 }
 
 .tooltip-inner {
@@ -624,12 +634,19 @@ i.inactive {
     opacity: 0.7;
 }
 
+.login-form input[type="text"]:focus,
+.login-form input[type="text"]:hover,
+.login-form input[type="submit"]:hover {
+    opacity: 1;
+}
+
 .login-form input[type="submit"] {
     width: 50%;
     height: 40px;
     line-height: 15px;
     margin-top: 20px;
     background-color: rgb(123, 89, 175);
+    opacity: 0.8;
 }
 
 .login-icon {
@@ -637,6 +654,16 @@ i.inactive {
     top: 40px;
     left: 11px;
     margin-top: -40px;
+}
+
+.login-errornote {
+    color: #f26d7d;
+}
+
+.login-errornote.input {
+    position: relative;
+    top: 24px;
+    left: -20px;
 }
 
 /*END - Sign in forms style*/
