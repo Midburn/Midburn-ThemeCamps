@@ -2,11 +2,13 @@
 
 {% block content %}
     <div class="container login-form-container">
-        <div class="row">
-            <div class="well">
-                <h2 class="h2">You are now logged out</h2>
-                <p>Thanks for spending some quality time with the Web site today.</p>
-                <p><a class="btn btn-success" href="{% url 'login' %}">Log in again</a></p>
+        <div class="bg-overlay">
+            <div class="row">
+                <div class="well">
+                    <h2 class="h2">You are now logged out</h2>
+                    <p>Thanks for spending some quality time with the Web site today.</p>
+                    <p><a class="btn btn-success" href="{% url 'login' %}">Log in again</a></p>
+                </div>
             </div>
         </div>
     </div>
