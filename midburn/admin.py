@@ -23,6 +23,7 @@ class CampAdminActions(admin.ModelAdmin):
             smart_str(u"contact_name_en"),
             smart_str(u"contact_name_he"),
             smart_str(u"contact_phone"),
+            smart_str(u"usernames"),
         ])
         for obj in queryset:
             writer.writerow([
@@ -38,6 +39,7 @@ class CampAdminActions(admin.ModelAdmin):
                 smart_str(obj.contact_name_en),
                 smart_str(obj.contact_name_he),
                 smart_str(obj.contact_phone),
+                smart_str(obj.users.values_list('username', flat=True)),
             ])
         return response
 
