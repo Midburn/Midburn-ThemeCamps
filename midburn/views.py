@@ -30,15 +30,19 @@ def iframe_test(request):
     return render(request, 'iframe-test.html', context)
 
 def published_camps(request):
+    is_open = CAMPSTATUS[1][0]
     context = {}
     camps = Camp.objects.filter(is_published=True).order_by('camp_name_en')
-    context['published_camps'] = [camp.get_status() for camp in camps]
+    context['open_camps'] = [camp.get_status() for camp in camps.filter(camp_status=is_open)]
+    context['closed_camps'] = [camp.get_status() for camp in camps.exclude(camp_status=is_open)]
     return render(request, 'camps.html', context)
 
 def published_camps_he(request):
+    is_open = CAMPSTATUS[1][0]
     context = {}
     camps = Camp.objects.filter(is_published=True).order_by('camp_name_he')
-    context['published_camps'] = [camp.get_status() for camp in camps]
+    context['open_camps'] = [camp.get_status() for camp in camps.filter(camp_status=is_open)]
+    context['closed_camps'] = [camp.get_status() for camp in camps.exclude(camp_status=is_open)]
     return render(request, 'camps-he.html', context)
 
 class UserView(View):
