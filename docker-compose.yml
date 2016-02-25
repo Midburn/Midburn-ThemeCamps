@@ -1,0 +1,26 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.5
+    restart: always
+    environment:
+      POSTGRES_USER: midburntc
+      POSTGRES_DB: midburntc
+      POSTGRES_PASSWORD: midburntc
+
+  app:
+    image: python:2.7
+    volumes:
+      - .:/src
+    working_dir: /src
+    entrypoint: .venv/bin/python ./manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      DB_TYPE: django.db.backends.postgresql_psycopg2
+      DB_HOST: db
+      DB_NAME: midburntc
+      DB_USER: midburntc
+      DB_PASS: midburntc
