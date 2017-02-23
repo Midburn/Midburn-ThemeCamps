@@ -1,3 +1,5 @@
+# THIS REPO IS NOT MAINTAINABLE ANYMORE -- IF YOU'R LOOKING FOR THE NEW PROJECT CLICK [HERE](https://github.com/Midburn/Spark)
+
 ### Midburn Theme Camps
 ## Installation
 
